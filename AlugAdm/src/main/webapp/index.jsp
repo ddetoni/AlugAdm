@@ -17,7 +17,7 @@
 
         </div>
         <div class="col-sm-3">
-            <a href="jsp/aluguel/informarLocacao.jsp" class="btn btn-primary pull-right h2">Informar Locação</a>
+            <a href="/RealizarLocacao" class="btn btn-primary pull-right h2">Informar Locação</a>
         </div>
     </div> <!-- /#top -->
     <hr />
@@ -41,18 +41,6 @@
                         <td>19</td>
                         <td>12/07/1996</td>
                         <td>julianny.alves@hotmail.com</td>
-                        <td class="actions">
-                            <a class="btn btn-success btn-xs" href="view.jsp">Visualizar</a>
-                            <a class="btn btn-warning btn-xs" href="edit.jsp">Editar</a>
-                            <a class="btn btn-danger btn-xs"  href="#" data-toggle="modal" data-target="#delete-modal">Excluir</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>20131557</td>
-                        <td>Marlos Carlos Pires</td>
-                        <td>36</td>
-                        <td>15/11/1980</td>
-                        <td>marlos.pires@hotmail.com</td>
                         <td class="actions">
                             <a class="btn btn-success btn-xs" href="view.jsp">Visualizar</a>
                             <a class="btn btn-warning btn-xs" href="edit.jsp">Editar</a>
