@@ -1,4 +1,5 @@
-<%@include file="../../topo.jsp" %>
+<%@include file="topo.jsp" %>
+
 <div id="main" class="container">
     <h3 class="page-header">Visualizar Item #1</h3>
     <div class="row">
@@ -54,4 +55,4 @@
         </div>
     </div>
 </div>
-<%@include file="../../rodape.jsp" %>
+<%@include file="rodape.jsp" %>
