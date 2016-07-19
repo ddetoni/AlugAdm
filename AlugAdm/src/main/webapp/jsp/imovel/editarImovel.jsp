@@ -1,4 +1,4 @@
-<%@include file="topo.jsp" %>
+<%@include file="../topo.jsp" %>
 
 <div id="main" class="container">
     <h3 class="page-header">Editar Imovel </h3>
@@ -68,10 +68,10 @@
         <div class="row">
             <div class="col-md-12">
                 <button type="submit" class="btn btn-primary">Salvar</button>
-                <a href="index.jsp" class="btn btn-default">Cancelar</a>
+                <a href="/AlugAdm" class="btn btn-default">Cancelar</a>
             </div>
         </div>
 
     </form>
 </div>
-<%@include file="rodape.jsp" %>
+<%@include file="../rodape.jsp" %>
