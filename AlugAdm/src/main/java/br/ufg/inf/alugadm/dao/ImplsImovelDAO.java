@@ -4,10 +4,13 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import br.ufg.inf.alugadm.model.Imovel;
 import br.ufg.inf.alugadm.persistence.ConnectionFactory;
+import static br.ufg.inf.alugadm.persistence.ConnectionFactory.getConnection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class ImplsImovelDAO implements ImovelDao {
 
@@ -22,28 +25,37 @@ public class ImplsImovelDAO implements ImovelDao {
         String sql = "SELECT codigoImovel, tipo, dataCadastro, valorAlguel, status, logradouro, complemento, cidade, estado, categoria, numQuartos, garagem, cep FROM Imovel";
         ArrayList<Imovel> listaImovel = new ArrayList<Imovel>();
         try {
-            Statement statement = connection.getConnection().createStatement();
+            
+            Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(sql);
-            Imovel imovel = new Imovel();
-            imovel.setCode(resultSet.getInt("codigoImovel"));
-            imovel.setTipo(resultSet.getString("tipo"));
-            imovel.setData(resultSet.getString("dataCadastro"));
-            imovel.setValor(resultSet.getFloat("valorAluguel"));
-            imovel.setStatus(resultSet.getString("status"));
-            imovel.setLogradouro(resultSet.getString("logradouro"));
-            imovel.setComplemento(resultSet.getString("complemento"));
-            imovel.setCidade(resultSet.getString("cidade"));
-            imovel.setEstado(resultSet.getString("estado"));
-            imovel.setCategoria(resultSet.getString("categoria"));
-            imovel.setNumQuartos(resultSet.getInt("numQuartos"));
-            imovel.setGaragem(resultSet.getBoolean("garagem"));
-            imovel.setCep(resultSet.getString("cep"));
+            
+            while(resultSet.next()){
+                Imovel imovel = new Imovel();
+                imovel.setCodigoImovel(resultSet.getInt("codigoImovel"));
+                imovel.setTipo(resultSet.getString("tipo"));
+                imovel.setDataCadastro(resultSet.getDate("dataCadastro"));
+                imovel.setValorAlguel(resultSet.getFloat("valorAluguel"));
+                imovel.setStatus(resultSet.getString("status"));
+                imovel.setLogradouro(resultSet.getString("logradouro"));
+                imovel.setComplemento(resultSet.getString("complemento"));
+                imovel.setCidade(resultSet.getString("cidade"));
+                imovel.setEstado(resultSet.getString("estado"));
+                imovel.setCategoria(resultSet.getString("categoria"));
+                imovel.setNumQuartos(resultSet.getInt("numQuartos"));
+                imovel.setGaragem(resultSet.getString("garagem"));
+                imovel.setCep(resultSet.getString("cep"));
 
             listaImovel.add(imovel);
+            }
+            
         } catch (SQLException e) {
 
         } finally {
-            getConnection().close();
+            try {
+                ConnectionFactory.getConnection().close();
+            } catch (SQLException ex) {
+                Logger.getLogger(ImplsImovelDAO.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
         return listaImovel;
     }
@@ -117,6 +129,6 @@ public class ImplsImovelDAO implements ImovelDao {
 
     @Override
     public ArrayList<String> getListaCodigoImoveis() {
-        
+        return null;
     }
 }
