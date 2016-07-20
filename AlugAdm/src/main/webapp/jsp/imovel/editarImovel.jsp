@@ -2,7 +2,7 @@
 
 <div id="main" class="container text-center">
     <h3 class="page-header text-left">Editar Locatário</h3>
-    <form action="SalvarLocatario.adm">
+    <form action="SalvarImovel.adm">
         <div class="row">
             <div class="form-group col-md-5">
                 <label for="exampleInputEmail1">Nome</label>

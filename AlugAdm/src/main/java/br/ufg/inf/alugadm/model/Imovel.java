@@ -2,122 +2,126 @@ package br.ufg.inf.alugadm.model;
 
 public class Imovel {
 
-	private int codigoImovel;
-	private String tipo;
-	private String dataCadastro;
-	private float valorAlguel;
-	private String status;
-	private String logradouro;
-	private String complemento;
-	private String cidade;
-	private String estado;
-	private String categoria;
-	private int numQuartos;
-	private boolean garagem;
-	private String cep;
+    public static final String ACAO_SALVAR = "SALVAR";
+    public static final String ACAO_EXCLUIR = "EXCLUIR";
+    public static final String ACAO_EDITAR = "EDITAR";
 
-	public String getTipo() {
-		return tipo;
-	}
+    private int codigoImovel;
+    private String tipo;
+    private String dataCadastro;
+    private float valorAlguel;
+    private String status;
+    private String logradouro;
+    private String complemento;
+    private String cidade;
+    private String estado;
+    private String categoria;
+    private int numQuartos;
+    private boolean garagem;
+    private String cep;
 
-	public void setTipo(String tipo) {
-		this.tipo = tipo;
-	}
+    public String getTipo() {
+        return tipo;
+    }
 
-	public int getCode() {
-		return codigoImovel;
-	}
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
 
-	public void setCode(int code) {
-		this.codigoImovel = code;
-	}
+    public int getCode() {
+        return codigoImovel;
+    }
 
-	public String getData() {
-		return dataCadastro;
-	}
+    public void setCode(int code) {
+        this.codigoImovel = code;
+    }
 
-	public void setData(String data) {
-		this.dataCadastro = data;
-	}
+    public String getData() {
+        return dataCadastro;
+    }
 
-	public String getEstado() {
-		return estado;
-	}
+    public void setData(String data) {
+        this.dataCadastro = data;
+    }
 
-	public void setEstado(String estado) {
-		this.estado = estado;
-	}
+    public String getEstado() {
+        return estado;
+    }
 
-	public String getStatus() {
-		return status;
-	}
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
 
-	public void setStatus(String status) {
-		this.status = status;
-	}
+    public String getStatus() {
+        return status;
+    }
 
-	public String getLogradouro() {
-		return logradouro;
-	}
+    public void setStatus(String status) {
+        this.status = status;
+    }
 
-	public void setLogradouro(String logradouro) {
-		this.logradouro = logradouro;
-	}
+    public String getLogradouro() {
+        return logradouro;
+    }
 
-	public String getComplemento() {
-		return complemento;
-	}
+    public void setLogradouro(String logradouro) {
+        this.logradouro = logradouro;
+    }
 
-	public void setComplemento(String complemento) {
-		this.complemento = complemento;
-	}
+    public String getComplemento() {
+        return complemento;
+    }
 
-	public String getCategoria() {
-		return categoria;
-	}
+    public void setComplemento(String complemento) {
+        this.complemento = complemento;
+    }
 
-	public void setCategoria(String categoria) {
-		this.categoria = categoria;
-	}
+    public String getCategoria() {
+        return categoria;
+    }
 
-	public int getNumQuartos() {
-		return numQuartos;
-	}
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
+    }
 
-	public void setNumQuartos(int numQuartos) {
-		this.numQuartos = numQuartos;
-	}
+    public int getNumQuartos() {
+        return numQuartos;
+    }
 
-	public boolean isGaragem() {
-		return garagem;
-	}
+    public void setNumQuartos(int numQuartos) {
+        this.numQuartos = numQuartos;
+    }
 
-	public void setGaragem(boolean garagem) {
-		this.garagem = garagem;
-	}
+    public boolean isGaragem() {
+        return garagem;
+    }
 
-	public float getValor() {
-		return valorAlguel;
-	}
+    public void setGaragem(boolean garagem) {
+        this.garagem = garagem;
+    }
 
-	public void setValor(float valor) {
-		this.valorAlguel = valor;
-	}
+    public float getValor() {
+        return valorAlguel;
+    }
 
-	public String getCidade() {
-		return cidade;
-	}
+    public void setValor(float valor) {
+        this.valorAlguel = valor;
+    }
 
-	public void setCidade(String cidade) {
-		this.cidade = cidade;
-	}
+    public String getCidade() {
+        return cidade;
+    }
 
-	public String getCep() {
-		return cep;
-	}
+    public void setCidade(String cidade) {
+        this.cidade = cidade;
+    }
 
-	public void setCep(String cep) {
-		this.cep = cep;
-	}
+    public String getCep() {
+        return cep;
+    }
+
+    public void setCep(String cep) {
+        this.cep = cep;
+    }
 
 }
