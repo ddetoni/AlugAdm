@@ -1,12 +1,7 @@
 package br.ufg.inf.alugadm.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-
-@Entity
 public class Imovel {
 
-	@Id
 	private int codigoImovel;
 	private String tipo;
 	private String dataCadastro;
