@@ -18,15 +18,15 @@
             <table class="table table-striped" cellspacing="0" cellpadding="0">
                 <thead>
                     <tr>
-                        <th class="text-center">Tipo de Imóvel</th>
                         <th class="text-center">Codigo</th>
                         <th class="text-center">Data do Cadastro</th>
+                        <th class="text-center">Categoria</th>
+                        <th class="text-center">Tipo de Imóvel</th>
                         <th class="text-center">Status</th>
                         <th class="text-center">Logadouro</th>
                         <th class="text-center">Complemento</th>
                         <th class="text-center">Cidade</th>
                         <th class="text-center">Estado</th>
-                        <th class="text-center">Categoria</th>
                         <th class="text-center">N° de Quartos</th>
                         <th class="text-center">Garagem</th>
                         <th class="text-center">Valor do Aluguel</th>
@@ -36,15 +36,15 @@
                 <tbody>                           
                 <c:forTokens var="imovel" items="${listaImovel}">
                     <tr>
-                        <td>${imovel.tipoImovel}</td>
                         <td>${imovel.codigoImovel}</td>
                         <td>${imovel.dataCadastro}</td>
+                        <td>${imovel.categoria}</td>
+                        <td>${imovel.tipoImovel}</td>
                         <td>${imovel.status}</td>
                         <td>${imovel.logadouro}</td>
                         <td>${imovel.complemento}</td>
                         <td>${imovel.cidade}</td>
                         <td>${imovel.estado}</td>
-                        <td>${imovel.categoria}</td>
                         <td>${imovel.numQuartos}</td>  
                         <td>${imovel.garagem}</td>  
                         <td>${imovel.valorAluguel}</td>  

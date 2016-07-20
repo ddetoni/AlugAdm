@@ -18,34 +18,30 @@
             <table class="table table-striped" cellspacing="0" cellpadding="0">
                 <thead>
                     <tr>
-                        <th class="text-center">Tipo de Imovel</th>
                         <th class="text-center">Codigo</th>
-                        <th class="text-center">Data do Cadastro</th>
-                        <th class="text-center">Estado</th>
-                        <th class="text-center">Status</th>
-                        <th class="text-center">Logadouro</th>
-                        <th class="text-center">Complemento</th>
-                        <th class="text-center">Categoria</th>
-                        <th class="text-center">N° de Quartos</th>
-                        <th class="text-center">Garagem</th>
-                        <th class="text-center">Valor do Aluguel</th>
+                        <th class="text-center">Nome</th>
+                        <th class="text-center">CPF</th>
+                        <th class="text-center">RG</th>
+                        <th class="text-center">Orgão Expedidor</th>
+                        <th class="text-center">Sexo</th>
+                        <th class="text-center">Data de Nascimento</th>
+                        <th class="text-center">Telefone 1</th>
+                        <th class="text-center">Telefone 2</th>
                         <th class="actions text-center">Ações</th>
                     </tr>
                 </thead>
                 <tbody>                           
                 <c:forTokens var="imovel" items="${listaImovel}">
                     <tr>
-                        <td>${imovel.tipoImovel}</td>
-                        <td>${imovel.codigoImovel}</td>
-                        <td>${imovel.dataCadastro}</td>
-                        <td>${imovel.estado}</td>
-                        <td>${imovel.status}</td>
-                        <td>${imovel.logadouro}</td>
-                        <td>${imovel.complemento}</td>
-                        <td>${imovel.categoria}</td>
-                        <td>${imovel.numQuartos}</td>  
-                        <td>${imovel.garagem}</td>  
-                        <td>${imovel.valorAluguel}</td>  
+                        <td>${imovel.codigo}</td>
+                        <td>${imovel.nome}</td>
+                        <td>${imovel.cpf}</td>
+                        <td>${imovel.rg}</td>
+                        <td>${imovel.orgao}</td>
+                        <td>${imovel.sexo}</td>
+                        <td>${imovel.dataNascimento}</td>
+                        <td>${imovel.telefone1}</td>
+                        <td>${imovel.telefone2}</td>  
                         <td class="actions">
                             <a class="btn btn-warning btn-xs" href="EditarLocatario.adm">Editar</a>
                             <a class="btn btn-danger btn-xs"  href="#" data-toggle="modal" data-target="#delete-modal">Excluir</a>
