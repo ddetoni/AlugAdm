@@ -39,7 +39,7 @@
                 </div>
                 <div class="col-sm-6">
                     <div class="input-group h2">
-                        <input name="data[search]" class="form-control" id="search" type="text" placeholder="Pesquisar imóveis">
+                        <input name="data[search]" class="form-control" id="search" type="text" placeholder="Pesquisar...">
                         <span class="input-group-btn">
                             <button class="btn btn-primary" type="submit">
                                 <span class="glyphicon glyphicon-search"></span>
@@ -58,25 +58,28 @@
                     <table class="table table-striped" cellspacing="0" cellpadding="0">
                         <thead>
                             <tr>
-                                <th class="text-center">Matricula</th>
-                                <th class="text-center">Nome</th>
-                                <th class="text-center">Idade</th>
-                                <th class="text-center">Data Nascimento</th>
-                                <th class="text-center">Email</th>
+                                <th class="text-center">Codigo Imovel</th>
+                                <th class="text-center">Codigo Locatario</th>
+                                <th class="text-center">N° do Contrato</th>
+                                <th class="text-center">Inicio</th>
+                                <th class="text-center">Termino</th>
+                                <th class="text-center">Dia do Vencimento</th>
+                                <th class="text-center">Valor do Alguel</th>
+                                <th class="text-center">Tolerancia Dias</th>
                                 <th class="actions text-center">Ações</th>
                             </tr>
                         </thead>
                         <tbody>                           
                         <c:forTokens var="locacao" items="${listaLocacoes}">
                             <tr>
-                                <td>${locacao.matricula}</td>
-                                <td>${locacao.matricula}</td>
-                                <td>${locacao.matricula}</td>
-                                <td>${locacao.matricula}</td>
-                                <td>${locacao.matricula}</td>
-                                <td>${locacao.matricula}</td>
-                                <td>${locacao.matricula}</td>
-                                <td>${locacao.matricula}</td>                                
+                                <td>${locacao.codigoImovel}</td>
+                                <td>${locacao.codigoLocatario}</td>
+                                <td>${locacao.numContrato}</td>
+                                <td>${locacao.inicioContrato}</td>
+                                <td>${locacao.terminoContrato}</td>
+                                <td>${locacao.diaVencimento}</td>
+                                <td>${locacao.valorAluguel}</td>
+                                <td>${locacao.toleranciaDias}</td>                                 
                                 <td class="actions">
                                     <a class="btn btn-success btn-xs" href="/visualizarLocacao">Visualizar</a>
                                     <a class="btn btn-warning btn-xs" href="/editarLocacao">Editar</a>
@@ -88,16 +91,16 @@
                     </table>
                 </div>
             </div> <!-- /#list -->
-<!--            <div id="bottom" class="row">
-                <div class="col-md-12">
-                    <ul class="pagination">
-                        <li class="disabled"><a>&lt; Anterior</a></li>
-                        <li class="disabled"><a>1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li class="next"><a href="#" rel="next">Próximo &gt;</a></li>
-                    </ul> /.pagination 
-                </div>
-            </div>  /#bottom -->
+            <!--            <div id="bottom" class="row">
+                            <div class="col-md-12">
+                                <ul class="pagination">
+                                    <li class="disabled"><a>&lt; Anterior</a></li>
+                                    <li class="disabled"><a>1</a></li>
+                                    <li><a href="#">2</a></li>
+                                    <li class="next"><a href="#" rel="next">Próximo &gt;</a></li>
+                                </ul> /.pagination 
+                            </div>
+                        </div>  /#bottom -->
         </div> <!-- /#main -->
         <!-- Modal -->
         <div class="modal fade" id="delete-modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel">

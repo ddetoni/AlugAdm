@@ -25,6 +25,8 @@
         <forward name="EditarLocatario" path="/EditarLocatario.adm"/>
         <forward name="SalvarLocatario" path="/SalvarLocatario.adm"/>
         <forward name="VisualizarLocacao" path="/VisualizarLocacao.adm"/>
+        <forward name="RealizarLocacao" path="/RealizarLocacao.adm"/>
+        <forward name="SalvarLocacao" path="/SalvarLocacao.adm"/>
     </global-forwards>
    
     <action-mappings>
@@ -39,6 +41,8 @@
         <action path="/SalvarImovel" forward="/jsp/imovel/mostrarImovel.jsp"/>
         <action path="/SalvarLocatario" forward="/jsp/imovel/mostrarLocatario.jsp"/>
         <action path="/VisualizarLocacao" forward="/index.jsp"/>
+        <action path="/RealizarLocacao" forward="/jsp/locacao/informarLocacao.jsp"/>
+        <action path="/SalvarLocacao" forward="/index.jsp"/>
     </action-mappings>
     
     <controller processorClass="org.apache.struts.tiles.TilesRequestProcessor"/>
