@@ -1,4 +1,4 @@
-<%@include file="topo.jsp" %>
+<%@include file="/jsp/defaut/topo.jsp" %>
 
 <div id="main" class="container text-center">
     <h3 class="page-header text-left">Adicionar Aluno:</h3>
@@ -36,4 +36,4 @@
         </div>
     </form>
 </div>
-<%@include file="rodape.jsp" %>
+<%@include file="/jsp/defaut/rodape.jsp" %>
