@@ -1,9 +1,8 @@
 package br.ufg.inf.alugadm.controller;
 
-import br.ufg.inf.alugadm.dao.LocatarioDao;
 import br.ufg.inf.alugadm.dao.ImplsLocatarioDAO;
+import br.ufg.inf.alugadm.dao.LocatarioDAO;
 import br.ufg.inf.alugadm.model.Locatario;
-import java.sql.Date;
 import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -29,6 +28,8 @@ public class LocatarioServlet extends Action {
     public ActionForward execute(ActionMapping mapping, ActionForm form,
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
+        
+        LocatarioDAO locatarioDAO = new ImplsLocatarioDAO();
 
         // Inicializa as variáveis que serão constantemente usadas nesse servlet
         //LocatarioDao locatarioDAO = new ImplsLocatarioDAO(); // DAO de Locatario
@@ -60,13 +61,13 @@ public class LocatarioServlet extends Action {
 
         } else if (action.equalsIgnoreCase(ACTION_MOSTRAR)) {
             ArrayList<Locatario> listaLocatario = null;
-            listaLocatario = locatarioDAO.getListaImoveis();
+            listaLocatario = locatarioDAO.getListaLocatarios();
             request.setAttribute("listaLocatario", listaLocatario);
             return mapping.findForward("VisualizarLocatario");
 
         } else if (action.equalsIgnoreCase(ACTION_CODIGOS)) {
             ArrayList<String> listaCodigoLocatario = null;
-            listaCodigoLocatario = locatarioDAO.getListaCodigoImoveis();
+            listaCodigoLocatario = locatarioDAO.getListaCodigoLocatarios();
             request.setAttribute("listaCodigoLocatario", listaCodigoLocatario);
             return mapping.findForward("VisualizarCodigo");
         }
@@ -75,8 +76,8 @@ public class LocatarioServlet extends Action {
         ArrayList<Locatario> listaLocatario = null;
         ArrayList<String> listaCodigoLocatario = null;
 
-        listaLocatario = locatarioDAO.getListaImoveis();
-        listaCodigoLocatario = locatarioDAO.getListaCodigoImoveis();
+        listaLocatario = locatarioDAO.getListaLocatarios();
+        listaCodigoLocatario = locatarioDAO.getListaCodigoLocatarios();
         //}
 
         // Envia as listas para a view.
