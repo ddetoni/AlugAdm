@@ -1,6 +1,10 @@
 package br.ufg.inf.alugadm.controller;
 
 import br.ufg.inf.alugadm.dao.ImovelDao;
+import br.ufg.inf.alugadm.dao.ImplsImovelDAO;
+import br.ufg.inf.alugadm.model.Imovel;
+import java.sql.Date;
+import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.apache.struts.action.ActionForm;
@@ -21,115 +25,94 @@ public class ImovelServlet extends org.apache.struts.action.Action {
     public ActionForward execute(ActionMapping mapping, ActionForm form,
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
-        
-          // Inicializa as variáveis que serão constantemente usadas nesse servlet
-        HttpSession session = request.getSession(); // Sessão do usuario logado
-        ImovelDao imovelDAO = new ImovelDao(); // DAO de Pedido Desembolso
 
-        int prefRegionalMatricula = imovelDAO.getRegionalPorMatricula(matricula); //Regional do matrícula dos regionais
+        // Inicializa as variáveis que serão constantemente usadas nesse servlet
+        ImovelDao imovelDAO = new ImplsImovelDAO(); // DAO de Imovel
+        String action = "";// Action que servirá de controle para qual método será executado
+
         if (request.getParameter("action") != null) { // Caso a action seja diferente de null ...
             action = request.getParameter("action"); // Altera o valor inicial de "" para a passada para o servlet
         }
 
-        if (action.equalsIgnoreCase(ACTION_ENVIAR)) { // Caso a action seja de enviar um novo pedido de desembolso...
-            PedidoDesembolso pedidoDesembolso = new PedidoDesembolso();
+        if (action.equalsIgnoreCase(ACTION_SALVAR)) { // Caso a action seja de cadastrar imovel...
+            Imovel imovel = new Imovel();
 
-            // Pega o nome da dependência e o prefixo da regional do prefixo salvo na sessão
-            nomeDep = pedidoDAO.getNomeDependencia(Integer.parseInt(session.getAttribute("prefixo").toString()));
-            prefReg = pedidoDAO.getPrefixoRegional(Integer.parseInt(session.getAttribute("prefixo").toString()));
-            
-            
-            // Pega todos os dados de Pedido de Desembolso que está vindo da View
-            String nomeCliente = request.getParameter("nomeCliente");
-            String mci = request.getParameter("mci");
-            String numProposta = request.getParameter("numProposta");
-            String numOperacao = request.getParameter("numOperacao");
-            Double valorSolicitado = Double.parseDouble(request.getParameter("valorSolicitacao").replace(".", "").replace(",", "."));
-            String linha = request.getParameter("linha");
-            String municipio = request.getParameter("municipio");
-            boolean primeiroDesembolso = Boolean.valueOf(request.getParameter("primeiroDesembolso"));
-            Integer percentual = Integer.parseInt(request.getParameter("percentual"));
+            // Pega todos os dados de Imovel que está vindo da View
+            String codigoImovel = request.getParameter("codigoImovel");
+            String dataCadastro = request.getParameter("dataCadastro");
+            String valorAluguel = request.getParameter("valorAluguel");
+            String status = request.getParameter("status");
+            String logradouro = request.getParameter("logradouro");
+            String complemento = request.getParameter("complemento");
+            String cidade = request.getParameter("cidade");
+            String estado = request.getParameter("estado");
+            String categoria = request.getParameter("categoria");
+            String numQuartos = request.getParameter("numQuartos");
+            String garagem = request.getParameter("garagem");
 
-            // Preenche a instância de PedidoDesembolso com os dados da view
-            pedidoDesembolso.setPrefDep(Integer.parseInt(session.getAttribute("prefixo").toString()));
-            pedidoDesembolso.setNomeDep(nomeDep);
-            pedidoDesembolso.setPrefReg(prefReg);
-            pedidoDesembolso.setNomeCliente(nomeCliente);
-            pedidoDesembolso.setMci(mci);
-            pedidoDesembolso.setNumProposta(numProposta);
-            pedidoDesembolso.setNumOperacao(numOperacao);
-            pedidoDesembolso.setValorSolicitacao(valorSolicitado);
-            pedidoDesembolso.setLinha(linha);
-            pedidoDesembolso.setMunicipio(municipio);
-            pedidoDesembolso.setPrimeiroDesembolso(primeiroDesembolso);
-            pedidoDesembolso.setPercentual(percentual);
-            
-            pedidoDAO.inserePedido(pedidoDesembolso, matricula); // Executa a função de salvar o novo pedido de desembolso
-        } else if (action.equalsIgnoreCase(ACTION_EXCLUIR)) { // Caso a action seja de excluir um pedido de desembolso ...
-            int id = Integer.parseInt(request.getParameter("id_pedido")); // Pega o id do pedido enviado pela requisição
-            pedidoDAO.excluiPedido(id, matricula); // Executa a função de excluir o Pedido de Desembolso
-        } else if (action.equalsIgnoreCase(ACTION_ATUALIZAR)) { // Caso a função seja de atualizar os dados de um Pedido de Desembolso...
-            PedidoDesembolso pedidoDesembolso = new PedidoDesembolso();
+            // Preenche a instância de Imovel com os dados da view
+            imovel.setCodigoImovel(Integer.parseInt(codigoImovel));
+            imovel.setDataCadastro(Date.valueOf(dataCadastro));
+            imovel.setValorAlguel(Float.parseFloat(valorAluguel));
+            imovel.setStatus(status);
+            imovel.setLogradouro(logradouro);
+            imovel.setComplemento(complemento);
+            imovel.setCidade(cidade);
+            imovel.setEstado(estado);
+            imovel.setCategoria(categoria);
+            imovel.setNumQuartos(Integer.parseInt(numQuartos));
+            imovel.setGaragem(garagem);
 
-            // Pega todos os dados de Pedido de Desembolso que está vindo da View
-            int id = Integer.parseInt(request.getParameter("id"));
-            String nomeCliente = request.getParameter("nomeCliente");
-            String mci = request.getParameter("mci");
-            String numProposta = request.getParameter("numProposta");
-            String numOperacao = request.getParameter("numOperacao");
-            Double valorSolicitado = Double.parseDouble(request.getParameter("valorSolicitacao").replace(".", "").replace(",", "."));
-            String linha = request.getParameter("linha");
-            String municipio = request.getParameter("municipio");
-            boolean primeiroDesembolso = Boolean.valueOf(request.getParameter("primeiroDesembolso"));
-            Integer percentual = Integer.parseInt(request.getParameter("percentual"));
+            imovelDAO.salvarImovel(imovel);
 
-            // Preenche a instância de PedidoDesembolso com os dados da view
-            pedidoDesembolso.setId(id);
-            pedidoDesembolso.setPrefDep(Integer.parseInt(session.getAttribute("prefixo").toString()));
-            pedidoDesembolso.setNomeCliente(nomeCliente);
-            pedidoDesembolso.setMci(mci);
-            pedidoDesembolso.setNumProposta(numProposta);
-            pedidoDesembolso.setNumOperacao(numOperacao);
-            pedidoDesembolso.setValorSolicitacao(valorSolicitado);
-            pedidoDesembolso.setLinha(linha);
-            pedidoDesembolso.setMunicipio(municipio);
-            pedidoDesembolso.setPrimeiroDesembolso(primeiroDesembolso);
-            pedidoDesembolso.setPercentual(percentual);
-            pedidoDAO.editarPedido(pedidoDesembolso, matricula); // Executa a função de atualizar um Pedido de Desembolso
-            
-               // Inicializa as listas que serão enviadas para a view
-        ArrayList<PedidoDesembolso> listaAnalise = null;
-        ArrayList<PedidoDesembolso> listaGerev = null;
-        ArrayList<PedidoDesembolso> listaAutorizado = null;
-        ArrayList<PedidoDesembolso> listaDevolvido = null;
+        } else if (action.equalsIgnoreCase(ACTION_EXCLUIR)) { // Caso a action seja de excluir um imovel...
+            int id = Integer.parseInt(request.getParameter("codigoImovel")); // Pega o id do imovel pela requisição
+            imovelDAO.excluirImovel(id); // Executa a função de excluir o imovel
 
-        // Caso o campo de filtro de prefixo seja enviado pela requisição...
-        /*if (filtroPrefixoString != null && !filtroPrefixoString.equals("")) {
-            int filtroPrefixo = Integer.parseInt(filtroPrefixoString); // Pega o valor do filtro enviado pela requisição
-            // Preenche as lista de acordo com o Status do Pedido de Desembolso
-            listaAnalise = pedidoDAO.getPedidosPorStatus(PedidoDesembolsoDAO.STATUS_ANALISE, filtroPrefixo, matricula);
-            listaAutorizado = pedidoDAO.getPedidosPorStatus(PedidoDesembolsoDAO.STATUS_AUTORIZADO, filtroPrefixo, matricula);
-            listaDevolvido = pedidoDAO.getPedidosPorStatus(PedidoDesembolsoDAO.STATUS_DEVOLVIDO, filtroPrefixo, matricula);
-        } else {*/
-            
-            listaAnalise = pedidoDAO.getPedidosPorStatus(PedidoDesembolsoDAO.STATUS_ANALISE, prefixo, matricula, prefRegionalMatricula);
-            listaGerev = pedidoDAO.getPedidosAnaliseGerev(PedidoDesembolsoDAO.STATUS_ANALISE_GEREV, prefRegionalMatricula, matricula, prefixo);
-            listaAutorizado = pedidoDAO.getPedidosPorStatus(PedidoDesembolsoDAO.STATUS_AUTORIZADO, prefixo, matricula, prefRegionalMatricula);
-            listaDevolvido = pedidoDAO.getPedidosPorStatus(PedidoDesembolsoDAO.STATUS_DEVOLVIDO, prefixo, matricula, prefRegionalMatricula);
+        } else if (action.equalsIgnoreCase(ACTION_EDITAR)) { // Caso a função seja de atualizar os dados de um imovel...
+            Imovel imovel = new Imovel();
+
+            // Pega todos os dados de Imovel que está vindo da View
+            String codigoImovel = request.getParameter("codigoImovel");
+            String dataCadastro = request.getParameter("dataCadastro");
+            String valorAluguel = request.getParameter("valorAluguel");
+            String status = request.getParameter("status");
+            String logradouro = request.getParameter("logradouro");
+            String complemento = request.getParameter("complemento");
+            String cidade = request.getParameter("cidade");
+            String estado = request.getParameter("estado");
+            String categoria = request.getParameter("categoria");
+            String numQuartos = request.getParameter("numQuartos");
+            String garagem = request.getParameter("garagem");
+
+            // Preenche a instância de Imovel com os dados da view
+            imovel.setCodigoImovel(Integer.parseInt(codigoImovel));
+            imovel.setDataCadastro(Date.valueOf(dataCadastro));
+            imovel.setValorAlguel(Float.parseFloat(valorAluguel));
+            imovel.setStatus(status);
+            imovel.setLogradouro(logradouro);
+            imovel.setComplemento(complemento);
+            imovel.setCidade(cidade);
+            imovel.setEstado(estado);
+            imovel.setCategoria(categoria);
+            imovel.setNumQuartos(Integer.parseInt(numQuartos));
+            imovel.setGaragem(garagem);
+
+        }
+        
+        // Inicializa as listas que serão enviadas para a view
+        ArrayList<Imovel> listaImovel = null;
+        ArrayList<String> listaCodigoImovel = null;
+
+        listaImovel = imovelDAO.getListaImoveis();
+        listaCodigoImovel = imovelDAO.getListaCodigoImoveis();
         //}
-        
-        
+
         // Envia as listas para a view.
-        request.setAttribute("listaGerev", listaGerev);
-        request.setAttribute("listaMunicipios", pedidoDAO.getListaMunicipios());
-        request.setAttribute("listaAnalise", listaAnalise);
-        request.setAttribute("listaAutorizado", listaAutorizado);
-        request.setAttribute("listaDevolvido", listaDevolvido);
-        request.setAttribute("isAdmin", pedidoDAO.isAdmin(matricula));
-        request.setAttribute("isGerev", pedidoDAO.isGerev(matricula));
+        request.setAttribute("listaImovel", listaImovel);
+        request.setAttribute("listaCodigoImovel", listaCodigoImovel);
 
-        return mapping.findForward("fwdNovoPedidoDesembolsoPJ");
-
+        return mapping.findForward("CadastrarImovel");
     }
 
 }

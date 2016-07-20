@@ -66,7 +66,7 @@
         <div class="row">
             <div class="form-group col-md-4">
                 <label for="exampleInputEmail1">Categoria</label>
-                <select class="form-control" id="exampleInputEmail1" name="tipoImovel">
+                <select class="form-control" id="exampleInputEmail1" name="categoria">
                     <option>...</option>
                     <option>Residencial</option>
                     <option>Comercial</option>
@@ -80,7 +80,7 @@
                 </div>
                 <div class="form-group col-md-4">
                     <label for="exampleInputEmail1">Garagem</label>
-                    <select class="form-control" id="exampleInputEmail1" name="tipoImovel">
+                    <select class="form-control" id="exampleInputEmail1" name="garagem">
                         <option>...</option>
                         <option>Sim</option>
                         <option>Não</option>
