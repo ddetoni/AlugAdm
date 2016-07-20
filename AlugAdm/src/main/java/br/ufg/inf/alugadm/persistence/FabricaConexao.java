@@ -11,4 +11,24 @@ package br.ufg.inf.alugadm.persistence;
  */
 public class FabricaConexao {
     
+    private Connection connection = null;
+    
+    public Connection getConnection() throws SQLException{
+        if(connection == null){
+            try{  
+                Class.forName("org.postgresql.Driver");
+               
+               String usuario = "postgres";
+               String senha = "suaSenha";
+               
+               String url_local = "jdbc:postgresql://localhost:5432/alugadm";
+               
+               connection = DriverManager.getConnection(url_local, usuario, senha);
+            }catch(ClassNotFoundException e){
+        
+                
+            }
+        }
+        return connection;
+    }
 }
