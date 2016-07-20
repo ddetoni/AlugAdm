@@ -49,14 +49,10 @@ public class ImplsImovelDAO implements ImovelDao {
     }
 
     @Override
-    public Imovel getImovelPorCodigo(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
     public void salvarImovel(Imovel imovel) {
-        String sql = "INSERT INTO postgres (codigoImovel, tipo, dataCadastro, valorAluguel, status, logadouro, complemento, cidade, estado, categoria, numQuartos, garagem, cep) "
-                + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?) RETURNING id";
+        String sql = "INSERT INTO postgres (codigoImovel, tipo, dataCadastro, valorAluguel, status, logadouro,"
+                + " complemento, cidade, estado, categoria, numQuartos, garagem, cep) "
+                + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?) RETURNING codigoImovel";
         int id = -1;
         try {
             PreparedStatement stmt = this.connection.prepareStatement(sql);
@@ -86,17 +82,41 @@ public class ImplsImovelDAO implements ImovelDao {
 
     @Override
     public void excluirImovel(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
     }
 
     @Override
     public void editarImovel(Imovel imovel) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String sql = "UPDATE imovel SET codigoImovel = ?, tipo = ?, dataCadastro = ?, valorAluguel = ?, status = ?, "
+                + "logadouro = ?, complemento = ?, cidade = ?, estado = ?, categoria = ?, numQuartos = ?, "
+                + "garagem = ?, cep = ? WHERE codigoImovel = ?";
+
+        try {
+            PreparedStatement stmt = this.connection.prepareStatement(sql);
+
+            stmt.setInt(1, imovel.getCodigoImovel());
+            stmt.setString(2, imovel.getTipo());
+            stmt.setDate(3, imovel.getDataCadastro());
+            stmt.setFloat(4, imovel.getValorAlguel());
+            stmt.setString(5, imovel.getStatus());
+            stmt.setString(6, imovel.getLogradouro());
+            stmt.setString(7, imovel.getComplemento());
+            stmt.setString(8, imovel.getCidade());
+            stmt.setString(9, imovel.getEstado());
+            stmt.setString(10, imovel.getCategoria());
+            stmt.setInt(11, imovel.getNumQuartos());
+            stmt.setString(12, imovel.getGaragem());
+            stmt.setString(13, imovel.getCep());
+
+            stmt.execute();
+
+        } catch (Exception e) {
+            System.err.println(e);
+        }
     }
 
     @Override
     public ArrayList<String> getListaCodigoImoveis() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
-
 }
