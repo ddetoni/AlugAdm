@@ -9,17 +9,18 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.struts.action.Action;
+import org.apache.struts.action.ActionForm;
+import org.apache.struts.action.ActionForward;
+import org.apache.struts.action.ActionMapping;
+
 import br.ufg.inf.alugadm.dao.ImovelDAO;
 import br.ufg.inf.alugadm.model.Imovel;
 
-@WebServlet("/adicionaImovel")
-public class ImovelServlet extends HttpServlet {
-
-	private static final long serialVersionUID = 1L;
+public class ImovelServlet extends Action {
 
 	@Override
-	protected void service(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
 
 		String code = verifica(request, "code");
 		String tipo = verifica(request, "tipo");
@@ -56,10 +57,10 @@ public class ImovelServlet extends HttpServlet {
 		ImovelDAO imovelDAO = null;
 		try {
 			imovelDAO = new ImovelDAO();
+			imovelDAO.register(imovel);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		imovelDAO.register(imovel);
 
 	}
 

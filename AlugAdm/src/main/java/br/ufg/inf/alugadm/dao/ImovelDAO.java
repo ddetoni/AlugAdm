@@ -20,21 +20,36 @@ public class ImovelDAO {
 
 		String sql = "INSERT INTO Imovel (codigoImovel, tipo, dataCadastro, valorAlguel, status, logradouro, complemento, cidade, estado, categoria, numQuartos, garagem, cep) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
-		PreparedStatement statement = getConnection().prepareStatement(sql);
+		try {
 
-		statement.setInt(1, imovel.getCode());
-		statement.setString(2, imovel.getTipo());
-		statement.setString(3, imovel.getData());
-		statement.setFloat(4, imovel.getValor());
-		statement.setString(5, imovel.getStatus());
-		statement.setString(6, imovel.getLogradouro());
-		statement.setString(7, imovel.getComplemento());
-		statement.setString(8, imovel.getCidade());
-		statement.setString(9, imovel.getEstado());
-		statement.setString(10, imovel.getCategoria());
-		statement.setInt(11, imovel.getNumQuartos());
-		statement.setBoolean(12, imovel.isGaragem());
-		statement.setString(13, imovel.getCep());
+			PreparedStatement statement = getConnection().prepareStatement(sql);
+
+			statement.setInt(1, imovel.getCode());
+			statement.setString(2, imovel.getTipo());
+			statement.setString(3, imovel.getData());
+			statement.setFloat(4, imovel.getValor());
+			statement.setString(5, imovel.getStatus());
+			statement.setString(6, imovel.getLogradouro());
+			statement.setString(7, imovel.getComplemento());
+			statement.setString(8, imovel.getCidade());
+			statement.setString(9, imovel.getEstado());
+			statement.setString(10, imovel.getCategoria());
+			statement.setInt(11, imovel.getNumQuartos());
+			statement.setBoolean(12, imovel.isGaragem());
+			statement.setString(13, imovel.getCep());
+
+			statement.execute();
+			statement.close();
+
+		} catch (SQLException e){
+			e.printStackTrace();
+		} finally {
+			getConnection().close();
+		}
+
+	}
+	
+	public void show(){
 		
 	}
 
