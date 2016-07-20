@@ -57,7 +57,7 @@ public class ImovelDAO {
                 ArrayList<Imovel> listaImovel = new ArrayList<Imovel>();
                 try{
                 	Statement statement = getConnection().createStatement();
- -                    	ResultSet resultSet = statement.executeQuery(sql);
+                     	ResultSet resultSet = statement.executeQuery(sql);
                    	Imovel imovel = new Imovel();
                         imovel.setCode(resultSet.getInt("codigoImovel"));
                         imovel.setTipo(resultSet.getString("tipo"));
