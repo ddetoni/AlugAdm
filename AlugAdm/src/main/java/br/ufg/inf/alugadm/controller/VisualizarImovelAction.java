@@ -5,6 +5,7 @@
  */
 package br.ufg.inf.alugadm.controller;
 
+import br.ufg.inf.alugadm.dao.ImovelDAO;
 import br.ufg.inf.alugadm.model.Imovel;
 import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
@@ -26,14 +27,11 @@ public class VisualizarImovelAction {
         
             HttpSession session = request.getSession();
 
-            // ImovelDao imovelDao = new ImovelDao();
+             ImovelDAO imovelDao = new ImovelDAO();
 
-            //ArrayList<Imovel> listaImoveis = imovelDao.getListaImoveis();
-
-            ArrayList<Imovel> listaImovel = new ArrayList<Imovel>();
+            ArrayList<Imovel> listaImovel = imovelDao.getListaImoveis();
 
             request.setAttribute("listaImovel", listaImovel);
-
 
             return mapping.findForward("listaImovel");
         }

@@ -6,6 +6,9 @@ import java.sql.SQLException;
 
 import br.ufg.inf.alugadm.model.Imovel;
 import br.ufg.inf.alugadm.persistence.FabricaConexao;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.ArrayList;
 
 public class ImovelDAO {
 
@@ -49,8 +52,43 @@ public class ImovelDAO {
 
 	}
 	
-	public void show(){
-		
+	public ArrayList<Imovel> getListaImoveis() throws SQLException{
+		String sql = "SELECT codigoImovel, tipo, dataCadastro, valorAlguel, status, logradouro, complemento, cidade, estado, categoria, numQuartos, garagem, cep FROM Imovel";
+                ArrayList<Imovel> listaImovel = new ArrayList<Imovel>();
+                try{
+                    Statement statement = getConnection().createStatement();
+                    ResultSet resultSet = statement.executeQuery(sql);
+                    
+                    while (resultSet.next()) {
+                        Imovel imovel = new Imovel();
+                        imovel.setCode(resultSet.getInt(1));
+                        imovel.setTipo(resultSet.getString(2));
+                        imovel.setData(resultSet.getString(3));
+                        imovel.setValor(resultSet.getFloat(4));
+                        imovel.setStatus(resultSet.getString(5));
+                        
+                        imovel.setLogradouro(resultSet.getString(6));
+                        imovel.setComplemento(resultSet.getString(7));
+                        imovel.setCidade(resultSet.getString(8));
+                        imovel.setEstado(resultSet.getString(9));
+                        imovel.setCategoria(resultSet.getString(10));
+                        imovel.setNumQuartos(resultSet.getInt(11));
+                        imovel.setGaragem(resultSet.getBoolean(12));
+                        imovel.setCep(resultSet.getString(13));
+                        
+                        listaImovel.add(imovel);
+        }
+                    
+                }catch(SQLException e){
+                    
+                }finally{
+                    	getConnection().close();
+
+                }
+                
+                return listaImovel;
+                
+                
 	}
 
 	public Connection getConnection() {

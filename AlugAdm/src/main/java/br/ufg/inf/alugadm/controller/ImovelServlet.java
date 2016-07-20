@@ -61,6 +61,7 @@ public class ImovelServlet extends Action {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+                return mapping.findForward("adicionarImovel");
 
 	}
 
