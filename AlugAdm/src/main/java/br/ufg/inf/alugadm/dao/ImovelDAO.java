@@ -56,6 +56,8 @@ public class ImovelDAO {
 		String sql = "SELECT codigoImovel, tipo, dataCadastro, valorAlguel, status, logradouro, complemento, cidade, estado, categoria, numQuartos, garagem, cep FROM Imovel";
                 ArrayList<Imovel> listaImovel = new ArrayList<Imovel>();
                 try{
+                	Statement statement = getConnection().createStatement();
+ -                    	ResultSet resultSet = statement.executeQuery(sql);
                    	Imovel imovel = new Imovel();
                         imovel.setCode(resultSet.getInt("codigoImovel"));
                         imovel.setTipo(resultSet.getString("tipo"));
