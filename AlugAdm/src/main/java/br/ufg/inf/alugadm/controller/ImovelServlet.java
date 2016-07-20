@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import br.ufg.inf.alugadm.dao.ImovelDAO;
 import br.ufg.inf.alugadm.model.Imovel;
 
 @WebServlet("/adicionaImovel")
