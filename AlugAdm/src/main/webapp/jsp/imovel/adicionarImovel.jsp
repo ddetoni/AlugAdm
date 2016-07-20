@@ -24,24 +24,25 @@
                     <input type="date" name="dataCadastro" class="form-control" id="exampleInputEmail1">
                 </div>
                 <div class="form-group col-md-4">
-                    <label for="exampleInputEmail1">Estado</label>
-                    <input type="text" name="estado" class="form-control" id="exampleInputEmail1">
+                    <label for="exampleInputEmail1">Valor Alugel</label>
+                    <input type="text" name="valorAlguel" class="form-control" id="exampleInputEmail1">
                 </div>
+
             </div>
         </div>
         <div class="row">
             <div class="form-group col-md-4">
                 <label for="exampleInputEmail1">Status do Imóvel</label>
-                 <select class="form-control" id="exampleInputEmail1" name="status">
+                <select class="form-control" id="exampleInputEmail1" name="status">
                     <option>...</option>
                     <option>Em construção</option>
                     <option>Em reforma</option>
                     <option>Disponivel</option>
                     <option>Alugado</option>
                 </select>
-<!--                <input type="text" name="status" class="form-control" id="exampleInputEmail1">-->
+                <!--                <input type="text" name="status" class="form-control" id="exampleInputEmail1">-->
             </div>
-            <div class="col-md-8">
+            <div class="col-md-4">
                 <div class="form-group col-md-6">
                     <label for="exampleInputEmail1">Logadouro</label>
                     <input type="text" name="logadouro" class="form-control" id="exampleInputEmail1">
@@ -51,12 +52,21 @@
                     <input type="text" name="complemento" class="form-control" id="exampleInputEmail1">
                 </div>
             </div>
+            <div class="col-md-4">
+                <div class="form-group col-md-6">
+                    <label for="exampleInputEmail1">Cidade</label>
+                    <input type="text" name="cidade" class="form-control" id="exampleInputEmail1">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="exampleInputEmail1">Estado</label>
+                    <input type="text" name="estado" class="form-control" id="exampleInputEmail1">
+                </div>
+            </div>
         </div>
-
         <div class="row">
             <div class="form-group col-md-4">
                 <label for="exampleInputEmail1">Categoria</label>
-                 <select class="form-control" id="exampleInputEmail1" name="tipoImovel">
+                <select class="form-control" id="exampleInputEmail1" name="tipoImovel">
                     <option>...</option>
                     <option>Residencial</option>
                     <option>Comercial</option>
@@ -70,16 +80,16 @@
                 </div>
                 <div class="form-group col-md-4">
                     <label for="exampleInputEmail1">Garagem</label>
-                     <select class="form-control" id="exampleInputEmail1" name="tipoImovel">
-                    <option>...</option>
-                    <option>Sim</option>
-                    <option>Não</option>
-                </select>
+                    <select class="form-control" id="exampleInputEmail1" name="tipoImovel">
+                        <option>...</option>
+                        <option>Sim</option>
+                        <option>Não</option>
+                    </select>
                     <!--<input type="" name="garagem" class="form-control" id="exampleInputEmail1">-->
                 </div>
                 <div class="form-group col-md-4">
-                    <label for="exampleInputEmail1">Valor Alugel</label>
-                    <input type="text" name="valorAlguel" class="form-control" id="exampleInputEmail1">
+                    <label for="exampleInputEmail1">CEP</label>
+                    <input type="text" name="cep" class="form-control" id="exampleInputEmail1">
                 </div>
             </div>
         </div>
@@ -90,7 +100,6 @@
                 <a href="VisualizarImovel.adm" class="btn btn-default">Cancelar</a>
             </div>
         </div>
-
     </form>
 </div>
 

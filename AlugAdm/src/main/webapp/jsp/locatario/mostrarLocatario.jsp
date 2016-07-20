@@ -12,7 +12,6 @@
             <a href="CadastrarLocatario.adm" class="btn btn-primary pull-right h2">Cadastrar Locatário</a>
         </div>
     </div> <!-- /#top -->
-
     <div id="list" class="row">
         <div class="table-responsive col-md-12">
             <h3 class="titulo">Visualizar Locatários</h3>
@@ -34,19 +33,19 @@
                     </tr>
                 </thead>
                 <tbody>                           
-                <c:forTokens var="locatario" items="${listaLocatario}">
+                <c:forTokens var="imovel" items="${listaImovel}">
                     <tr>
-                        <td>${locatario.tipoImovel}</td>
-                        <td>${locatario.codigoImovel}</td>
-                        <td>${locatario.dataCadastro}</td>
-                        <td>${locatario.estado}</td>
-                        <td>${locatario.status}</td>
-                        <td>${locatario.logadouro}</td>
-                        <td>${locatario.complemento}</td>
-                        <td>${locatario.categoria}</td>
-                        <td>${locatario.numQuartos}</td>  
-                        <td>${locatario.garagem}</td>  
-                        <td>${locatario.valorAluguel}</td>  
+                        <td>${imovel.tipoImovel}</td>
+                        <td>${imovel.codigoImovel}</td>
+                        <td>${imovel.dataCadastro}</td>
+                        <td>${imovel.estado}</td>
+                        <td>${imovel.status}</td>
+                        <td>${imovel.logadouro}</td>
+                        <td>${imovel.complemento}</td>
+                        <td>${imovel.categoria}</td>
+                        <td>${imovel.numQuartos}</td>  
+                        <td>${imovel.garagem}</td>  
+                        <td>${imovel.valorAluguel}</td>  
                         <td class="actions">
                             <a class="btn btn-warning btn-xs" href="EditarLocatario.adm">Editar</a>
                             <a class="btn btn-danger btn-xs"  href="#" data-toggle="modal" data-target="#delete-modal">Excluir</a>
@@ -69,15 +68,15 @@
                 </div>  /#bottom -->
 </div> <!-- /#main -->
 <!-- Modal -->
-<div class="modal fade" id="delete-modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel">
+<div action="" class="modal fade" id="delete-modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Fechar"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="modalLabel">Excluir Imóvel</h4>
+                <h4 class="modal-title" id="modalLabel">Excluir Locatário</h4>
             </div>
             <div class="modal-body">
-                Deseja realmente excluir este Imóvel?
+                Deseja realmente excluir este cliente?
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-primary">Sim</button>

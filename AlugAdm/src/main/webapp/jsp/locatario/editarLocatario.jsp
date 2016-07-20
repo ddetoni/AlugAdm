@@ -1,82 +1,85 @@
-<%@include file="topo.jsp" %>
+<%@include file="/jsp/defaut/topo.jsp" %>
 
-<div id="main" class="container">
-    <h3 class="page-header">Editar Locatario</h3>
- <form action="index.html">
-        <div class="row">          
-            <div class="form-group col-md-4">
-                <label for="exampleInputEmail1">Nome</label>
-                <input type="email" class="form-control" id="exampleInputEmail1">
-            </div>
-            <div class="col-md-8">
-                <div class="form-group col-md-3">
-                    <label for="exampleInputEmail1">Data de Nascimento</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1">
-                </div>
-                <div class="form-group col-md-3">
-                    <label for="exampleInputEmail1">Sexo</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1">
-                </div>
-                <div class="form-group col-md-3">
-                    <label for="exampleInputEmail1">Telefone 1</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1">
-                </div>
-                <div class="form-group col-md-3">
-                    <label for="exampleInputEmail1">Telefone 2</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1">
-                </div>
-            </div>
-        </div>
+<div id="main" class="container text-center">
+    <h3 class="page-header text-left">Cadastrar Imóvel</h3>
+    <form action="SalvarImovel.adm">
         <div class="row">
             <div class="form-group col-md-4">
-                <label for="exampleInputEmail1">CPF</label>
-                <input type="email" class="form-control" id="exampleInputEmail1">
+                <label for="exampleInputEmail1">Tipo de Imóvel</label>
+                <select class="form-control" id="exampleInputEmail1" name="tipoImovel">
+                    <option>...</option>
+                    <option>Casa</option>
+                    <option>Apartamento</option>
+                    <option>Loja</option>
+                </select>
+                <!--<input type="text" name="tipoImovel" placeholder="ex:casa, apartamento, sitio..." class="form-control" id="exampleInputEmail1">-->
             </div>
             <div class="col-md-8">
-                <div class="checkbox col-md-6">
-                    <p><strong>Sexo</strong></p>
-                    <label>
-                        <input type="checkbox"> Homem
-                    </label>
-                    <label style="margin-left: 50px;">
-                        <input type="checkbox"> Mulher
-                    </label>
-                </div>
-                <div class="form-group col-md-6">
-                    <label for="exampleInputEmail1">Email</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1">
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-4">
-                <div class=" col-md-8">
-                    <label for="exampleInputEmail1">Numero de Identidade</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1">
+                <div class="form-group col-md-4">
+                    <label for="exampleInputEmail1">Código</label>
+                    <input type="text" name="codigoImovel" class="form-control" id="exampleInputEmail1">
                 </div>
                 <div class="form-group col-md-4">
-                    <label for="exampleInputEmail1">Orgão</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1">
+                    <label for="exampleInputEmail1">Data de Cadastro</label>
+                    <input type="date" name="dataCadastro" class="form-control" id="exampleInputEmail1">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="exampleInputEmail1">Estado</label>
+                    <input type="text" name="estado" class="form-control" id="exampleInputEmail1">
                 </div>
             </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-4">
+                <label for="exampleInputEmail1">Status do Imóvel</label>
+                 <select class="form-control" id="exampleInputEmail1" name="status">
+                    <option>...</option>
+                    <option>Em construção</option>
+                    <option>Em reforma</option>
+                    <option>Disponivel</option>
+                    <option>Alugado</option>
+                </select>
+<!--                <input type="text" name="status" class="form-control" id="exampleInputEmail1">-->
+            </div>
             <div class="col-md-8">
-                <div class="checkbox col-md-6">
-                    <p><strong>Tipo de Pessoa</strong></p>
-                    <label>
-                        <input type="checkbox"> Fisica
-                    </label>
-                    <label style="margin-left: 50px;">
-                        <input type="checkbox"> Juridica
-                    </label>
+                <div class="form-group col-md-6">
+                    <label for="exampleInputEmail1">Logadouro</label>
+                    <input type="text" name="logadouro" class="form-control" id="exampleInputEmail1">
                 </div>
-                <div class="form-group col-md-3">
-                    <label for="exampleInputEmail1">Tipo  de Recebimento</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1">
+                <div class="form-group col-md-6">
+                    <label for="exampleInputEmail1">Complemento</label>
+                    <input type="text" name="complemento" class="form-control" id="exampleInputEmail1">
                 </div>
-                <div class="form-group col-md-3">
-                    <label for="exampleInputEmail1">Data de Cadastro</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group col-md-4">
+                <label for="exampleInputEmail1">Categoria</label>
+                 <select class="form-control" id="exampleInputEmail1" name="tipoImovel">
+                    <option>...</option>
+                    <option>Residencial</option>
+                    <option>Comercial</option>
+                </select>
+                <!--<input type="text" name="categoria" class="form-control" id="exampleInputEmail1">-->
+            </div>
+            <div class="col-md-8">
+                <div class="form-group col-md-4">
+                    <label for="exampleInputEmail1">N° de Quartos</label>
+                    <input type="number" name="numQuartos" class="form-control" id="exampleInputEmail1">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="exampleInputEmail1">Garagem</label>
+                     <select class="form-control" id="exampleInputEmail1" name="tipoImovel">
+                    <option>...</option>
+                    <option>Sim</option>
+                    <option>Não</option>
+                </select>
+                    <!--<input type="" name="garagem" class="form-control" id="exampleInputEmail1">-->
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="exampleInputEmail1">Valor Alugel</label>
+                    <input type="text" name="valorAlguel" class="form-control" id="exampleInputEmail1">
                 </div>
             </div>
         </div>
@@ -84,11 +87,11 @@
         <div class="row">
             <div class="col-md-12">
                 <button type="submit" class="btn btn-primary">Salvar</button>
-                <a href="index.jsp" class="btn btn-default">Cancelar</a>
+                <a href="VisualizarImovel.adm" class="btn btn-default">Cancelar</a>
             </div>
         </div>
 
     </form>
 </div>
 
-<%@include file="rodape.jsp" %>
+<%@include file="/jsp/defaut/rodape.jsp" %>
