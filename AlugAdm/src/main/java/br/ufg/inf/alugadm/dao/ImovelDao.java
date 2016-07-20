@@ -14,7 +14,7 @@ import java.util.ArrayList;
  */
 public interface ImovelDao {
 
-    public ArrayList<Imovel> getImoveis();
+    public ArrayList<Imovel> getListaImoveis();
 
     public Imovel getImovelPorCodigo(int id);
 

@@ -1,5 +1,7 @@
 package br.ufg.inf.alugadm.model;
 
+import java.sql.Date;
+
 public class Imovel {
 
     public static final String ACAO_SALVAR = "SALVAR";
@@ -8,7 +10,7 @@ public class Imovel {
 
     private int codigoImovel;
     private String tipo;
-    private String dataCadastro;
+    private Date dataCadastro;
     private float valorAlguel;
     private String status;
     private String logradouro;
@@ -17,8 +19,16 @@ public class Imovel {
     private String estado;
     private String categoria;
     private int numQuartos;
-    private boolean garagem;
+    private String garagem;
     private String cep;
+
+    public int getCodigoImovel() {
+        return codigoImovel;
+    }
+
+    public void setCodigoImovel(int codigoImovel) {
+        this.codigoImovel = codigoImovel;
+    }
 
     public String getTipo() {
         return tipo;
@@ -28,28 +38,20 @@ public class Imovel {
         this.tipo = tipo;
     }
 
-    public int getCode() {
-        return codigoImovel;
-    }
-
-    public void setCode(int code) {
-        this.codigoImovel = code;
-    }
-
-    public String getData() {
+    public Date getDataCadastro() {
         return dataCadastro;
     }
 
-    public void setData(String data) {
-        this.dataCadastro = data;
+    public void setDataCadastro(Date dataCadastro) {
+        this.dataCadastro = dataCadastro;
     }
 
-    public String getEstado() {
-        return estado;
+    public float getValorAlguel() {
+        return valorAlguel;
     }
 
-    public void setEstado(String estado) {
-        this.estado = estado;
+    public void setValorAlguel(float valorAlguel) {
+        this.valorAlguel = valorAlguel;
     }
 
     public String getStatus() {
@@ -76,6 +78,22 @@ public class Imovel {
         this.complemento = complemento;
     }
 
+    public String getCidade() {
+        return cidade;
+    }
+
+    public void setCidade(String cidade) {
+        this.cidade = cidade;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
     public String getCategoria() {
         return categoria;
     }
@@ -92,28 +110,12 @@ public class Imovel {
         this.numQuartos = numQuartos;
     }
 
-    public boolean isGaragem() {
+    public String getGaragem() {
         return garagem;
     }
 
-    public void setGaragem(boolean garagem) {
+    public void setGaragem(String garagem) {
         this.garagem = garagem;
-    }
-
-    public float getValor() {
-        return valorAlguel;
-    }
-
-    public void setValor(float valor) {
-        this.valorAlguel = valor;
-    }
-
-    public String getCidade() {
-        return cidade;
-    }
-
-    public void setCidade(String cidade) {
-        this.cidade = cidade;
     }
 
     public String getCep() {
@@ -123,5 +125,7 @@ public class Imovel {
     public void setCep(String cep) {
         this.cep = cep;
     }
-
+    
+    
+    
 }
