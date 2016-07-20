@@ -18,6 +18,7 @@
         <forward name="Login"  path="/Login.adm"/>        
         <forward name="CadastrarImovel" path="/CadastrarImovel.adm"/>
         <forward name="VisualizarImovel" path="/VisualizarImovel.adm"/>
+        <forward name="SalvarImovel" path="/SalvarImovel.adm"/>
         <forward name="EditarImovel" path="/EditarImovel.adm"/>
         <forward name="CadastrarLocatario" path="/CadastrarLocatario.adm"/>
         <forward name="VisualizarLocatario" path="/VisualizarLocatario.adm"/>
@@ -29,9 +30,11 @@
         <action path="/CadastrarImovel" forward="/jsp/imovel/adicionarImovel.jsp"/>
         <action path="/VisualizarImovel" forward="/jsp/imovel/mostrarImovel.jsp"/>
         <action path="/EditarImovel" forward="/jsp/imovel/editarImovel.jsp"/>
+        <action path="/SalvarImovel" forward="/jsp/imovel/mostrarImovel.jsp"/>
         <action path="/CadastrarLocatario" forward="/jsp/locatario/adicionarLocatario.jsp"/>
         <action path="/VisualizarLocatario" forward="/jsp/locatario/mostrarLocatario.jsp"/>
         <action path="/EditarLocatario" forward="/jsp/locatario/editarLocatario.jsp"/>
+        <action path="/SalvarImovel" forward="/jsp/imovel/mostrarImovel.jsp"/>
     </action-mappings>
     
     <controller processorClass="org.apache.struts.tiles.TilesRequestProcessor"/>

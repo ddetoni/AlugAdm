@@ -12,7 +12,6 @@
             <a href="CadastrarImovel.adm" class="btn btn-primary pull-right h2">Cadastrar Imóvel</a>
         </div>
     </div> <!-- /#top -->
-
     <div id="list" class="row">
         <div class="table-responsive col-md-12">
             <h3 class="titulo">Visualizar Imoveis</h3>
@@ -69,7 +68,7 @@
                 </div>  /#bottom -->
 </div> <!-- /#main -->
 <!-- Modal -->
-<div class="modal fade" id="delete-modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel">
+<div action="" class="modal fade" id="delete-modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
