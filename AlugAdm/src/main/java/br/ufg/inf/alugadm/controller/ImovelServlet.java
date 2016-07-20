@@ -20,6 +20,8 @@ public class ImovelServlet extends org.apache.struts.action.Action {
     private static final String ACTION_SALVAR = "salvar";
     private static final String ACTION_EXCLUIR = "excluir";
     private static final String ACTION_EDITAR = "editar";
+    private static final String ACTION_MOSTRAR = "mostrar";
+    private static final String ACTION_CODIGOS = "codigos";
 
     @Override
     public ActionForward execute(ActionMapping mapping, ActionForm form,
@@ -64,10 +66,13 @@ public class ImovelServlet extends org.apache.struts.action.Action {
             imovel.setGaragem(garagem);
 
             imovelDAO.salvarImovel(imovel);
+            return mapping.findForward("CadastrarImovel");
 
         } else if (action.equalsIgnoreCase(ACTION_EXCLUIR)) { // Caso a action seja de excluir um imovel...
             int id = Integer.parseInt(request.getParameter("codigoImovel")); // Pega o id do imovel pela requisição
+
             imovelDAO.excluirImovel(id); // Executa a função de excluir o imovel
+            return mapping.findForward("ExcluirImovel");
 
         } else if (action.equalsIgnoreCase(ACTION_EDITAR)) { // Caso a função seja de atualizar os dados de um imovel...
             Imovel imovel = new Imovel();
@@ -98,8 +103,22 @@ public class ImovelServlet extends org.apache.struts.action.Action {
             imovel.setNumQuartos(Integer.parseInt(numQuartos));
             imovel.setGaragem(garagem);
 
+            imovelDAO.editarImovel(imovel);
+            return mapping.findForward("EditarImovel");
+
+        } else if (action.equalsIgnoreCase(ACTION_MOSTRAR)) {
+            ArrayList<Imovel> listaImovel = null;
+            listaImovel = imovelDAO.getListaImoveis();
+            request.setAttribute("listaImovel", listaImovel);
+            return mapping.findForward("VisualizarImovel");
+
+        } else if (action.equalsIgnoreCase(ACTION_CODIGOS)) {
+            ArrayList<String> listaCodigoImovel = null;
+            listaCodigoImovel = imovelDAO.getListaCodigoImoveis();
+            request.setAttribute("listaCodigoImovel", listaCodigoImovel);
+            return mapping.findForward("VisualizarCodigo");
         }
-        
+
         // Inicializa as listas que serão enviadas para a view
         ArrayList<Imovel> listaImovel = null;
         ArrayList<String> listaCodigoImovel = null;
@@ -112,7 +131,7 @@ public class ImovelServlet extends org.apache.struts.action.Action {
         request.setAttribute("listaImovel", listaImovel);
         request.setAttribute("listaCodigoImovel", listaCodigoImovel);
 
-        return mapping.findForward("CadastrarImovel");
+        return mapping.findForward("VisualizarImovel");
     }
 
 }

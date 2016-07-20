@@ -4,7 +4,6 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import br.ufg.inf.alugadm.model.Imovel;
 import br.ufg.inf.alugadm.persistence.ConnectionFactory;
-import static br.ufg.inf.alugadm.persistence.ConnectionFactory.getConnection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -25,11 +24,11 @@ public class ImplsImovelDAO implements ImovelDao {
         String sql = "SELECT codigoImovel, tipo, dataCadastro, valorAlguel, status, logradouro, complemento, cidade, estado, categoria, numQuartos, garagem, cep FROM Imovel";
         ArrayList<Imovel> listaImovel = new ArrayList<Imovel>();
         try {
-            
+
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(sql);
-            
-            while(resultSet.next()){
+
+            while (resultSet.next()) {
                 Imovel imovel = new Imovel();
                 imovel.setCodigoImovel(resultSet.getInt("codigoImovel"));
                 imovel.setTipo(resultSet.getString("tipo"));
@@ -45,9 +44,8 @@ public class ImplsImovelDAO implements ImovelDao {
                 imovel.setGaragem(resultSet.getString("garagem"));
                 imovel.setCep(resultSet.getString("cep"));
 
-            listaImovel.add(imovel);
+                listaImovel.add(imovel);
             }
-            
         } catch (SQLException e) {
 
         } finally {
@@ -57,6 +55,7 @@ public class ImplsImovelDAO implements ImovelDao {
                 Logger.getLogger(ImplsImovelDAO.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
+        
         return listaImovel;
     }
 
