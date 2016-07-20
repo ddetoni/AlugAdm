@@ -1,155 +1,120 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.ufg.inf.alugadm.model;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
 
-/**
- *
- * @author JuliannyAS
- */
-
+@Entity
 public class Imovel {
-    
-    private String tipoImovel;
-    private String statusImovel;
-    private String categoria;
-    private int codigo;
-    private String logradouro;
-    private String cep;
-    private String complemento;
-    private int qntQuartos;
-    private int garagem;
-    private String estado;
-    private String dataCadastro;
-    private float valorAluguel;
-    private String areaPrivativa;
 
-    public Imovel(String tipoImovel, String statusImovel, String categoria, int codigo, String logradouro, String complemento, int qntQuartos, int garagem, String estado, String dataCadastro, float valorAluguel, String areaPrivativa) {
-        this.tipoImovel = tipoImovel;
-        this.statusImovel = statusImovel;
-        this.categoria = categoria;
-        this.codigo = codigo;
-        this.logradouro = logradouro;
-        this.cep = cep;
-        this.complemento = complemento;
-        this.qntQuartos = qntQuartos;
-        this.garagem = garagem;
-        this.estado = estado;
-        this.dataCadastro = dataCadastro;
-        this.valorAluguel = valorAluguel;
-        this.areaPrivativa = areaPrivativa;
-    }
-    
-    public Imovel(){}
+	@Id
+	private int code;
+	private String tipo;
+	private String data;
+	private String estado;
+	private String status;
+	private String logradouro;
+	private String complemento;
+	private String categoria;
+	private int numQuartos;
+	private boolean garagem;
+	private boolean areaPrivativa;
+	private float valor;
 
-    public String getTipoImovel() {
-        return tipoImovel;
-    }
 
-    public void setTipoImovel(String tipoImovel) {
-        this.tipoImovel = tipoImovel;
-    }
+	public String getTipo() {
+		return tipo;
+	}
 
-    public String getStatusImovel() {
-        return statusImovel;
-    }
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
 
-    public void setStatusImovel(String statusImovel) {
-        this.statusImovel = statusImovel;
-    }
+	public int getCode() {
+		return code;
+	}
 
-    public String getCategoria() {
-        return categoria;
-    }
+	public void setCode(int code) {
+		this.code = code;
+	}
 
-    public void setCategoria(String categoria) {
-        this.categoria = categoria;
-    }
+	public String getData() {
+		return data;
+	}
 
-    public int getCodigo() {
-        return codigo;
-    }
+	public void setData(String data) {
+		this.data = data;
+	}
 
-    public void setCodigo(int codigo) {
-        this.codigo = codigo;
-    }
+	public String getEstado() {
+		return estado;
+	}
 
-    public String getLogradouro() {
-        return logradouro;
-    }
+	public void setEstado(String estado) {
+		this.estado = estado;
+	}
 
-    public void setLogradouro(String logradouro) {
-        this.logradouro = logradouro;
-    }
+	public String getStatus() {
+		return status;
+	}
 
-    public String getCep() {
-        return cep;
-    }
+	public void setStatus(String status) {
+		this.status = status;
+	}
 
-    public void setCep(String cep) {
-        this.cep = cep;
-    }
+	public String getLogradouro() {
+		return logradouro;
+	}
 
-    public String getComplemento() {
-        return complemento;
-    }
+	public void setLogradouro(String logradouro) {
+		this.logradouro = logradouro;
+	}
 
-    public void setComplemento(String complemento) {
-        this.complemento = complemento;
-    }
+	public String getComplemento() {
+		return complemento;
+	}
 
-    public int getQntQuartos() {
-        return qntQuartos;
-    }
+	public void setComplemento(String complemento) {
+		this.complemento = complemento;
+	}
 
-    public void setQntQuartos(int qntQuartos) {
-        this.qntQuartos = qntQuartos;
-    }
+	public String getCategoria() {
+		return categoria;
+	}
 
-    public int getGaragem() {
-        return garagem;
-    }
+	public void setCategoria(String categoria) {
+		this.categoria = categoria;
+	}
 
-    public void setGaragem(int garagem) {
-        this.garagem = garagem;
-    }
+	public int getNumQuartos() {
+		return numQuartos;
+	}
 
-    public String getEstado() {
-        return estado;
-    }
+	public void setNumQuartos(int numQuartos) {
+		this.numQuartos = numQuartos;
+	}
 
-    public void setEstado(String estado) {
-        this.estado = estado;
-    }
+	public boolean isGaragem() {
+		return garagem;
+	}
 
-    public String getDataCadastro() {
-        return dataCadastro;
-    }
+	public void setGaragem(boolean garagem) {
+		this.garagem = garagem;
+	}
 
-    public void setDataCadastro(String dataCadastro) {
-        this.dataCadastro = dataCadastro;
-    }
+	public boolean isAreaPrivativa() {
+		return areaPrivativa;
+	}
 
-    public float getValorAluguel() {
-        return valorAluguel;
-    }
+	public void setAreaPrivativa(boolean areaPrivativa) {
+		this.areaPrivativa = areaPrivativa;
+	}
 
-    public void setValorAluguel(float valorAluguel) {
-        this.valorAluguel = valorAluguel;
-    }
+	public float getValor() {
+		return valor;
+	}
 
-    public String getAreaPrivativa() {
-        return areaPrivativa;
-    }
+	public void setValor(float valor) {
+		this.valor = valor;
+	}
 
-    public void setAreaPrivativa(String areaPrivativa) {
-        this.areaPrivativa = areaPrivativa;
-    }
-    
-    
 }
-
