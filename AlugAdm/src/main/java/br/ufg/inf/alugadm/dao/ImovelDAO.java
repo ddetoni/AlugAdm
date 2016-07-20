@@ -56,25 +56,21 @@ public class ImovelDAO {
 		String sql = "SELECT codigoImovel, tipo, dataCadastro, valorAlguel, status, logradouro, complemento, cidade, estado, categoria, numQuartos, garagem, cep FROM Imovel";
                 ArrayList<Imovel> listaImovel = new ArrayList<Imovel>();
                 try{
-                    Statement statement = getConnection().createStatement();
-                    ResultSet resultSet = statement.executeQuery(sql);
-                    
-                    while (resultSet.next()) {
-                        Imovel imovel = new Imovel();
-                        imovel.setCode(resultSet.getInt(1));
-                        imovel.setTipo(resultSet.getString(2));
-                        imovel.setData(resultSet.getString(3));
-                        imovel.setValor(resultSet.getFloat(4));
-                        imovel.setStatus(resultSet.getString(5));
+                   	Imovel imovel = new Imovel();
+                        imovel.setCode(resultSet.getInt("codigoImovel"));
+                        imovel.setTipo(resultSet.getString("tipo"));
+                        imovel.setData(resultSet.getString("dataCadastro"));
+                        imovel.setValor(resultSet.getFloat("valorAluguel"));
+                        imovel.setStatus(resultSet.getString("status"));
                         
-                        imovel.setLogradouro(resultSet.getString(6));
-                        imovel.setComplemento(resultSet.getString(7));
-                        imovel.setCidade(resultSet.getString(8));
-                        imovel.setEstado(resultSet.getString(9));
-                        imovel.setCategoria(resultSet.getString(10));
-                        imovel.setNumQuartos(resultSet.getInt(11));
-                        imovel.setGaragem(resultSet.getBoolean(12));
-                        imovel.setCep(resultSet.getString(13));
+                        imovel.setLogradouro(resultSet.getString("logradouro"));
+                        imovel.setComplemento(resultSet.getString("complemento"));
+                        imovel.setCidade(resultSet.getString("cidade"));
+                        imovel.setEstado(resultSet.getString("estado"));
+                        imovel.setCategoria(resultSet.getString("categoria"));
+                        imovel.setNumQuartos(resultSet.getInt("numQuartos"));
+                        imovel.setGaragem(resultSet.getBoolean("garagem"));
+                        imovel.setCep(resultSet.getString("cep"));
                         
                         listaImovel.add(imovel);
         }
