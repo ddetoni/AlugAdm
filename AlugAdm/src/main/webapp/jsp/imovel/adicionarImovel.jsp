@@ -1,4 +1,4 @@
-<%@include file="../topo.jsp" %>
+<%@include file="/jsp/defaut/topo.jsp" %>
 
 <div id="main" class="container text-center">
     <h3 class="page-header text-left">Cadastrar Imóvel</h3>
@@ -75,4 +75,4 @@
     </form>
 </div>
 
-<%@include file="../rodape.jsp" %>
+<%@include file="/jsp/defaut/rodape.jsp" %>

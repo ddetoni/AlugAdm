@@ -19,7 +19,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>action</servlet-name>
-        <url-pattern>*.alug</url-pattern>
+        <url-pattern>*.adm</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

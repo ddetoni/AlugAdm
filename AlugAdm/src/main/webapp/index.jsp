@@ -24,10 +24,9 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse menu" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="/visualizarLocacao">Visualizar Locações Ativas</a></li>
-                        <li><a href="/visualizarImovel">Visualizar Imóveis</a></li>
-                        <li><a href="/visualizarLocatario">Visualizar Locatários</a></li>
-                        <li><a href="/logout">Sair</a></li>
+                        <li><a href="VisualizarImovel.adm">Visualizar Imóveis</a></li>
+                        <li><a href="VisualizarLocatario.adm">Visualizar Locatários</a></li>
+                        <li><a href="Logout.adm">Sair</a></li>
                     </ul>
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
@@ -49,7 +48,7 @@
                     </div>
                 </div>
                 <div class="col-sm-3">
-                    <a href="/realizarLocacao" class="btn btn-primary pull-right h2">Informar Locação</a>
+                    <a href="RealizarLocacao.adm" class="btn btn-primary pull-right h2">Informar Locação</a>
                 </div>
             </div> <!-- /#top -->
             <hr />
@@ -118,7 +117,7 @@
                 </div>
             </div>
         </div>
-        <script src="/js/jquery.min.js"></script>
-        <script src="/js/bootstrap.min.js"></script>
+        <script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
     </body>
 </html>

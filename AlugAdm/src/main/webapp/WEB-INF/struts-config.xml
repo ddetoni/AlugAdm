@@ -15,34 +15,23 @@
     </global-exceptions>
     
     <global-forwards>
-        <forward name="cancelar"  path="/index.jsp"/>
+        <forward name="Login"  path="/Login.adm"/>        
+        <forward name="CadastrarImovel" path="/CadastrarImovel.adm"/>
+        <forward name="VisualizarImovel" path="/VisualizarImovel.adm"/>
+        <forward name="EditarImovel" path="/EditarImovel.adm"/>
+        <forward name="CadastrarLocatario" path="/CadastrarLocatario.adm"/>
+        <forward name="VisualizarLocatario" path="/VisualizarLocatario.adm"/>
+        <forward name="EditarLocatario" path="/EditarLocatario.adm"/>
     </global-forwards>
-    
+   
     <action-mappings>
-        <action path="/cadastrarImovel" type="br.ufg.ing.alugadm.controller">
-            <forward name="cadastrarImovel"  path="/WEB-INF/jsp/imovel/adicionarImovel.jsp"/>
-        </action>     
-        <action path="/editarImovel" type="br.ufg.ing.alugadm.controller">
-            <forward name="editarImovel"  path="/WEB-INF/jsp/imovel/editarImovel.jsp"/>
-        </action>
-        <action path="/removerImovel" type="br.ufg.ing.alugadm.controller">
-            <forward name="removerImovel"  path="/WEB-INF/jsp/imovel/mostrarImovel.jsp"/>
-        </action>
-        <action path="/visualizarImovel" type="br.ufg.ing.alugadm.controller">
-            <forward name="visualizarImovel"  path="/WEB-INF/jsp/imovel/mostrarImovel.jsp"/>
-        </action>
-         <action path="/cadastrarLocatario" type="br.ufg.ing.alugadm.controller">
-            <forward name="cadastrarLocatario"  path="/WEB-INF/jsp/locatario/adicionarLocatario.jsp"/>
-        </action>     
-        <action path="/editarLocatario" type="br.ufg.ing.alugadm.controller">
-            <forward name="editarLocatario"  path="/WEB-INF/jsp/locatario/editarLocatario.jsp"/>
-        </action>
-        <action path="/removerLocatario" type="br.ufg.ing.alugadm.controller">
-            <forward name="removerLocatario"  path="/WEB-INF/jsp/locatario/mostrarLocatario.jsp"/>
-        </action>           
-          <action path="/visualizarLocatario" type="br.ufg.ing.alugadm.controller">
-            <forward name="visualizarLocatario"  path="/WEB-INF/jsp/imovel/mostrarLocatario.jsp"/>
-        </action>
+        <action path="/Login" forward="/jsp/login.jsp"/>
+        <action path="/CadastrarImovel" forward="/jsp/imovel/adicionarImovel.jsp"/>
+        <action path="/VisualizarImovel" forward="/jsp/imovel/mostrarImovel.jsp"/>
+        <action path="/EditarImovel" forward="/jsp/imovel/editarImovel.jsp"/>
+        <action path="/CadastrarLocatario" forward="/jsp/locatario/adicionarLocatario.jsp"/>
+        <action path="/VisualizarLocatario" forward="/jsp/locatario/mostrarLocatario.jsp"/>
+        <action path="/EditarLocatario" forward="/jsp/locatario/editarLocatario.jsp"/>
     </action-mappings>
     
     <controller processorClass="org.apache.struts.tiles.TilesRequestProcessor"/>
