@@ -21,7 +21,7 @@ public class ImplsImovelDAO implements ImovelDao {
 
     @Override
     public ArrayList<Imovel> getListaImoveis() {
-        String sql = "SELECT codigoImovel, tipo, dataCadastro, valorAlguel, status, logradouro, complemento, cidade, estado, categoria, numQuartos, garagem, cep FROM Imovel";
+        String sql = "SELECT * FROM imovel";
         ArrayList<Imovel> listaImovel = new ArrayList<Imovel>();
         try {
 
@@ -61,9 +61,9 @@ public class ImplsImovelDAO implements ImovelDao {
 
     @Override
     public void salvarImovel(Imovel imovel) {
-        String sql = "INSERT INTO postgres (codigoImovel, tipo, dataCadastro, valorAluguel, status, logadouro,"
+        String sql = "INSERT INTO imovel (codigoImovel, tipo, dataCadastro, valorAluguel, status, logadouro,"
                 + " complemento, cidade, estado, categoria, numQuartos, garagem, cep) "
-                + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?) RETURNING codigoImovel";
+                + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
         int id = -1;
         try {
             PreparedStatement stmt = this.connection.prepareStatement(sql);
@@ -93,7 +93,7 @@ public class ImplsImovelDAO implements ImovelDao {
 
     @Override
     public void excluirImovel(int id) {
-          String sql = "DELETE FROM Imovel WHERE codigoImovel = ?";
+          String sql = "DELETE FROM imovel WHERE codigoImovel = ?";
 
         try {
             PreparedStatement stmt = this.connection.prepareStatement(sql);
