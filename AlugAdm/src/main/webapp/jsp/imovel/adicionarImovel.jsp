@@ -44,8 +44,8 @@
             </div>
             <div class="col-md-4">
                 <div class="form-group col-md-6">
-                    <label for="exampleInputEmail1">Logadouro</label>
-                    <input type="text" name="logadouro" class="form-control" id="exampleInputEmail1">
+                    <label for="exampleInputEmail1">Logradouro</label>
+                    <input type="text" name="logradouro" class="form-control" id="exampleInputEmail1">
                 </div>
                 <div class="form-group col-md-6">
                     <label for="exampleInputEmail1">Complemento</label>

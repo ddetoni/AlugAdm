@@ -1,35 +1,49 @@
 package br.ufg.inf.alugadm.dao;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 import br.ufg.inf.alugadm.model.Imovel;
+import br.ufg.inf.alugadm.persistence.FabricaConexao;
 
 public class ImovelDAO {
 
-	private static EntityManagerFactory factory;
+	private Connection connection;
 
-	public ImovelDAO() {
-		setFactory(Persistence.createEntityManagerFactory("imovel"));
+	public ImovelDAO() throws SQLException {
+		FabricaConexao conexao = new FabricaConexao();
+		this.connection = conexao.getConnection();
 	}
 
-	public void register(Imovel imovel) {
+	public void register(Imovel imovel) throws SQLException {
 
-		EntityManager manager = getFactory().createEntityManager();
+		String sql = "INSERT INTO Imovel (codigoImovel, tipo, dataCadastro, valorAlguel, status, logradouro, complemento, cidade, estado, categoria, numQuartos, garagem, cep) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
-		manager.getTransaction().begin();
+		PreparedStatement statement = getConnection().prepareStatement(sql);
+
+		statement.setInt(1, imovel.getCode());
+		statement.setString(2, imovel.getTipo());
+		statement.setString(3, imovel.getData());
+		statement.setFloat(4, imovel.getValor());
+		statement.setString(5, imovel.getStatus());
+		statement.setString(6, imovel.getLogradouro());
+		statement.setString(7, imovel.getComplemento());
+		statement.setString(8, imovel.getCidade());
+		statement.setString(9, imovel.getEstado());
+		statement.setString(10, imovel.getCategoria());
+		statement.setInt(11, imovel.getNumQuartos());
+		statement.setBoolean(12, imovel.isGaragem());
+		statement.setString(13, imovel.getCep());
 		
-		manager.persist(imovel);
-		manager.getTransaction().commit();
-		manager.close();
 	}
 
-	public static EntityManagerFactory getFactory() {
-		return factory;
+	public Connection getConnection() {
+		return connection;
 	}
 
-	public static void setFactory(EntityManagerFactory factory) {
-		ImovelDAO.factory = factory;
+	public void setConnection(Connection connection) {
+		this.connection = connection;
 	}
+
 }

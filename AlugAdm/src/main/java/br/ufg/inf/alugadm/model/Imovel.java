@@ -7,19 +7,19 @@ import javax.persistence.Id;
 public class Imovel {
 
 	@Id
-	private int code;
+	private int codigoImovel;
 	private String tipo;
-	private String data;
-	private String estado;
+	private String dataCadastro;
+	private float valorAlguel;
 	private String status;
 	private String logradouro;
 	private String complemento;
+	private String cidade;
+	private String estado;
 	private String categoria;
 	private int numQuartos;
 	private boolean garagem;
-	private boolean areaPrivativa;
-	private float valor;
-
+	private String cep;
 
 	public String getTipo() {
 		return tipo;
@@ -30,19 +30,19 @@ public class Imovel {
 	}
 
 	public int getCode() {
-		return code;
+		return codigoImovel;
 	}
 
 	public void setCode(int code) {
-		this.code = code;
+		this.codigoImovel = code;
 	}
 
 	public String getData() {
-		return data;
+		return dataCadastro;
 	}
 
 	public void setData(String data) {
-		this.data = data;
+		this.dataCadastro = data;
 	}
 
 	public String getEstado() {
@@ -101,20 +101,28 @@ public class Imovel {
 		this.garagem = garagem;
 	}
 
-	public boolean isAreaPrivativa() {
-		return areaPrivativa;
-	}
-
-	public void setAreaPrivativa(boolean areaPrivativa) {
-		this.areaPrivativa = areaPrivativa;
-	}
-
 	public float getValor() {
-		return valor;
+		return valorAlguel;
 	}
 
 	public void setValor(float valor) {
-		this.valor = valor;
+		this.valorAlguel = valor;
+	}
+
+	public String getCidade() {
+		return cidade;
+	}
+
+	public void setCidade(String cidade) {
+		this.cidade = cidade;
+	}
+
+	public String getCep() {
+		return cep;
+	}
+
+	public void setCep(String cep) {
+		this.cep = cep;
 	}
 
 }
