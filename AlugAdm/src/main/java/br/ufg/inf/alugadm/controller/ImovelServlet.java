@@ -25,8 +25,7 @@ public class ImovelServlet extends org.apache.struts.action.Action {
           // Inicializa as variáveis que serão constantemente usadas nesse servlet
         HttpSession session = request.getSession(); // Sessão do usuario logado
         ImovelDao imovelDAO = new ImovelDao(); // DAO de Pedido Desembolso
-        
-        String matricula = session.getAttribute("matricula").toString(); // Matricula do usuario salvo na sessão
+
         int prefRegionalMatricula = imovelDAO.getRegionalPorMatricula(matricula); //Regional do matrícula dos regionais
         if (request.getParameter("action") != null) { // Caso a action seja diferente de null ...
             action = request.getParameter("action"); // Altera o valor inicial de "" para a passada para o servlet
@@ -118,6 +117,7 @@ public class ImovelServlet extends org.apache.struts.action.Action {
             listaAutorizado = pedidoDAO.getPedidosPorStatus(PedidoDesembolsoDAO.STATUS_AUTORIZADO, prefixo, matricula, prefRegionalMatricula);
             listaDevolvido = pedidoDAO.getPedidosPorStatus(PedidoDesembolsoDAO.STATUS_DEVOLVIDO, prefixo, matricula, prefRegionalMatricula);
         //}
+        
         
         // Envia as listas para a view.
         request.setAttribute("listaGerev", listaGerev);
