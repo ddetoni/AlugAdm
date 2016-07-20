@@ -34,7 +34,7 @@
                     </tr>
                 </thead>
                 <tbody>                           
-                <c:forTokens var="imovel" items="${listaImovel}">
+                <c:forTokens items="${listaImovel}" var="imovel">
                     <tr>
                         <td>${imovel.codigoImovel}</td>
                         <td>${imovel.dataCadastro}</td>

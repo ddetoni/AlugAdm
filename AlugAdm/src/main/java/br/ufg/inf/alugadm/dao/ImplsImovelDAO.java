@@ -21,10 +21,10 @@ public class ImplsImovelDAO implements ImovelDao {
 
     @Override
     public ArrayList<Imovel> getListaImoveis() {
-        String sql = "SELECT codigoImovel, tipo, dataCadastro, valorAlguel, status, logradouro, complemento, cidade, estado, categoria, numQuartos, garagem, cep FROM Imovel";
+        String sql = "SELECT * FROM imovel";
         ArrayList<Imovel> listaImovel = new ArrayList<Imovel>();
+        
         try {
-
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(sql);
 
@@ -33,7 +33,7 @@ public class ImplsImovelDAO implements ImovelDao {
                 imovel.setCodigoImovel(resultSet.getInt("codigoImovel"));
                 imovel.setTipo(resultSet.getString("tipo"));
                 imovel.setDataCadastro(resultSet.getDate("dataCadastro"));
-                imovel.setValorAlguel(resultSet.getFloat("valorAluguel"));
+                imovel.setValorAlguel(resultSet.getString("valorAluguel"));
                 imovel.setStatus(resultSet.getString("status"));
                 imovel.setLogradouro(resultSet.getString("logradouro"));
                 imovel.setComplemento(resultSet.getString("complemento"));
@@ -71,7 +71,7 @@ public class ImplsImovelDAO implements ImovelDao {
             stmt.setInt(1, imovel.getCodigoImovel());
             stmt.setString(2, imovel.getTipo());
             stmt.setDate(3, imovel.getDataCadastro());
-            stmt.setFloat(4, imovel.getValorAlguel());
+            stmt.setString(4, imovel.getValorAlguel());
             stmt.setString(5, imovel.getStatus());
             stmt.setString(6, imovel.getLogradouro());
             stmt.setString(7, imovel.getComplemento());
@@ -108,7 +108,7 @@ public class ImplsImovelDAO implements ImovelDao {
             stmt.setInt(1, imovel.getCodigoImovel());
             stmt.setString(2, imovel.getTipo());
             stmt.setDate(3, imovel.getDataCadastro());
-            stmt.setFloat(4, imovel.getValorAlguel());
+             stmt.setString(4, imovel.getValorAlguel());
             stmt.setString(5, imovel.getStatus());
             stmt.setString(6, imovel.getLogradouro());
             stmt.setString(7, imovel.getComplemento());
