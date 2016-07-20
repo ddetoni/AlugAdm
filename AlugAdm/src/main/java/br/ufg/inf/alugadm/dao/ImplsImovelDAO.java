@@ -93,7 +93,17 @@ public class ImplsImovelDAO implements ImovelDao {
 
     @Override
     public void excluirImovel(int id) {
+          String sql = "DELETE FROM Imovel WHERE codigoImovel = ?";
 
+        try {
+            PreparedStatement stmt = this.connection.prepareStatement(sql);
+            
+            stmt.setString(1, Integer.toString(id));
+            stmt.execute();
+
+        } catch (Exception e) {
+            System.err.println(e);
+        }
     }
 
     @Override
