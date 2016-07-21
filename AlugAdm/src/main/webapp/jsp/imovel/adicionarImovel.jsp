@@ -5,8 +5,8 @@
     <form action="SalvarImovel.adm">
         <div class="row">
             <div class="form-group col-md-4">
-                <label for="exampleInputEmail1">Tipo de Imóvel</label>
-                <select class="form-control" id="exampleInputEmail1" name="tipoImovel">
+                <label>Tipo de Imóvel</label>
+                <select class="form-control" name="tipo_imovel">
                     <option>...</option>
                     <option>Casa</option>
                     <option>Apartamento</option>
@@ -16,24 +16,23 @@
             </div>
             <div class="col-md-8">
                 <div class="form-group col-md-4">
-                    <label for="exampleInputEmail1">Código</label>
-                    <input type="text" name="codigoImovel" class="form-control" id="exampleInputEmail1">
+                    <label>Código</label>
+                    <input type="text" name="id" class="form-control">
                 </div>
                 <div class="form-group col-md-4">
-                    <label for="exampleInputEmail1">Data de Cadastro</label>
-                    <input type="date" name="dataCadastro" class="form-control" id="exampleInputEmail1">
+                    <label>Data de Cadastro</label>
+                    <input type="text" name="data_cadastro" class="form-control">
                 </div>
                 <div class="form-group col-md-4">
-                    <label for="exampleInputEmail1">Valor Alugel</label>
-                    <input type="text" name="valorAlguel" class="form-control" id="exampleInputEmail1">
+                    <label>Valor Alugel</label>
+                    <input type="text" name="valor_aluguel" class="form-control">
                 </div>
-
             </div>
         </div>
         <div class="row">
             <div class="form-group col-md-4">
-                <label for="exampleInputEmail1">Status do Imóvel</label>
-                <select class="form-control" id="exampleInputEmail1" name="status">
+                <label>Status do Imóvel</label>
+                <select class="form-control" name="status">
                     <option>...</option>
                     <option>Em construção</option>
                     <option>Em reforma</option>
@@ -44,29 +43,29 @@
             </div>
             <div class="col-md-4">
                 <div class="form-group col-md-6">
-                    <label for="exampleInputEmail1">Logradouro</label>
-                    <input type="text" name="logradouro" class="form-control" id="exampleInputEmail1">
+                    <label>Logradouro</label>
+                    <input type="text" name="logradouro" class="form-control">
                 </div>
                 <div class="form-group col-md-6">
-                    <label for="exampleInputEmail1">Complemento</label>
-                    <input type="text" name="complemento" class="form-control" id="exampleInputEmail1">
+                    <label>Complemento</label>
+                    <input type="text" name="complemento" class="form-control">
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="form-group col-md-6">
-                    <label for="exampleInputEmail1">Cidade</label>
-                    <input type="text" name="cidade" class="form-control" id="exampleInputEmail1">
+                    <label>Cidade</label>
+                    <input type="text" name="cidade" class="form-control">
                 </div>
                 <div class="form-group col-md-6">
-                    <label for="exampleInputEmail1">Estado</label>
-                    <input type="text" name="estado" class="form-control" id="exampleInputEmail1">
+                    <label>Estado</label>
+                    <input type="text" name="estado" class="form-control">
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="form-group col-md-4">
-                <label for="exampleInputEmail1">Categoria</label>
-                <select class="form-control" id="exampleInputEmail1" name="categoria">
+                <label>Categoria</label>
+                <select class="form-control" name="categoria">
                     <option>...</option>
                     <option>Residencial</option>
                     <option>Comercial</option>
@@ -75,12 +74,12 @@
             </div>
             <div class="col-md-8">
                 <div class="form-group col-md-4">
-                    <label for="exampleInputEmail1">N° de Quartos</label>
-                    <input type="number" name="numQuartos" class="form-control" id="exampleInputEmail1">
+                    <label>N° de Quartos</label>
+                    <input type="text" name="num_quartos" class="form-control">
                 </div>
                 <div class="form-group col-md-4">
-                    <label for="exampleInputEmail1">Garagem</label>
-                    <select class="form-control" id="exampleInputEmail1" name="garagem">
+                    <label>Garagem</label>
+                    <select class="form-control" name="garagem">
                         <option>...</option>
                         <option>Sim</option>
                         <option>Não</option>
@@ -88,15 +87,20 @@
                     <!--<input type="" name="garagem" class="form-control" id="exampleInputEmail1">-->
                 </div>
                 <div class="form-group col-md-4">
-                    <label for="exampleInputEmail1">CEP</label>
-                    <input type="text" name="cep" class="form-control" id="exampleInputEmail1">
+                    <label>CEP</label>
+                    <input type="text" name="cep" class="form-control">
                 </div>
             </div>
         </div>
         <hr />
         <div class="row">
             <div class="col-md-12">
-                <button type="submit" class="btn btn-primary">Salvar<input type="hidden" name="action" value="salvar"/></button>
+                <form name="form_salvarImovel" action="SalvarImovel.adm" method="post">
+                    <button type="submit" class="btn btn-default">
+                        <input type="hidden" name="action" value="salvar" />
+                        <span style="vertical-align: middle;">Salvar</span>
+                    </button>
+                </form>
                 <a href="VisualizarImovel.adm" class="btn btn-default">Cancelar</a>
             </div>
         </div>

@@ -4,54 +4,50 @@ import java.sql.Date;
 
 public class Imovel {
 
-    public static final String ACAO_SALVAR = "SALVAR";
-    public static final String ACAO_EXCLUIR = "EXCLUIR";
-    public static final String ACAO_EDITAR = "EDITAR";
-
-    private int codigoImovel;
-    private String tipo;
-    private Date dataCadastro;
-    private String valorAlguel;
+    private String id;
+    private String data_cadastro;
+    private String categoria;
+    private String tipo_imovel;
     private String status;
     private String logradouro;
     private String complemento;
     private String cidade;
     private String estado;
-    private String categoria;
-    private int numQuartos;
+    private String num_quartos;
     private String garagem;
+    private String valor_aluguel;
     private String cep;
 
-    public int getCodigoImovel() {
-        return codigoImovel;
+    public String getId() {
+        return id;
     }
 
-    public void setCodigoImovel(int codigoImovel) {
-        this.codigoImovel = codigoImovel;
+    public void setId(String id) {
+        this.id = id;
     }
 
-    public String getTipo() {
-        return tipo;
+    public String getData_cadastro() {
+        return data_cadastro;
     }
 
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
+    public void setData_cadastro(String data_cadastro) {
+        this.data_cadastro = data_cadastro;
     }
 
-    public Date getDataCadastro() {
-        return dataCadastro;
+    public String getCategoria() {
+        return categoria;
     }
 
-    public void setDataCadastro(Date dataCadastro) {
-        this.dataCadastro = dataCadastro;
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
     }
 
-    public String getValorAlguel() {
-        return valorAlguel;
+    public String getTipo_imovel() {
+        return tipo_imovel;
     }
 
-    public void setValorAlguel(String valorAlguel) {
-        this.valorAlguel = valorAlguel;
+    public void setTipo_imovel(String tipo_imovel) {
+        this.tipo_imovel = tipo_imovel;
     }
 
     public String getStatus() {
@@ -94,20 +90,12 @@ public class Imovel {
         this.estado = estado;
     }
 
-    public String getCategoria() {
-        return categoria;
+    public String getNum_quartos() {
+        return num_quartos;
     }
 
-    public void setCategoria(String categoria) {
-        this.categoria = categoria;
-    }
-
-    public int getNumQuartos() {
-        return numQuartos;
-    }
-
-    public void setNumQuartos(int numQuartos) {
-        this.numQuartos = numQuartos;
+    public void setNum_quartos(String num_quartos) {
+        this.num_quartos = num_quartos;
     }
 
     public String getGaragem() {
@@ -118,6 +106,14 @@ public class Imovel {
         this.garagem = garagem;
     }
 
+    public String getValor_aluguel() {
+        return valor_aluguel;
+    }
+
+    public void setValor_aluguel(String valor_aluguel) {
+        this.valor_aluguel = valor_aluguel;
+    }
+
     public String getCep() {
         return cep;
     }
@@ -125,7 +121,6 @@ public class Imovel {
     public void setCep(String cep) {
         this.cep = cep;
     }
-    
     
     
 }

@@ -28,8 +28,8 @@
                 <label for="exampleInputEmail1">Sexo</label>
                 <select class="form-control" id="exampleInputEmail1" name="sexo">
                     <option>...</option>
-                    <option>Feminino</option>
                     <option>Masculino</option>
+                    <option>Feminino</option>
                 </select>
                 <!--                <input type="text" name="status" class="form-control" id="exampleInputEmail1">-->
             </div>
@@ -39,6 +39,14 @@
                     <input type="date" name="dataNascimento" class="form-control" id="exampleInputEmail1">
                 </div>
                 <div class="form-group col-md-3">
+                    <label for="exampleInputEmail1">Tipo de Pessoa</label>
+                    <input type="text" name="tipopessoa" class="form-control" id="exampleInputEmail1">
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="exampleInputEmail1">email</label>
+                    <input type="email" name="email" class="form-control" id="exampleInputEmail1">
+                </div>
+                <div class="form-group col-md-3">
                     <label for="exampleInputEmail1">Telefone 1</label>
                     <input type="text" name="telefone1" class="form-control" id="exampleInputEmail1">
                 </div>
@@ -46,16 +54,24 @@
                     <label for="exampleInputEmail1">Telefone 2</label>
                     <input type="text" name="telefone2" class="form-control" id="exampleInputEmail1">
                 </div>
+                <div class="form-group col-md-3">
+                    <label for="exampleInputEmail1">Tipo de Recebimento</label>
+                    <input type="text" name="tiporecebimento" class="form-control" id="exampleInputEmail1">
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="exampleInputEmail1">Data de Cadastro</label>
+                    <input type="date" name="datacadastro" class="form-control" id="exampleInputEmail1">
+                </div>
                  <div class="form-group col-md-3">
                     <label for="exampleInputEmail1">Código</label>
-                    <input type="text" name="codigoLocatario" class="form-control" id="exampleInputEmail1">
+                    <input type="number" name="codigoLocatario" class="form-control" id="exampleInputEmail1">
                 </div>
             </div>
         </div>
         <hr />
         <div class="row">
             <div class="col-md-12">
-                <button type="submit" class="btn btn-primary">Salvar</button>
+                <button type="submit" class="btn btn-primary" value="salvar_locatario" name="salvar_locatario">Salvar</button>
                 <a href="VisualizarLocatario.adm" class="btn btn-default">Cancelar</a>
             </div>
         </div>

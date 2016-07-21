@@ -9,12 +9,17 @@
 
         </div>
         <div class="col-sm-3">
-            <a href="CadastrarLocatario.adm" class="btn btn-primary pull-right h2">Cadastrar Locatário</a>
+            <form name="form_cadastrarLocatario" action="CadastrarLocatario.adm" method="post">
+                <button type="submit" class="btn btn-info">
+                    <input type="hidden" name="action" value="cadastrar" />
+                    <span style="vertical-align: middle;">Cadastrar Locatario</span>
+                </button>
+            </form>
         </div>
     </div> <!-- /#top -->
     <div id="list" class="row">
         <div class="table-responsive col-md-12">
-            <h3 class="titulo">Visualizar Locatários</h3>
+            <h3 class="titulo">Visualizar Locatarios</h3>
             <table class="table table-striped" cellspacing="0" cellpadding="0">
                 <thead>
                     <tr>
@@ -22,16 +27,16 @@
                         <th class="text-center">Nome</th>
                         <th class="text-center">CPF</th>
                         <th class="text-center">RG</th>
-                        <th class="text-center">Orgão Expedidor</th>
+                        <th class="text-center">Orgï¿½o Expedidor</th>
                         <th class="text-center">Sexo</th>
                         <th class="text-center">Data de Nascimento</th>
                         <th class="text-center">Telefone 1</th>
                         <th class="text-center">Telefone 2</th>
-                        <th class="actions text-center">Ações</th>
+                        <th class="actions text-center">Aï¿½ï¿½es</th>
                     </tr>
                 </thead>
                 <tbody>                           
-                <c:forTokens var="imovel" items="${listaImovel}">
+                    <%--<c:forEach var="imovel" items="${listaImovel}">--%>
                     <tr>
                         <td>${imovel.codigo}</td>
                         <td>${imovel.nome}</td>
@@ -47,7 +52,7 @@
                             <a class="btn btn-danger btn-xs"  href="#" data-toggle="modal" data-target="#delete-modal">Excluir</a>
                         </td>
                     </tr>
-                </c:forTokens>
+                <%--</c:forEach>--%>
                 </tbody>
             </table>
         </div>
@@ -58,7 +63,7 @@
                             <li class="disabled"><a>&lt; Anterior</a></li>
                             <li class="disabled"><a>1</a></li>
                             <li><a href="#">2</a></li>
-                            <li class="next"><a href="#" rel="next">Próximo &gt;</a></li>
+                            <li class="next"><a href="#" rel="next">Prï¿½ximo &gt;</a></li>
                         </ul> /.pagination 
                     </div>
                 </div>  /#bottom -->
@@ -69,7 +74,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Fechar"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="modalLabel">Excluir Locatário</h4>
+                <h4 class="modal-title" id="modalLabel">Excluir Locatï¿½rio</h4>
             </div>
             <div class="modal-body">
                 Deseja realmente excluir este cliente?
