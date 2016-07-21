@@ -93,7 +93,7 @@ public class ImovelServlet extends org.apache.struts.action.Action {
             // Preenche a instância de Imovel com os dados da view
             imovel.setCodigoImovel(Integer.parseInt(codigoImovel));
             imovel.setDataCadastro(Date.valueOf(dataCadastro));
-            imovel.setValorAlguel(Float.parseFloat(valorAluguel));
+            imovel.setValorAlguel(valorAluguel);
             imovel.setStatus(status);
             imovel.setLogradouro(logradouro);
             imovel.setComplemento(complemento);

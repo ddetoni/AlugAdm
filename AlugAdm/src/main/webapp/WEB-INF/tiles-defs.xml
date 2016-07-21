@@ -36,7 +36,6 @@
 
     end samples -->
 
-    <definition name="${YOUR_DEFINITION_HERE}">
-    </definition>
+    <definition name="${YOUR_DEFINITION_HERE}"></definition>
 
 </tiles-definitions>
