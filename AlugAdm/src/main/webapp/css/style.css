@@ -1,5 +1,9 @@
 .topo{
-    background-color: #242654;
+    background-color: #161b88;
+    height: 60px;
+}
+.icon{
+    margin-top: -10px;
 }
 
 .titulo{

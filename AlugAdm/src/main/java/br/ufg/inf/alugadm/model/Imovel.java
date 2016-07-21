@@ -4,10 +4,6 @@ import java.sql.Date;
 
 public class Imovel {
 
-    public static final String ACAO_SALVAR = "SALVAR";
-    public static final String ACAO_EXCLUIR = "EXCLUIR";
-    public static final String ACAO_EDITAR = "EDITAR";
-
     private int codigoImovel;
     private String tipo;
     private Date dataCadastro;
@@ -125,7 +121,4 @@ public class Imovel {
     public void setCep(String cep) {
         this.cep = cep;
     }
-    
-    
-    
 }

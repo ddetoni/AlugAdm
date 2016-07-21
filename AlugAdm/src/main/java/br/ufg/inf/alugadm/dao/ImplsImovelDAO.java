@@ -30,6 +30,7 @@ public class ImplsImovelDAO implements ImovelDao {
 
             while (resultSet.next()) {
                 Imovel imovel = new Imovel();
+                
                 imovel.setCodigoImovel(resultSet.getInt("codigoImovel"));
                 imovel.setTipo(resultSet.getString("tipo"));
                 imovel.setDataCadastro(resultSet.getDate("dataCadastro"));
