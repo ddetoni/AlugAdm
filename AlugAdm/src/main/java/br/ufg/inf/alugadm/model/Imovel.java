@@ -11,7 +11,7 @@ public class Imovel {
     private int codigoImovel;
     private String tipo;
     private Date dataCadastro;
-    private float valorAlguel;
+    private String valorAlguel;
     private String status;
     private String logradouro;
     private String complemento;
@@ -46,11 +46,11 @@ public class Imovel {
         this.dataCadastro = dataCadastro;
     }
 
-    public float getValorAlguel() {
+    public String getValorAlguel() {
         return valorAlguel;
     }
 
-    public void setValorAlguel(float valorAlguel) {
+    public void setValorAlguel(String valorAlguel) {
         this.valorAlguel = valorAlguel;
     }
 

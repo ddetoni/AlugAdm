@@ -96,7 +96,7 @@
         <hr />
         <div class="row">
             <div class="col-md-12">
-                <button type="submit" class="btn btn-primary">Salvar</button>
+                <button type="submit" class="btn btn-primary">Salvar<input type="hidden" name="action" value="salvar"/></button>
                 <a href="VisualizarImovel.adm" class="btn btn-default">Cancelar</a>
             </div>
         </div>

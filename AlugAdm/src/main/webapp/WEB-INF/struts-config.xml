@@ -6,43 +6,53 @@
 
 
 <struts-config>
-    <form-beans>
-    
-    </form-beans>
-    
-    <global-exceptions>
-    
-    </global-exceptions>
+    <form-beans></form-beans> 
+       
+    <global-exceptions></global-exceptions>
     
     <global-forwards>
-        <forward name="Login"  path="/Login.adm"/>        
+        
+        <!--IMOVEL-->       
         <forward name="CadastrarImovel" path="/CadastrarImovel.adm"/>
         <forward name="VisualizarImovel" path="/VisualizarImovel.adm"/>
         <forward name="SalvarImovel" path="/SalvarImovel.adm"/>
+        <forward name="SalvarImovel" path="/jsp/imovel/adicionarImovel.jsp"/>
         <forward name="EditarImovel" path="/EditarImovel.adm"/>
+        
+        <!--LOCATARIO-->  
         <forward name="CadastrarLocatario" path="/CadastrarLocatario.adm"/>
         <forward name="VisualizarLocatario" path="/VisualizarLocatario.adm"/>
         <forward name="EditarLocatario" path="/EditarLocatario.adm"/>
         <forward name="SalvarLocatario" path="/SalvarLocatario.adm"/>
+        
+        <!--LOCACAO-->
         <forward name="VisualizarLocacao" path="/VisualizarLocacao.adm"/>
         <forward name="RealizarLocacao" path="/RealizarLocacao.adm"/>
         <forward name="SalvarLocacao" path="/SalvarLocacao.adm"/>
+        
     </global-forwards>
    
     <action-mappings>
-        <action path="/Login" forward="/jsp/login.jsp"/>
-        <action path="/CadastrarImovel" forward="/jsp/imovel/adicionarImovel.jsp"/>
-        <action path="/VisualizarImovel" forward="/jsp/imovel/mostrarImovel.jsp"/>
-        <action path="/EditarImovel" forward="/jsp/imovel/editarImovel.jsp"/>
-        <action path="/SalvarImovel" forward="/jsp/imovel/mostrarImovel.jsp"/>
+        
+         <!--IMOVEL--> 
+        <action path="/CadastrarImovel" type="br.ufg.inf.alugadm.controller.ImovelServlet" forward="/jsp/imovel/adicionarImovel.jsp"/>
+        <!--<action path="/CadastrarImovel"  forward="/jsp/imovel/mostrarImovel.jsp"/>-->
+        <action path="/VisualizarImovel" forward="/jsp/imovel/mostrarImovel.jsp" type="br.ufg.inf.alugadm.controller.ImovelServlet"/>
+        <action path="/EditarImovel" forward="/jsp/imovel/editarImovel.jsp" type="br.ufg.inf.alugadm.controller.ImovelServlet"/>
+        <action path="/SalvarImovel" type="br.ufg.inf.alugadm.controller.ImovelServlet"/>
+        
+        <!--LOCATARIO-->  
         <action path="/CadastrarLocatario" forward="/jsp/locatario/adicionarLocatario.jsp"/>
         <action path="/VisualizarLocatario" forward="/jsp/locatario/mostrarLocatario.jsp"/>
         <action path="/EditarLocatario" forward="/jsp/locatario/editarLocatario.jsp"/>
-        <action path="/SalvarImovel" forward="/jsp/imovel/mostrarImovel.jsp"/>
+        <action path="/SalvarLocatario" forward="/jsp/locatario/editarLocatario.jsp"/>
+
+          <!--LOCACAO-->
         <action path="/SalvarLocatario" forward="/jsp/imovel/mostrarLocatario.jsp"/>
         <action path="/VisualizarLocacao" forward="/index.jsp"/>
         <action path="/RealizarLocacao" forward="/jsp/locacao/informarLocacao.jsp"/>
         <action path="/SalvarLocacao" forward="/index.jsp"/>
+        
     </action-mappings>
     
     <controller processorClass="org.apache.struts.tiles.TilesRequestProcessor"/>
@@ -54,7 +64,6 @@
         <set-property property="moduleAware" value="true" />
     </plug-in>
     
-    <!-- ========================= Validator plugin ================================= -->
     <plug-in className="org.apache.struts.validator.ValidatorPlugIn">
         <set-property
             property="pathnames"
