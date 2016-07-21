@@ -44,7 +44,7 @@ public class LocatarioServlet extends Action {
             Locatario locatario = obterDados(request);
 
             locatarioDAO.salvarLocatario(locatario);
-            return mapping.findForward("CadastrarLocatario");
+            return mapping.findForward("CadastrarEditarLocatarioRedir");
 
         } else if (action.equalsIgnoreCase(ACTION_EXCLUIR)) { // Caso a action seja de excluir um locatario...
             int id = Integer.parseInt(request.getParameter("codigoLocatario")); // Pega o id do locatario pela requisição
@@ -57,7 +57,7 @@ public class LocatarioServlet extends Action {
             Locatario locatario = obterDados(request);
 
             locatarioDAO.editarLocatario(locatario);
-            return mapping.findForward("EditarLocatario");
+            return mapping.findForward("CadastrarEditarLocatarioRedir");
 
         } else if (action.equalsIgnoreCase(ACTION_MOSTRAR)) {
             ArrayList<Locatario> listaLocatario = null;
