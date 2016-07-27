@@ -59,7 +59,7 @@ public class LocatarioServlet extends org.apache.struts.action.Action {
                 listaLocatario = locatarioDAO.getListaLocatarios();
                 request.setAttribute("listaLocatario", listaLocatario);
 
-                return mapping.findForward("fwdVisualizarImovel");
+                return mapping.findForward("VisualizarLocatario");
 	}
 
 }

@@ -1,6 +1,5 @@
 package br.ufg.inf.alugadm.dao;
 
-import br.ufg.inf.alugadm.model.Imovel;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -30,7 +29,7 @@ public class ImplsLocatarioDAO implements LocatarioDAO {
 	public void inserir(Locatario locatario) throws SQLException {
 
 		String sql = "insert into locatario "
-				+ "(nome,cpf,identidade,orgao,sexo,data_nasc,tipo_pessoa,email,telefone,tipo_recebimento,data_cadastro,id)"
+				+ "(nome,cpf,identidade,orgao,sexo,dataNascimento,tipo_pessoa,email,telefone,tipo_recebimento,data_cadastro,id)"
 				+ "values (?,?,?,?,?,?,?,?,?,?,?,?)";
 
 		try {
@@ -65,7 +64,7 @@ public class ImplsLocatarioDAO implements LocatarioDAO {
 	public void editar(Locatario locatario){
 
 		String sql = "update locatario set "
-				+ "nome = ?,cpf = ?,identidade = ?,orgao = ?,sexo = ?,data_nasc = ?,tipo_pessoa = ?,email = ?,telefone = ?,tipo_recebimento = ?,data_cadastro = ?,id = ? "
+				+ "nome = ?,cpf = ?,identidade = ?,orgao = ?,sexo = ?,dataNascimento = ?,tipo_pessoa = ?,email = ?,telefone = ?,tipo_recebimento = ?,data_cadastro = ?,id = ? "
 				+ "where id = ?";
                
 		
@@ -108,7 +107,7 @@ public class ImplsLocatarioDAO implements LocatarioDAO {
         @Override
         public ArrayList<Locatario> getListaLocatarios() throws SQLException{
                 linhaLocatario = new ArrayList<Locatario>();
-        sql = "SELECT * FROM imovel";
+        sql = "SELECT * FROM locatario";
 
         PreparedStatement stmt = this.connection.prepareStatement(sql);
         ResultSet rs = stmt.executeQuery();
@@ -121,7 +120,7 @@ public class ImplsLocatarioDAO implements LocatarioDAO {
             locatario.setIdentidade(rs.getString("identidade"));
             locatario.setOrgao(rs.getString("orgao"));
             locatario.setSexo(rs.getString("sexo"));
-            locatario.setDataNascimento(rs.getString("data_nasc"));
+            locatario.setDataNascimento(rs.getString("dataNascimento"));
             locatario.setTipoPessoa(rs.getString("tipoPessoa"));
             locatario.setEmail(rs.getString("email"));
             locatario.setTelefone(rs.getString("telefone"));

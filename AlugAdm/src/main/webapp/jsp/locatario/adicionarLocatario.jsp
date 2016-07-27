@@ -71,7 +71,7 @@
         <hr />
         <div class="row">
             <div class="col-md-12">
-                <button type="submit" class="btn btn-primary" value="salvar_locatario">Salvar</button>
+                <button type="submit" class="btn btn-primary" value="salvar_locatario" name="salvar_locatario">Salvar</button>
                 <a href="VisualizarLocatario.adm" class="btn btn-default">Cancelar</a>
             </div>
         </div>
