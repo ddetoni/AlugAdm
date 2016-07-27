@@ -28,8 +28,8 @@
                 <label for="exampleInputEmail1">Sexo</label>
                 <select class="form-control" id="exampleInputEmail1" name="sexo">
                     <option>...</option>
-                    <option>Feminino</option>
                     <option>Masculino</option>
+                    <option>Feminino</option>
                 </select>
                 <!--                <input type="text" name="status" class="form-control" id="exampleInputEmail1">-->
             </div>
@@ -40,11 +40,11 @@
                 </div>
                 <div class="form-group col-md-3">
                     <label for="exampleInputEmail1">Tipo de Pessoa</label>
-                    <input type="date" name="tipopessoa" class="form-control" id="exampleInputEmail1">
+                    <input type="text" name="tipopessoa" class="form-control" id="exampleInputEmail1">
                 </div>
                 <div class="form-group col-md-3">
                     <label for="exampleInputEmail1">email</label>
-                    <input type="date" name="email" class="form-control" id="exampleInputEmail1">
+                    <input type="email" name="email" class="form-control" id="exampleInputEmail1">
                 </div>
                 <div class="form-group col-md-3">
                     <label for="exampleInputEmail1">Telefone 1</label>
@@ -60,11 +60,11 @@
                 </div>
                 <div class="form-group col-md-3">
                     <label for="exampleInputEmail1">Data de Cadastro</label>
-                    <input type="text" name="datacadastro" class="form-control" id="exampleInputEmail1">
+                    <input type="date" name="datacadastro" class="form-control" id="exampleInputEmail1">
                 </div>
                  <div class="form-group col-md-3">
                     <label for="exampleInputEmail1">Código</label>
-                    <input type="text" name="codigoLocatario" class="form-control" id="exampleInputEmail1">
+                    <input type="number" name="codigoLocatario" class="form-control" id="exampleInputEmail1">
                 </div>
             </div>
         </div>
