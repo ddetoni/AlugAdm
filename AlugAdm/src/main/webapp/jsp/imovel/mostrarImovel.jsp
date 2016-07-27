@@ -4,9 +4,9 @@
     <div id="top" class="row">
         <div class="col-sm-9"></div>
         <div class="col-sm-3">
-            <form name="form_cadastrarImovel" action="/CadastrarImovel.adm" method="post">
+            <form name="form_cadastrarImovel" action="CadastrarImovel.adm" method="post">
                 <button type="submit" class="btn btn-info">
-                    <input type="hidden" name="action" value="mostrar_imovel" />
+                    <input type="hidden" name="action" value="cadastrar_imovel" />
                     <span style="vertical-align: middle;">Cadastrar Imovel</span>
                 </button>
             </form>
@@ -19,7 +19,7 @@
             <table class="tbl table-responsive table-hover table-bordered table-condensed text-center">
                 <thead>
                     <tr class="text-center">
-                        <th>Codigo</th>
+                        <th>Id</th>
                         <th>Data do Cadastro</th>
                         <th>Categoria</th>
                         <th>Tipo de Imóvel</th>
@@ -37,18 +37,19 @@
                 <tbody>     
                     <c:forEach items="${listaImovel}" var="imovel">
                         <tr>
-                            <td>${imovel.codigoImovel}</td>
-                            <td>${imovel.dataCadastro}</td>
+                            <td>${imovel.id}</td>
+                            <td>${imovel.data_cadastro}</td>
                             <td>${imovel.categoria}</td>
-                            <td>${imovel.tipoImovel}</td>
+                            <td>${imovel.tipo_imovel}</td>
                             <td>${imovel.status}</td>
-                            <td>${imovel.logadouro}</td>
+                            <td>${imovel.logradouro}</td>
                             <td>${imovel.complemento}</td>
                             <td>${imovel.cidade}</td>
                             <td>${imovel.estado}</td>
-                            <td>${imovel.numQuartos}</td>  
+                            <td>${imovel.num_quartos}</td>  
                             <td>${imovel.garagem}</td>  
-                            <td>${imovel.valorAluguel}</td>  
+                            <td>${imovel.valor_aluguel}</td>  
+                            <td>${imovel.cep}</td>
                             <td class="actions">
                                 <a class="btn btn-warning btn-xs" href="/EditarImovel.adm">Editar</a>
                                 <a class="btn btn-danger btn-xs"  href="#" data-toggle="modal" data-target="#delete-modal">Excluir</a>
