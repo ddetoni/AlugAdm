@@ -6,11 +6,11 @@
         <div class="col-sm-3">
             <form name="form_cadastrarImovel" action="CadastrarImovel.adm" method="post">
                 <button type="submit" class="btn btn-info">
-                    <input type="hidden" name="action" value="cadastrar_imovel" />
+                    <input type="hidden" name="action" value="cadastrar" />
                     <span style="vertical-align: middle;">Cadastrar Imovel</span>
                 </button>
             </form>
-            <!--<a href="CadastrarImovel.adm" class="btn btn-primary pull-right h2">Cadastrar Imóvel</a>-->
+            <!--<a href="/CadastrarImovel.adm" class="btn btn-primary pull-right h2">Cadastrar Imóvel</a>-->
         </div>
     </div> <!-- /#top -->
     <div class="row">
@@ -51,7 +51,7 @@
                             <td>${imovel.valor_aluguel}</td>  
                             <td>${imovel.cep}</td>
                             <td class="actions">
-                                <a class="btn btn-warning btn-xs" href="/EditarImovel.adm">Editar</a>
+                                <!--<a class="btn btn-warning btn-xs" href="/EditarImovel.adm">Editar</a>-->
                                 <a class="btn btn-danger btn-xs"  href="#" data-toggle="modal" data-target="#delete-modal">Excluir</a>
                             </td>
                         </tr>

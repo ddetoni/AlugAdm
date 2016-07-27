@@ -21,6 +21,7 @@ public class ImovelServlet extends org.apache.struts.action.Action {
     private static final String ACTION_EDITAR = "editar";
     private static final String ACTION_MOSTRAR_IMOVEIS = "mostrar_imoveis";
     private static final String ACTION_CODIGOS = "codigos";
+    private static final String ACTION_CADASTRAR = "cadastrar";
 
     @Override
     public ActionForward execute(ActionMapping mapping, ActionForm form,
@@ -35,7 +36,12 @@ public class ImovelServlet extends org.apache.struts.action.Action {
             action = request.getParameter("action"); // Altera o valor inicial de "" para a passada para o servlet
         }
         
-          if (action.equalsIgnoreCase(ACTION_MOSTRAR_IMOVEIS)) {
+        if (action.equalsIgnoreCase(ACTION_CADASTRAR)) {
+            
+            return mapping.findForward("fwdCadastrarImovel");
+        }
+        
+        if (action.equalsIgnoreCase(ACTION_MOSTRAR_IMOVEIS)) {
             ArrayList<Imovel> listaImovel = imovelDAO.getListaImoveis();
             request.setAttribute("listaImovel", listaImovel);
             
