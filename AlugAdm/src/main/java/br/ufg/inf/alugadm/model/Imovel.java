@@ -4,8 +4,8 @@ import java.sql.Date;
 
 public class Imovel {
 
-    private int id;
-    private Date data_cadastro;
+    private String id;
+    private String data_cadastro;
     private String categoria;
     private String tipo_imovel;
     private String status;
@@ -18,19 +18,19 @@ public class Imovel {
     private String valor_aluguel;
     private String cep;
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
-    public Date getData_cadastro() {
+    public String getData_cadastro() {
         return data_cadastro;
     }
 
-    public void setData_cadastro(Date data_cadastro) {
+    public void setData_cadastro(String data_cadastro) {
         this.data_cadastro = data_cadastro;
     }
 

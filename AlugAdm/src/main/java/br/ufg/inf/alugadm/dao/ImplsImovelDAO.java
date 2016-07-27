@@ -36,8 +36,8 @@ public class ImplsImovelDAO{
         while (rs.next()) {
             imovel = new Imovel();
             
-            imovel.setId(rs.getInt("id"));
-            imovel.setData_cadastro(rs.getDate("data_cadastro"));
+            imovel.setId(rs.getString("id"));
+            imovel.setData_cadastro(rs.getString("data_cadastro"));
             imovel.setCategoria(rs.getString("categoria"));
             imovel.setTipo_imovel(rs.getString("tipo_imovel"));
             imovel.setStatus(rs.getString("status"));
@@ -56,13 +56,13 @@ public class ImplsImovelDAO{
         return linhaImovel;    
     }
 
-    public boolean linhaExiste(int id) {
+    public boolean linhaExiste(String id) {
         linhaImovel = new ArrayList<Imovel>();
         sql = "SELECT id FROM alugadm WHERE id = ?";
 
         try {
             PreparedStatement stmt = this.connection.prepareStatement(sql);
-            stmt.setInt(1, id);
+            stmt.setString(1, id);
 
             ResultSet rs = stmt.executeQuery();
             if (rs.next()) {
@@ -76,19 +76,16 @@ public class ImplsImovelDAO{
     }
 
     public void salvarImovel(Imovel imovel) {
-        int id = imovel.getId();
+        String id = imovel.getId();
         boolean exist = linhaExiste(id);
 
         if (!exist) {
-            String sql = "INSERT INTO imovel (id, data_cadastro, categoria, tipo_imovel, status, logradouro, "
-                    + "complemento, cidade, estado, num_quartos, garagem, valor_alguel, cep) "
-                    + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
+            String sql = "INSERT INTO imovel (id, data_cadastro, categoria, tipo_imovel, status, logradouro, complemento, cidade, estado, num_quartos, garagem, valor_aluguel, cep VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
             try {
                 PreparedStatement stmt = this.connection.prepareStatement(sql);
-
-                stmt.setInt(1, imovel.getId());
-                stmt.setDate(2, imovel.getData_cadastro());
+                stmt.setString(1, imovel.getId());
+                stmt.setString(2, imovel.getData_cadastro());
                 stmt.setString(3, imovel.getCategoria());
                 stmt.setString(4, imovel.getTipo_imovel());
                 stmt.setString(5, imovel.getStatus());
@@ -96,7 +93,8 @@ public class ImplsImovelDAO{
                 stmt.setString(7, imovel.getComplemento());
                 stmt.setString(8, imovel.getCidade());
                 stmt.setString(9, imovel.getEstado());
-                stmt.setString(12, imovel.getGaragem());
+                stmt.setString(10, imovel.getNum_quartos());
+                stmt.setString(11, imovel.getGaragem());
                 stmt.setString(12, imovel.getValor_aluguel());
                 stmt.setString(13, imovel.getCep());
                 stmt.execute();
@@ -112,8 +110,8 @@ public class ImplsImovelDAO{
                     + "complemento=?, cidade=?, estado=?, num_quartos=?, garagem=?, valor_alguel=?, cep=?";
             try {
                 PreparedStatement stmt = this.connection.prepareStatement(sql);
-                stmt.setInt(1, imovel.getId());
-                stmt.setDate(2, imovel.getData_cadastro());
+                stmt.setString(1, imovel.getId());
+                stmt.setString(2, imovel.getData_cadastro());
                 stmt.setString(3, imovel.getCategoria());
                 stmt.setString(4, imovel.getTipo_imovel());
                 stmt.setString(5, imovel.getStatus());
@@ -139,8 +137,8 @@ public class ImplsImovelDAO{
 
         try {
             PreparedStatement stmt = this.connection.prepareStatement(sql);
-            stmt.setInt(1, imovel.getId());
-            stmt.setDate(2, imovel.getData_cadastro());
+            stmt.setString(1, imovel.getId());
+            stmt.setString(2, imovel.getData_cadastro());
             stmt.setString(3, imovel.getCategoria());
             stmt.setString(4, imovel.getTipo_imovel());
             stmt.setString(5, imovel.getStatus());
@@ -168,7 +166,7 @@ public class ImplsImovelDAO{
 
             while (resultSet.next()) {
                 imovel = new Imovel();
-                int id = imovel.getId();
+                String id = imovel.getId();
                 String codigo = String.valueOf(id);
                 linhaCodigo.add(codigo);
             }

@@ -1,12 +1,12 @@
 <%@include file="/jsp/defaut/topo.jsp" %>
 
 <div id="main" class="container text-center">
-    <h3 class="page-header text-left">Editar Locatário</h3>
+    <h3 class="page-header text-left">Editar Imovel</h3>
     <form action="SalvarImovel.adm">
         <div class="row">
             <div class="form-group col-md-5">
-                <label for="exampleInputEmail1">Nome</label>
-                <input type="text" name="nome" class="form-control" id="exampleInputEmail1">
+                <label for="exampleInputEmail1">Id</label>
+                <input type="text" name="id" class="form-control" id="exampleInputEmail1">
             </div>
             <div class="col-md-7">
                 <div class="form-group col-md-5">
