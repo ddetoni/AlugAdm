@@ -9,7 +9,9 @@ import org.apache.struts.action.ActionMapping;
 
 import br.ufg.inf.alugadm.dao.ImplsLocatarioDAO;
 import br.ufg.inf.alugadm.dao.LocatarioDAO;
+import br.ufg.inf.alugadm.model.Imovel;
 import br.ufg.inf.alugadm.model.Locatario;
+import java.util.ArrayList;
 
 public class LocatarioServlet extends org.apache.struts.action.Action {
 
@@ -18,6 +20,7 @@ public class LocatarioServlet extends org.apache.struts.action.Action {
 	private static final String ACTION_EDITAR = "editar";
 	private static final String ACTION_MOSTRAR = "mostrar_imoveis";
 	private static final String ACTION_CODIGOS = "codigos";
+        private static final String ACTION_CADASTRAR = "cadastrar";
 
 	@Override
 	public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request,
@@ -47,9 +50,16 @@ public class LocatarioServlet extends org.apache.struts.action.Action {
 			locatarioDAO.inserir(locatario);
 
 			return mapping.findForward("EditarLocatario");
-		}
+                        
+		} else if (action.equalsIgnoreCase(ACTION_CADASTRAR)){
+                    return mapping.findForward("CadastrarLocatario");
+                }
 
-		return mapping.findForward("VisualizarImovel");
+		ArrayList<Locatario> listaLocatario = new ArrayList<Locatario>();
+                listaLocatario = locatarioDAO.getListaLocatarios();
+                request.setAttribute("listaLocatario", listaLocatario);
+
+                return mapping.findForward("fwdVisualizarImovel");
 	}
 
 }

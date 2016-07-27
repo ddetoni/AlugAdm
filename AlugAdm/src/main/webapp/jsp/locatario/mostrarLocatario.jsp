@@ -9,12 +9,17 @@
 
         </div>
         <div class="col-sm-3">
-            <a href="CadastrarLocatario.adm" class="btn btn-primary pull-right h2">Cadastrar Locat�rio</a>
+            <form name="form_cadastrarLocatario" action="CadastrarLocatario.adm" method="post">
+                <button type="submit" class="btn btn-info">
+                    <input type="hidden" name="action" value="cadastrar" />
+                    <span style="vertical-align: middle;">Cadastrar Locatario</span>
+                </button>
+            </form>
         </div>
     </div> <!-- /#top -->
     <div id="list" class="row">
         <div class="table-responsive col-md-12">
-            <h3 class="titulo">Visualizar Locat�rios</h3>
+            <h3 class="titulo">Visualizar Locatarios</h3>
             <table class="table table-striped" cellspacing="0" cellpadding="0">
                 <thead>
                     <tr>

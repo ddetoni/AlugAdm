@@ -1,15 +1,25 @@
 package br.ufg.inf.alugadm.dao;
 
+import br.ufg.inf.alugadm.model.Imovel;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 import br.ufg.inf.alugadm.model.Locatario;
 import br.ufg.inf.alugadm.persistence.ConnectionFactory;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class ImplsLocatarioDAO implements LocatarioDAO {
 
 	private Connection connection;
+        private ArrayList<Locatario> linhaLocatario;
+        private Locatario locatario;
+        private String sql;
+        private ArrayList<String> linhaCodigo;
 
 	public ImplsLocatarioDAO() throws SQLException {
 
@@ -52,15 +62,16 @@ public class ImplsLocatarioDAO implements LocatarioDAO {
 	}
 
 	@Override
-	public void editar(Locatario locatario) throws SQLException {
+	public void editar(Locatario locatario){
 
 		String sql = "update locatario set "
 				+ "nome = ?,cpf = ?,identidade = ?,orgao = ?,sexo = ?,data_nasc = ?,tipo_pessoa = ?,email = ?,telefone = ?,tipo_recebimento = ?,data_cadastro = ?,id = ? "
 				+ "where id = ?";
+               
 		
 		try {
 
-			PreparedStatement stmt = getConnection().prepareStatement(sql);
+			PreparedStatement stmt = this.connection.prepareStatement(sql);
 
 			stmt.setString(1, locatario.getNome());
 			stmt.setString(2, locatario.getCpf());
@@ -82,12 +93,72 @@ public class ImplsLocatarioDAO implements LocatarioDAO {
 		} catch (SQLException e) {
 			throw new RuntimeException();
 		} finally {
-			getConnection().close();
+                    try {
+                        this.connection.close();
+                    } catch (SQLException ex) {
+                        Logger.getLogger(ImplsLocatarioDAO.class.getName()).log(Level.SEVERE, null, ex);
+                    }
 		}
 	}
 
 	public Connection getConnection() {
 		return connection;
 	}
+
+        @Override
+        public ArrayList<Locatario> getListaLocatarios() throws SQLException{
+                linhaLocatario = new ArrayList<Locatario>();
+        sql = "SELECT * FROM imovel";
+
+        PreparedStatement stmt = this.connection.prepareStatement(sql);
+        ResultSet rs = stmt.executeQuery();
+
+        while (rs.next()) {
+            locatario = new Locatario();
+            
+            locatario.setNome(rs.getString("nome"));
+            locatario.setCpf(rs.getString("cpf"));
+            locatario.setIdentidade(rs.getString("identidade"));
+            locatario.setOrgao(rs.getString("orgao"));
+            locatario.setSexo(rs.getString("sexo"));
+            locatario.setDataNascimento(rs.getString("data_nasc"));
+            locatario.setTipoPessoa(rs.getString("tipoPessoa"));
+            locatario.setEmail(rs.getString("email"));
+            locatario.setTelefone(rs.getString("telefone"));
+            locatario.setTipoRecebimento(rs.getString("tipoRecebimento"));
+            locatario.setDataCadastro(rs.getString("dataCadastro"));
+            locatario.setId(rs.getString("id"));
+            
+            linhaLocatario.add(locatario);
+        }
+
+        return linhaLocatario;    
+        }
+
+        @Override
+        public ArrayList<String> getListaCodigoLocatarios() {
+          String sql = "SELECT * FROM locatario";
+        linhaCodigo = new ArrayList<String>();
+
+        try {
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery(sql);
+
+            while (resultSet.next()) {
+                locatario = new Locatario();
+                String id = locatario.getId();
+                linhaCodigo.add(id);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ImplsLocatarioDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return linhaCodigo;  
+        }
+
+        @Override
+        public void excluirLocatario(int id) {
+            
+        }
 
 }

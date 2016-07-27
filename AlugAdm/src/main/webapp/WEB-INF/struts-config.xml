@@ -19,7 +19,7 @@
         <forward name="fwdEditarImovel" path="/jsp/imovel/editarImovel.jsp"/>
         
         <!--LOCATARIO-->  
-        <forward name="CadastrarLocatario" path="/CadastrarLocatario.adm"/>
+        <forward name="CadastrarLocatario" path="/jsp/locatario/adicionarLocatario.jsp"/>
         <forward name="VisualizarLocatario" path="/VisualizarLocatario.adm"/>
         <forward name="EditarLocatario" path="/EditarLocatario.adm"/>
         <forward name="SalvarLocatario" path="/SalvarLocatario.adm"/>
