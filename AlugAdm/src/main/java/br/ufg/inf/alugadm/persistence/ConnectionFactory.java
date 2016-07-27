@@ -11,8 +11,8 @@ public class ConnectionFactory {
 
     public ConnectionFactory() throws SQLException, ClassNotFoundException {
         Class.forName("org.postgresql.Driver");
-//        connection = DriverManager.getConnection("jdbc:postgresql://0.tcp.ngrok.io:12423/alugadm, "postgres", "avestrus");
-        connection = DriverManager.getConnection("jdbc:postgresql://localhost/alugadm", "postgres", "avestrus");
+//        connection = DriverManager.getConnection("jdbc:postgresql://0.tcp.ngrok.io:12423/alugadm, "postgres", "postgres");
+        connection = DriverManager.getConnection("jdbc:postgresql://localhost/alugadm", "postgres", "postgres");
     }
 
     public static java.sql.Connection getConnection() throws SQLException {

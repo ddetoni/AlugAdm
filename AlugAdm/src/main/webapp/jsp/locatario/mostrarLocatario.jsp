@@ -31,7 +31,7 @@
                     </tr>
                 </thead>
                 <tbody>                           
-                <c:forTokens var="imovel" items="${listaImovel}">
+                    <%--<c:forEach var="imovel" items="${listaImovel}">--%>
                     <tr>
                         <td>${imovel.codigo}</td>
                         <td>${imovel.nome}</td>
@@ -47,7 +47,7 @@
                             <a class="btn btn-danger btn-xs"  href="#" data-toggle="modal" data-target="#delete-modal">Excluir</a>
                         </td>
                     </tr>
-                </c:forTokens>
+                <%--</c:forEach>--%>
                 </tbody>
             </table>
         </div>

@@ -20,7 +20,7 @@ public class ImovelServlet extends org.apache.struts.action.Action {
     private static final String ACTION_SALVAR = "salvar";
     private static final String ACTION_EXCLUIR = "excluir";
     private static final String ACTION_EDITAR = "editar";
-    private static final String ACTION_MOSTRAR = "mostrar_imoveis";
+    private static final String ACTION_MOSTRAR_IMOVEIS = "mostrar_imoveis";
     private static final String ACTION_CODIGOS = "codigos";
 
     @Override
@@ -112,11 +112,11 @@ public class ImovelServlet extends org.apache.struts.action.Action {
 //
 //        } 
 //        
-        if (action.equalsIgnoreCase(ACTION_MOSTRAR)) {
+        if (action.equalsIgnoreCase(ACTION_MOSTRAR_IMOVEIS)) {
             ArrayList<Imovel> listaImovel = imovelDAO.getListaImoveis();
             request.setAttribute("listaImovel", listaImovel);
+            
             return mapping.findForward("fwdVisualizarImovel");
-
         }
         
         if (action.equalsIgnoreCase(ACTION_CODIGOS)) {
