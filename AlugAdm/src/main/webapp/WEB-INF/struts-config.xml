@@ -13,11 +13,11 @@
     <global-forwards>
         
         <!--IMOVEL-->       
-        <forward name="CadastrarImovel" path="/CadastrarImovel.adm"/>
-        <forward name="VisualizarImovel" path="/jsp/imovel/mostrarImovel.jsp"/>
+        <forward name="fwdCadastrarImovel" path="/CadastrarImovel.adm"/>
+        <forward name="fwdVisualizarImovel" path="/jsp/imovel/mostrarImovel.jsp"/>
         <forward name="SalvarImovel" path="/SalvarImovel.adm"/>
-        <forward name="SalvarImovel" path="/jsp/imovel/adicionarImovel.jsp"/>
-        <forward name="EditarImovel" path="/EditarImovel.adm"/>
+        <forward name="fwdSalvarImovel" path="/jsp/imovel/adicionarImovel.jsp"/>
+        <forward name="fwdEditarImovel" path="/EditarImovel.adm"/>
         
         <!--LOCATARIO-->  
         <forward name="CadastrarLocatario" path="/CadastrarLocatario.adm"/>
@@ -35,7 +35,7 @@
     <action-mappings>
         
          <!--IMOVEL--> 
-        <action path="/CadastrarImovel" type="br.ufg.inf.alugadm.controller.ImovelServlet" forward="/jsp/imovel/adicionarImovel.jsp"/>
+        <action path="/CadastrarImovel" type="br.ufg.inf.alugadm.controller.ImovelServlet" />
         <!--<action path="/CadastrarImovel"  forward="/jsp/imovel/mostrarImovel.jsp"/>-->
         <action path="/VisualizarImovel" type="br.ufg.inf.alugadm.controller.ImovelServlet"/>
         <action path="/EditarImovel" forward="/jsp/imovel/editarImovel.jsp"/>

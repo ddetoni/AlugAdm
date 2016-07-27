@@ -36,102 +36,101 @@ public class ImovelServlet extends org.apache.struts.action.Action {
             action = request.getParameter("action"); // Altera o valor inicial de "" para a passada para o servlet
         }
 
-        if (action.equalsIgnoreCase(ACTION_SALVAR)) { // Caso a action seja de cadastrar imovel...
-            Imovel imovel = new Imovel();
-
-            // Pega todos os dados de Imovel que está vindo da View
-            String codigoImovel = request.getParameter("codigoImovel");
-            String dataCadastro = request.getParameter("dataCadastro");
-            String valorAluguel = request.getParameter("valorAluguel");
-            String status = request.getParameter("status");
-            String logradouro = request.getParameter("logradouro");
-            String complemento = request.getParameter("complemento");
-            String cidade = request.getParameter("cidade");
-            String estado = request.getParameter("estado");
-            String categoria = request.getParameter("categoria");
-            String numQuartos = request.getParameter("numQuartos");
-            String garagem = request.getParameter("garagem");
-
-            // Preenche a instância de Imovel com os dados da view
-            imovel.setCodigoImovel(Integer.parseInt(codigoImovel));
-            imovel.setDataCadastro(Date.valueOf(dataCadastro));
-            imovel.setValorAlguel(valorAluguel);
-            imovel.setStatus(status);
-            imovel.setLogradouro(logradouro);
-            imovel.setComplemento(complemento);
-            imovel.setCidade(cidade);
-            imovel.setEstado(estado);
-            imovel.setCategoria(categoria);
-            imovel.setNumQuartos(Integer.parseInt(numQuartos));
-            imovel.setGaragem(garagem);
-
-            imovelDAO.salvarImovel(imovel);
-            return mapping.findForward("CadastrarImovel");
-
-        } else if (action.equalsIgnoreCase(ACTION_EXCLUIR)) { // Caso a action seja de excluir um imovel...
+//        if (action.equalsIgnoreCase(ACTION_SALVAR)) { // Caso a action seja de cadastrar imovel...
+//            Imovel imovel = new Imovel();
+//
+//            // Pega todos os dados de Imovel que está vindo da View
+//            String codigoImovel = request.getParameter("codigoImovel");
+//            String dataCadastro = request.getParameter("dataCadastro");
+//            String valorAluguel = request.getParameter("valorAluguel");
+//            String status = request.getParameter("status");
+//            String logradouro = request.getParameter("logradouro");
+//            String complemento = request.getParameter("complemento");
+//            String cidade = request.getParameter("cidade");
+//            String estado = request.getParameter("estado");
+//            String categoria = request.getParameter("categoria");
+//            String numQuartos = request.getParameter("numQuartos");
+//            String garagem = request.getParameter("garagem");
+//
+//            // Preenche a instância de Imovel com os dados da view
+//            imovel.setCodigoImovel(Integer.parseInt(codigoImovel));
+//            imovel.setDataCadastro(Date.valueOf(dataCadastro));
+//            imovel.setValorAlguel(valorAluguel);
+//            imovel.setStatus(status);
+//            imovel.setLogradouro(logradouro);
+//            imovel.setComplemento(complemento);
+//            imovel.setCidade(cidade);
+//            imovel.setEstado(estado);
+//            imovel.setCategoria(categoria);
+//            imovel.setNumQuartos(Integer.parseInt(numQuartos));
+//            imovel.setGaragem(garagem);
+//
+//            imovelDAO.salvarImovel(imovel);
+//            return mapping.findForward("CadastrarImovel");
+//
+//        }
+        
+        if (action.equalsIgnoreCase(ACTION_EXCLUIR)) { // Caso a action seja de excluir um imovel...
             int id = Integer.parseInt(request.getParameter("codigoImovel")); // Pega o id do imovel pela requisição
 
             imovelDAO.excluirImovel(id); // Executa a função de excluir o imovel
             return mapping.findForward("ExcluirImovel");
 
-        } else if (action.equalsIgnoreCase(ACTION_EDITAR)) { // Caso a função seja de atualizar os dados de um imovel...
-            Imovel imovel = new Imovel();
-
-            // Pega todos os dados de Imovel que está vindo da View
-            String codigoImovel = request.getParameter("codigoImovel");
-            String dataCadastro = request.getParameter("dataCadastro");
-            String valorAluguel = request.getParameter("valorAluguel");
-            String status = request.getParameter("status");
-            String logradouro = request.getParameter("logradouro");
-            String complemento = request.getParameter("complemento");
-            String cidade = request.getParameter("cidade");
-            String estado = request.getParameter("estado");
-            String categoria = request.getParameter("categoria");
-            String numQuartos = request.getParameter("numQuartos");
-            String garagem = request.getParameter("garagem");
-
-            // Preenche a instância de Imovel com os dados da view
-            imovel.setCodigoImovel(Integer.parseInt(codigoImovel));
-            imovel.setDataCadastro(Date.valueOf(dataCadastro));
-            imovel.setValorAlguel(valorAluguel);
-            imovel.setStatus(status);
-            imovel.setLogradouro(logradouro);
-            imovel.setComplemento(complemento);
-            imovel.setCidade(cidade);
-            imovel.setEstado(estado);
-            imovel.setCategoria(categoria);
-            imovel.setNumQuartos(Integer.parseInt(numQuartos));
-            imovel.setGaragem(garagem);
-
-            imovelDAO.editarImovel(imovel);
-            return mapping.findForward("EditarImovel");
-
-        } else if (action.equalsIgnoreCase(ACTION_MOSTRAR)) {
-            ArrayList<Imovel> listaImovel = null;
-            listaImovel = imovelDAO.getListaImoveis();
+        } 
+//        
+//        if (action.equalsIgnoreCase(ACTION_EDITAR)) { // Caso a função seja de atualizar os dados de um imovel...
+//            Imovel imovel = new Imovel();
+//
+//            // Pega todos os dados de Imovel que está vindo da View
+//            String codigoImovel = request.getParameter("codigoImovel");
+//            String dataCadastro = request.getParameter("dataCadastro");
+//            String valorAluguel = request.getParameter("valorAluguel");
+//            String status = request.getParameter("status");
+//            String logradouro = request.getParameter("logradouro");
+//            String complemento = request.getParameter("complemento");
+//            String cidade = request.getParameter("cidade");
+//            String estado = request.getParameter("estado");
+//            String categoria = request.getParameter("categoria");
+//            String numQuartos = request.getParameter("numQuartos");
+//            String garagem = request.getParameter("garagem");
+//
+//            // Preenche a instância de Imovel com os dados da view
+//            imovel.setCodigoImovel(Integer.parseInt(codigoImovel));
+//            imovel.setDataCadastro(Date.valueOf(dataCadastro));
+//            imovel.setValorAlguel(valorAluguel);
+//            imovel.setStatus(status);
+//            imovel.setLogradouro(logradouro);
+//            imovel.setComplemento(complemento);
+//            imovel.setCidade(cidade);
+//            imovel.setEstado(estado);
+//            imovel.setCategoria(categoria);
+//            imovel.setNumQuartos(Integer.parseInt(numQuartos));
+//            imovel.setGaragem(garagem);
+//
+//            imovelDAO.editarImovel(imovel);
+//            return mapping.findForward("EditarImovel");
+//
+//        } 
+//        
+        if (action.equalsIgnoreCase(ACTION_MOSTRAR)) {
+            ArrayList<Imovel> listaImovel = imovelDAO.getListaImoveis();
             request.setAttribute("listaImovel", listaImovel);
-            return mapping.findForward("VisualizarImovel");
+            return mapping.findForward("fwdVisualizarImovel");
 
-        } else if (action.equalsIgnoreCase(ACTION_CODIGOS)) {
-            ArrayList<String> listaCodigoImovel = null;
+        }
+        
+        if (action.equalsIgnoreCase(ACTION_CODIGOS)) {
+            ArrayList<String> listaCodigoImovel = new ArrayList<String>();
             listaCodigoImovel = imovelDAO.getListaCodigoImoveis();
             request.setAttribute("listaCodigoImovel", listaCodigoImovel);
             return mapping.findForward("VisualizarCodigo");
         }
 
-        // Inicializa as listas que serão enviadas para a view
-        ArrayList<Imovel> listaImovel = null;
-        ArrayList<String> listaCodigoImovel = null;
-
+        ArrayList<Imovel> listaImovel = new ArrayList<Imovel>();
         listaImovel = imovelDAO.getListaImoveis();
-        listaCodigoImovel = imovelDAO.getListaCodigoImoveis();
-        //}
-
-        // Envia as listas para a view.
         request.setAttribute("listaImovel", listaImovel);
-        request.setAttribute("listaCodigoImovel", listaCodigoImovel);
 
-        return mapping.findForward("VisualizarImovel");
+        return mapping.findForward("fwdVisualizarImovel");
     }
 
 }
