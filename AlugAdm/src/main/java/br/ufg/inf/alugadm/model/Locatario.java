@@ -21,6 +21,7 @@ public class Locatario {
     private String telefone;
     private String tipoRecebimento;
     private String dataCadastro;
+    private String id;
 
     public String getNome() {
         return nome;
@@ -109,6 +110,14 @@ public class Locatario {
     public void setDataCadastro(String dataCadastro) {
         this.dataCadastro = dataCadastro;
     }
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
     
     
 }

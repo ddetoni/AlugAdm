@@ -1,14 +1,46 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.ufg.inf.alugadm.controller;
 
-/**
- *
- * @author JuliannyAS
- */
-public class LocatarioServlet {
-    
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.struts.action.ActionForm;
+import org.apache.struts.action.ActionForward;
+import org.apache.struts.action.ActionMapping;
+
+import br.ufg.inf.alugadm.dao.ImplsLocatarioDAO;
+import br.ufg.inf.alugadm.dao.LocatarioDAO;
+import br.ufg.inf.alugadm.model.Locatario;
+
+public class LocatarioServlet extends org.apache.struts.action.Action {
+
+	private static final String ACTION_SALVAR = "salvar";
+	private static final String ACTION_EXCLUIR = "excluir";
+	private static final String ACTION_EDITAR = "editar";
+	private static final String ACTION_MOSTRAR = "mostrar_imoveis";
+	private static final String ACTION_CODIGOS = "codigos";
+
+	@Override
+	public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
+
+		LocatarioDAO locatarioDAO = new ImplsLocatarioDAO();
+		String action = "";
+
+		if (request.getParameter("action") != null) {
+			action = request.getParameter("action");
+		}
+		
+		if(action.equalsIgnoreCase(ACTION_SALVAR)){
+			
+			Valores valores = new Valores();
+			
+			Locatario locatario = valores.recebeValoresLocatario(request);
+			locatarioDAO.inserir(locatario);
+			
+			return mapping.findForward("CadastrarLocatario");
+		}
+		
+		return mapping.findForward("VisualizarImovel");
+	}
+	
 }

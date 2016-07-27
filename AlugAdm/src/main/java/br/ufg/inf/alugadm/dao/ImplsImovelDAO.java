@@ -8,127 +8,131 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
+import org.omg.PortableServer.ThreadPolicyOperations;
 
 public class ImplsImovelDAO implements ImovelDao {
 
-    private final Connection connection;
+	private Connection connection;
 
-    public ImplsImovelDAO() throws SQLException {
-        this.connection = ConnectionFactory.getConnection();
-    }
+	public ImplsImovelDAO() {
+		this.connection = new ConnectionFactory().getConnection();
+	}
 
-    @Override
-    public ArrayList<Imovel> getListaImoveis() {
-        String sql = "SELECT * FROM imovel";
-        ArrayList<Imovel> listaImovel = new ArrayList<Imovel>();
-        
-        try {
-            Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery(sql);
+	@Override
+	public ArrayList<Imovel> getListaImoveis() throws SQLException {
+		String sql = "SELECT * FROM imovel";
+		ArrayList<Imovel> listaImovel = new ArrayList<Imovel>();
 
-            while (resultSet.next()) {
-                Imovel imovel = new Imovel();
-                
-                imovel.setCodigoImovel(resultSet.getInt("codigoImovel"));
-                imovel.setTipo(resultSet.getString("tipo"));
-                imovel.setDataCadastro(resultSet.getDate("dataCadastro"));
-                imovel.setValorAlguel(resultSet.getString("valorAluguel"));
-                imovel.setStatus(resultSet.getString("status"));
-                imovel.setLogradouro(resultSet.getString("logradouro"));
-                imovel.setComplemento(resultSet.getString("complemento"));
-                imovel.setCidade(resultSet.getString("cidade"));
-                imovel.setEstado(resultSet.getString("estado"));
-                imovel.setCategoria(resultSet.getString("categoria"));
-                imovel.setNumQuartos(resultSet.getInt("numQuartos"));
-                imovel.setGaragem(resultSet.getString("garagem"));
-                imovel.setCep(resultSet.getString("cep"));
+		try {
+			Statement statement = getConnection().createStatement();
+			ResultSet resultSet = statement.executeQuery(sql);
 
-                listaImovel.add(imovel);
-            }
-        } catch (SQLException e) {
+			while (resultSet.next()) {
+				Imovel imovel = new Imovel();
 
-        } finally {
-            try {
-                ConnectionFactory.getConnection().close();
-            } catch (SQLException ex) {
-                Logger.getLogger(ImplsImovelDAO.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-        
-        return listaImovel;
-    }
+				imovel.setCodigoImovel(resultSet.getInt("codigoImovel"));
+				imovel.setTipo(resultSet.getString("tipo"));
+				imovel.setDataCadastro(resultSet.getDate("dataCadastro"));
+				imovel.setValorAlguel(resultSet.getString("valorAluguel"));
+				imovel.setStatus(resultSet.getString("status"));
+				imovel.setLogradouro(resultSet.getString("logradouro"));
+				imovel.setComplemento(resultSet.getString("complemento"));
+				imovel.setCidade(resultSet.getString("cidade"));
+				imovel.setEstado(resultSet.getString("estado"));
+				imovel.setCategoria(resultSet.getString("categoria"));
+				imovel.setNumQuartos(resultSet.getInt("numQuartos"));
+				imovel.setGaragem(resultSet.getString("garagem"));
+				imovel.setCep(resultSet.getString("cep"));
 
-    @Override
-    public void salvarImovel(Imovel imovel) {
-        String sql = "INSERT INTO postgres (codigoImovel, tipo, dataCadastro, valorAluguel, status, logadouro,"
-                + " complemento, cidade, estado, categoria, numQuartos, garagem, cep) "
-                + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?) RETURNING codigoImovel";
-        int id = -1;
-        try {
-            PreparedStatement stmt = this.connection.prepareStatement(sql);
+				listaImovel.add(imovel);
+			}
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		} finally {
+			getConnection().close();
+		}
 
-            stmt.setInt(1, imovel.getCodigoImovel());
-            stmt.setString(2, imovel.getTipo());
-            stmt.setDate(3, imovel.getDataCadastro());
-            stmt.setString(4, imovel.getValorAlguel());
-            stmt.setString(5, imovel.getStatus());
-            stmt.setString(6, imovel.getLogradouro());
-            stmt.setString(7, imovel.getComplemento());
-            stmt.setString(8, imovel.getCidade());
-            stmt.setString(9, imovel.getEstado());
-            stmt.setString(10, imovel.getCategoria());
-            stmt.setInt(11, imovel.getNumQuartos());
-            stmt.setString(12, imovel.getGaragem());
-            stmt.setString(13, imovel.getCep());
+		return listaImovel;
+	}
 
-            ResultSet rs = stmt.executeQuery();
-            while (rs.next()) {
-                id = rs.getInt(id);
-            }
-        } catch (SQLException e) {
-            System.err.println(e);
-        }
-    }
+	@Override
+	public void salvarImovel(Imovel imovel) {
+		String sql = "INSERT INTO postgres (codigoImovel, tipo, dataCadastro, valorAluguel, status, logadouro,"
+				+ " complemento, cidade, estado, categoria, numQuartos, garagem, cep) "
+				+ "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?) RETURNING codigoImovel";
+		int id = -1;
+		try {
+			PreparedStatement stmt = this.getConnection().prepareStatement(sql);
 
-    @Override
-    public void excluirImovel(int id) {
+			stmt.setInt(1, imovel.getCodigoImovel());
+			stmt.setString(2, imovel.getTipo());
+			stmt.setDate(3, imovel.getDataCadastro());
+			stmt.setString(4, imovel.getValorAlguel());
+			stmt.setString(5, imovel.getStatus());
+			stmt.setString(6, imovel.getLogradouro());
+			stmt.setString(7, imovel.getComplemento());
+			stmt.setString(8, imovel.getCidade());
+			stmt.setString(9, imovel.getEstado());
+			stmt.setString(10, imovel.getCategoria());
+			stmt.setInt(11, imovel.getNumQuartos());
+			stmt.setString(12, imovel.getGaragem());
+			stmt.setString(13, imovel.getCep());
 
-    }
+			ResultSet rs = stmt.executeQuery();
+			while (rs.next()) {
+				id = rs.getInt(id);
+			}
+		} catch (SQLException e) {
+			System.err.println(e);
+		}
+	}
 
-    @Override
-    public void editarImovel(Imovel imovel) {
-        String sql = "UPDATE imovel SET codigoImovel = ?, tipo = ?, dataCadastro = ?, valorAluguel = ?, status = ?, "
-                + "logadouro = ?, complemento = ?, cidade = ?, estado = ?, categoria = ?, numQuartos = ?, "
-                + "garagem = ?, cep = ? WHERE codigoImovel = ?";
+	@Override
+	public void excluirImovel(int id) {
 
-        try {
-            PreparedStatement stmt = this.connection.prepareStatement(sql);
+	}
 
-            stmt.setInt(1, imovel.getCodigoImovel());
-            stmt.setString(2, imovel.getTipo());
-            stmt.setDate(3, imovel.getDataCadastro());
-             stmt.setString(4, imovel.getValorAlguel());
-            stmt.setString(5, imovel.getStatus());
-            stmt.setString(6, imovel.getLogradouro());
-            stmt.setString(7, imovel.getComplemento());
-            stmt.setString(8, imovel.getCidade());
-            stmt.setString(9, imovel.getEstado());
-            stmt.setString(10, imovel.getCategoria());
-            stmt.setInt(11, imovel.getNumQuartos());
-            stmt.setString(12, imovel.getGaragem());
-            stmt.setString(13, imovel.getCep());
+	@Override
+	public void editarImovel(Imovel imovel) {
+		String sql = "UPDATE imovel SET codigoImovel = ?, tipo = ?, dataCadastro = ?, valorAluguel = ?, status = ?, "
+				+ "logadouro = ?, complemento = ?, cidade = ?, estado = ?, categoria = ?, numQuartos = ?, "
+				+ "garagem = ?, cep = ? WHERE codigoImovel = ?";
 
-            stmt.execute();
+		try {
+			PreparedStatement stmt = this.getConnection().prepareStatement(sql);
 
-        } catch (Exception e) {
-            System.err.println(e);
-        }
-    }
+			stmt.setInt(1, imovel.getCodigoImovel());
+			stmt.setString(2, imovel.getTipo());
+			stmt.setDate(3, imovel.getDataCadastro());
+			stmt.setString(4, imovel.getValorAlguel());
+			stmt.setString(5, imovel.getStatus());
+			stmt.setString(6, imovel.getLogradouro());
+			stmt.setString(7, imovel.getComplemento());
+			stmt.setString(8, imovel.getCidade());
+			stmt.setString(9, imovel.getEstado());
+			stmt.setString(10, imovel.getCategoria());
+			stmt.setInt(11, imovel.getNumQuartos());
+			stmt.setString(12, imovel.getGaragem());
+			stmt.setString(13, imovel.getCep());
 
-    @Override
-    public ArrayList<String> getListaCodigoImoveis() {
-        return null;
-    }
+			stmt.execute();
+
+		} catch (Exception e) {
+			System.err.println(e);
+		}
+	}
+
+	@Override
+	public ArrayList<String> getListaCodigoImoveis() {
+		return null;
+	}
+
+	public Connection getConnection() {
+		return connection;
+	}
+
+	public void setConnection(Connection connection) {
+		this.connection = connection;
+	}
 }

@@ -6,6 +6,8 @@
 package br.ufg.inf.alugadm.dao;
 
 import br.ufg.inf.alugadm.model.Imovel;
+
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**
@@ -14,7 +16,7 @@ import java.util.ArrayList;
  */
 public interface ImovelDao {
 
-    public ArrayList<Imovel> getListaImoveis();
+    public ArrayList<Imovel> getListaImoveis() throws SQLException;
     
     public void salvarImovel(Imovel imovel);
 
