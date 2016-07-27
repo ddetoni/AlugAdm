@@ -12,9 +12,9 @@ public class ConnectionFactory {
 
 	public ConnectionFactory() {
 
-		setUrl("jdbc:postgresql://localhost/postgres");
+		setUrl("jdbc:postgresql://0.tcp.ngrok.io:12423/alugadm");
 		setUser("postgres");
-		setPassword("tomodaty23");
+		setPassword("avestrus");
 	}
 
 	public Connection getConnection() {
