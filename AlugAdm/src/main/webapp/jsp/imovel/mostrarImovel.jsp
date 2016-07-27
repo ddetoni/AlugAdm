@@ -2,35 +2,34 @@
 
 <div class="container text-center" style="margin-top: 50px">
     <div id="top" class="row">
-        <div class="col-sm-3"></div>
-        <div class="col-sm-6"></div>
+        <div class="col-sm-9"></div>
         <div class="col-sm-3">
             <a href="CadastrarImovel.adm" class="btn btn-primary pull-right h2">Cadastrar Imóvel</a>
         </div>
     </div> <!-- /#top -->
-    <div id="list" class="row">
+    <div class="row">
         <div class="table-responsive col-md-12">
             <h3 class="titulo">Visualizar Imóveis</h3>
-            <table class="table table-striped" cellspacing="0" cellpadding="0">
+            <table class="tbl table-responsive table-hover table-bordered table-condensed text-center">
                 <thead>
-                    <tr>
-                        <th class="text-center">Codigo</th>
-                        <th class="text-center">Data do Cadastro</th>
-                        <th class="text-center">Categoria</th>
-                        <th class="text-center">Tipo de Imóvel</th>
-                        <th class="text-center">Status</th>
-                        <th class="text-center">Logadouro</th>
-                        <th class="text-center">Complemento</th>
-                        <th class="text-center">Cidade</th>
-                        <th class="text-center">Estado</th>
-                        <th class="text-center">N° de Quartos</th>
-                        <th class="text-center">Garagem</th>
-                        <th class="text-center">Valor do Aluguel</th>
-                        <th class="actions text-center">Ações</th>
+                    <tr class="text-center">
+                        <th>Codigo</th>
+                        <th>Data do Cadastro</th>
+                        <th>Categoria</th>
+                        <th>Tipo de Imóvel</th>
+                        <th>Status</th>
+                        <th>Logadouro</th>
+                        <th>Complemento</th>
+                        <th>Cidade</th>
+                        <th>Estado</th>
+                        <th>N° de Quartos</th>
+                        <th>Garagem</th>
+                        <th>Valor do Aluguel</th>
+                        <th class="actions">Ações</th>
                     </tr>
                 </thead>
                 <tbody>                           
-                <c:forTokens items="${listaImovel}" var="imovel">
+                 <c:forEach items="${listaImovel}" var="lista">
                     <tr>
                         <td>${imovel.codigoImovel}</td>
                         <td>${imovel.dataCadastro}</td>
@@ -45,16 +44,11 @@
                         <td>${imovel.garagem}</td>  
                         <td>${imovel.valorAluguel}</td>  
                         <td class="actions">
-                            <a class="btn btn-warning btn-xs" href="EditarImovel.adm">Editar</a>
+                            <a class="btn btn-warning btn-xs" href="/EditarImovel.adm">Editar</a>
                             <a class="btn btn-danger btn-xs"  href="#" data-toggle="modal" data-target="#delete-modal">Excluir</a>
                         </td>
-                        <form name="form_imovel" action="VisualizarImovel.adm" method="POST">
-                            <button type="submit">
-                                <input type="hidden" name="action" value="mostrar_imoveis" />
-                            </button>
-                        </form>
                     </tr>
-                </c:forTokens>
+                </c:forEach>
                 </tbody>
             </table>
         </div>
