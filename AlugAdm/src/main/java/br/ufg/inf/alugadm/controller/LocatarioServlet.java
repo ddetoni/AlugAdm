@@ -29,18 +29,27 @@ public class LocatarioServlet extends org.apache.struts.action.Action {
 		if (request.getParameter("action") != null) {
 			action = request.getParameter("action");
 		}
-		
-		if(action.equalsIgnoreCase(ACTION_SALVAR)){
-			
+
+		if (action.equalsIgnoreCase(ACTION_SALVAR)) {
+
 			Valores valores = new Valores();
-			
+
 			Locatario locatario = valores.recebeValoresLocatario(request);
 			locatarioDAO.inserir(locatario);
-			
+
 			return mapping.findForward("CadastrarLocatario");
+
+		} else if (action.equalsIgnoreCase(ACTION_EDITAR)) {
+
+			Valores valores = new Valores();
+
+			Locatario locatario = valores.recebeValoresLocatario(request);
+			locatarioDAO.inserir(locatario);
+
+			return mapping.findForward("EditarLocatario");
 		}
-		
+
 		return mapping.findForward("VisualizarImovel");
 	}
-	
+
 }
