@@ -21,7 +21,7 @@
                 </div>
                 <div class="form-group col-md-4">
                     <label>Data de Cadastro</label>
-                    <input type="date" name="data_cadastro" class="form-control">
+                    <input type="text" name="data_cadastro" class="form-control">
                 </div>
                 <div class="form-group col-md-4">
                     <label>Valor Alugel</label>
@@ -95,7 +95,7 @@
         <hr />
         <div class="row">
             <div class="col-md-12">
-                <form name="form_cadastrarImovel" action="SalvarImovel.adm" method="post">
+                <form name="form_salvarImovel" action="SalvarImovel.adm" method="post">
                     <button type="submit" class="btn btn-default">
                         <input type="hidden" name="action" value="salvar" />
                         <span style="vertical-align: middle;">Salvar</span>

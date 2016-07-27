@@ -60,7 +60,7 @@ public class ImovelServlet extends org.apache.struts.action.Action {
             int id = Integer.parseInt(request.getParameter("codigoImovel")); // Pega o id do imovel pela requisição
 
             imovelDAO.excluirImovel(id); // Executa a função de excluir o imovel
-            return mapping.findForward("ExcluirImovel");
+            return mapping.findForward("fwdExcluirImovel");
 
         } 
 
@@ -71,6 +71,7 @@ public class ImovelServlet extends org.apache.struts.action.Action {
             String id = request.getParameter("id");
             String data_cadastro = request.getParameter("data_cadastro");
             String categoria = request.getParameter("categoria");
+            String tipo_imovel = request.getParameter("tipo_imovel");
             String status = request.getParameter("status");
             String logradouro = request.getParameter("logradouro");
             String complemento = request.getParameter("complemento");
@@ -82,22 +83,22 @@ public class ImovelServlet extends org.apache.struts.action.Action {
             String cep = request.getParameter("cep");
 
             // Preenche a instância de Imovel com os dados da view
-            imovel.setId(Integer.parseInt(id));
-            imovel.setData_cadastro(Date.valueOf(data_cadastro));
+            imovel.setId(id);
+            imovel.setData_cadastro(data_cadastro);
             imovel.setCategoria(categoria);
+            imovel.setTipo_imovel(tipo_imovel);
             imovel.setStatus(status);
             imovel.setLogradouro(logradouro);
             imovel.setComplemento(complemento);
             imovel.setCidade(cidade);
             imovel.setEstado(estado);
             imovel.setNum_quartos(num_quartos);
-            imovel.setNum_quartos(num_quartos);
             imovel.setGaragem(garagem);
             imovel.setValor_aluguel(valor_aluguel);
             imovel.setCep(cep);
 
             imovelDAO.salvarImovel(imovel);
-            return mapping.findForward("CadastrarImovel");
+            return mapping.findForward("fwdCadastrarImovel");
 
         }
        
