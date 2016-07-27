@@ -28,14 +28,20 @@ public class Valores {
 		String datanasc = request.getParameter("dataNascimento");
 		locatario.setDataNascimento(datanasc);
 		
-		// tipo pessoa nao existe no jsp
-		// email não existe no jsp
+		String tipopessoa = request.getParameter("tipopessoa");
+		locatario.setTipoPessoa(tipopessoa);
+		
+		String email = request.getParameter("email");
+		locatario.setEmail(email);
 		
 		String telefone = request.getParameter("telefone1");
 		locatario.setTelefone(telefone);
 		
-		// tipo recebimento não existe no jsp
-		// data cadastro nao exinte no jsp
+		String recebimento = request.getParameter("tiporecebimento");
+		locatario.setTipoRecebimento(recebimento);
+		
+		String datacadastro = request.getParameter("datacadastro");
+		locatario.setDataCadastro(datacadastro);
 		
 		String id = request.getParameter("codigoLocatario");
 		locatario.setId(id);

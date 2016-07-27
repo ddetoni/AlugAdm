@@ -39,12 +39,28 @@
                     <input type="date" name="dataNascimento" class="form-control" id="exampleInputEmail1">
                 </div>
                 <div class="form-group col-md-3">
+                    <label for="exampleInputEmail1">Tipo de Pessoa</label>
+                    <input type="date" name="tipopessoa" class="form-control" id="exampleInputEmail1">
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="exampleInputEmail1">email</label>
+                    <input type="date" name="email" class="form-control" id="exampleInputEmail1">
+                </div>
+                <div class="form-group col-md-3">
                     <label for="exampleInputEmail1">Telefone 1</label>
                     <input type="text" name="telefone1" class="form-control" id="exampleInputEmail1">
                 </div>
                 <div class="form-group col-md-3">
                     <label for="exampleInputEmail1">Telefone 2</label>
                     <input type="text" name="telefone2" class="form-control" id="exampleInputEmail1">
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="exampleInputEmail1">Tipo de Recebimento</label>
+                    <input type="text" name="tiporecebimento" class="form-control" id="exampleInputEmail1">
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="exampleInputEmail1">Data de Cadastro</label>
+                    <input type="text" name="datacadastro" class="form-control" id="exampleInputEmail1">
                 </div>
                  <div class="form-group col-md-3">
                     <label for="exampleInputEmail1">Código</label>
@@ -55,7 +71,7 @@
         <hr />
         <div class="row">
             <div class="col-md-12">
-                <button type="submit" class="btn btn-primary">Salvar</button>
+                <button type="submit" class="btn btn-primary" value="salvar_locatario">Salvar</button>
                 <a href="VisualizarLocatario.adm" class="btn btn-default">Cancelar</a>
             </div>
         </div>
