@@ -24,6 +24,7 @@
         <forward name="VisualizarLocatario" path="/VisualizarLocatario.adm"/>
         <forward name="EditarLocatario" path="/EditarLocatario.adm"/>
         <forward name="SalvarLocatario" path="/SalvarLocatario.adm"/>
+        <forward name="SalvarLocatario" path="/jsp/locatario/adicionarLocatario.jsp"/>
         
         <!--LOCACAO-->
         <forward name="VisualizarLocacao" path="/VisualizarLocacao.adm"/>
