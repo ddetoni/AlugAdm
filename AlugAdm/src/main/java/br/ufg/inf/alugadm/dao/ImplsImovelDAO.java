@@ -73,15 +73,15 @@ public class ImplsImovelDAO{
         return false;
     }
 
-    public void salvarImovel(Imovel imovel) {
+    public void salvarImovel(Imovel imovel) throws SQLException {
         String id = imovel.getId();
         boolean exist = linhaExiste(id);
-
         if (!exist) {
             String sql = "INSERT INTO imovel (id, data_cadastro, categoria, tipo_imovel, status, logradouro, complemento, cidade, estado, num_quartos, garagem, valor_aluguel, cep VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
-
+            
+            PreparedStatement stmt = this.connection.prepareStatement(sql);
             try {
-                PreparedStatement stmt = this.connection.prepareStatement(sql);
+                
                 stmt.setString(1, imovel.getId());
                 stmt.setString(2, imovel.getData_cadastro());
                 stmt.setString(3, imovel.getCategoria());

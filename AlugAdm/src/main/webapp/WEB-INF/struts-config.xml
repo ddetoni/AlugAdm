@@ -25,15 +25,15 @@
         <forward name="SalvarLocatario" path="/SalvarLocatario.adm"/>
         
         <!--LOCACAO-->
-        <forward name="VisualizarLocacao" path="/VisualizarLocacao.adm"/>
-        <forward name="RealizarLocacao" path="/RealizarLocacao.adm"/>
-        <forward name="SalvarLocacao" path="/SalvarLocacao.adm"/>
+        <forward name="RealizarLocacao" path="/jsp/locacao/informarLocacao.jsp"/>
+        <forward name="SalvarLocacao" path="/jsp/locacao/informarLocacao.jsp"/>
+        <forward name="EditarLocacao" path="/jsp/locacao/editarLocacao.jsp"/>
         
     </global-forwards>
    
     <action-mappings>
         
-         <!--IMOVEL--> 
+        <!--IMOVEL--> 
         <action path="/CadastrarImovel" type="br.ufg.inf.alugadm.controller.ImovelServlet" />
         <action path="/VisualizarImovel" type="br.ufg.inf.alugadm.controller.ImovelServlet"/>
         <action path="/EditarImovel" type="br.ufg.inf.alugadm.controller.ImovelServlet"/>
@@ -45,11 +45,10 @@
         <action path="/EditarLocatario" forward="/jsp/locatario/editarLocatario.jsp"/>
         <action path="/SalvarLocatario" forward="/jsp/locatario/editarLocatario.jsp"/>
 
-          <!--LOCACAO-->
-        <action path="/SalvarLocatario" forward="/jsp/imovel/mostrarLocatario.jsp"/>
-        <action path="/VisualizarLocacao" forward="/index.jsp"/>
-        <action path="/RealizarLocacao" forward="/jsp/locacao/informarLocacao.jsp"/>
-        <action path="/SalvarLocacao" forward="/index.jsp"/>
+        <!--LOCACAO-->
+        <action path="/RealizarLocacao" type="br.ufg.inf.alugadm.controller.LocacaoServlet" />
+        <action path="/EditarLocacao" type="br.ufg.inf.alugadm.controller.LocacaoServlet"/>
+        <action path="/SalvarLocacao" type="br.ufg.inf.alugadm.controller.LocacaoServlet"/>
         
     </action-mappings>
     

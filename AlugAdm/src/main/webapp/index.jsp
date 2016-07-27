@@ -26,14 +26,20 @@
                     <ul class="nav navbar-nav navbar-right">
                         <li>
                             <form name="form_visualizarImovel" action="VisualizarImovel.adm" method="post">
-                                <button type="submit" class="btn btn-info">
+                                <a type="submit" class="btn btn-info">
                                     <input type="hidden" name="action" value="mostrar_imoveis" />
                                     <span style="vertical-align: middle;">Visualizar Imovel</span>
-                                </button>
+                                </a>
                             </form>
                             <!--<a href="VisualizarImovel.adm" style="color: #fff;">Visualizar Imóveis</a>-->
                         </li>
-                        <li><a href="VisualizarLocatario.adm" style="color: #fff;">Visualizar Locatários</a></li>
+                        <form name="form_visualizarImovel" action="VisualizarImovel.adm" method="post">
+                            <a type="submit" class="btn btn-info">
+                                <input type="hidden" name="action" value="mostrar_imoveis" />
+                                <span style="vertical-align: middle;">Visualizar Imovel</span>
+                            </a>
+                        </form>
+                        <!--<li><a href="VisualizarLocatario.adm" style="color: #fff;">Visualizar Locatários</a></li>-->
                     </ul>
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
@@ -55,7 +61,13 @@
                     </div>
                 </div>
                 <div class="col-sm-3">
-                    <a href="RealizarLocacao.adm" class="btn btn-primary pull-right h2">Informar Locação</a>
+                    <form action="RealizarLocacao.adm" method="post">
+                        <a type="submit" class="btn btn-info">
+                            <input type="hidden" name="action" value="cadastrar" />
+                            <span style="vertical-align: middle;">Informar Locação</span>
+                        </a>
+                    </form>
+                    <!--<a href="RealizarLocacao.adm" class="btn btn-primary pull-right h2">Informar Locação</a>-->
                 </div>
             </div> <!-- /#top -->
             <hr />
