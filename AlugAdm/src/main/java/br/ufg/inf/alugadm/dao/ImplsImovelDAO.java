@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class ImplsImovelDAO implements ImovelDao {
+public class ImplsImovelDAO{
 
     private final Connection connection;
     private ArrayList<Imovel> linhaImovel;
@@ -23,39 +23,35 @@ public class ImplsImovelDAO implements ImovelDao {
         this.connection = ConnectionFactory.getConnection();
     }
 
-    @Override
-    public ArrayList<Imovel> getListaImoveis() {
-        String sql = "SELECT * FROM imovel";
-        linhaImovel = new ArrayList<Imovel>();
+    public ArrayList<Imovel> getListaImoveis() throws SQLException {
+    linhaImovel = new ArrayList<Imovel>();
+        sql = "SELECT id, data_cadastro, categoria, tipo_imovel, status, logradouro,complemento, cidade, estado, num_quartos, garagem,"
+                + " valor_aluguel, cep FROM imovel";
 
-        try {
-            Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery(sql);
+        PreparedStatement stmt = this.connection.prepareStatement(sql);
+        ResultSet rs = stmt.executeQuery();
 
-            while (resultSet.next()) {
-                imovel = new Imovel();
-
-                imovel.setId(resultSet.getInt("codigoImovel"));
-                imovel.setData_cadastro(resultSet.getDate("tipo"));
-                imovel.setCategoria(resultSet.getString("dataCadastro"));
-                imovel.setTipo_imovel(resultSet.getString("valorAluguel"));
-                imovel.setStatus(resultSet.getString("status"));
-                imovel.setLogradouro(resultSet.getString("logradouro"));
-                imovel.setComplemento(resultSet.getString("complemento"));
-                imovel.setCidade(resultSet.getString("cidade"));
-                imovel.setEstado(resultSet.getString("estado"));
-                imovel.setNum_quartos(resultSet.getString("categoria"));
-                imovel.setGaragem(resultSet.getString("numQuartos"));
-                imovel.setValor_aluguel(resultSet.getString("garagem"));
-                imovel.setCep(resultSet.getString("cep"));
-
-                linhaImovel.add(imovel);
-            }
-        } catch (SQLException e) {
-            Logger.getLogger(ImplsImovelDAO.class.getName()).log(Level.SEVERE, null, e);
+        while (rs.next()) {
+            imovel = new Imovel();
+            
+            imovel.setId(rs.getInt("id"));
+            imovel.setData_cadastro(rs.getDate("data_cadastro"));
+            imovel.setCategoria(rs.getString("categoria"));
+            imovel.setTipo_imovel(rs.getString("tipo_imovel"));
+            imovel.setStatus(rs.getString("status"));
+            imovel.setLogradouro(rs.getString("logradouro"));
+            imovel.setComplemento(rs.getString("complemento"));
+            imovel.setCidade(rs.getString("cidade"));
+            imovel.setEstado(rs.getString("estado"));
+            imovel.setNum_quartos(rs.getString("num_quartos"));
+            imovel.setGaragem(rs.getString("garagem"));
+            imovel.setValor_aluguel(rs.getString("valor_aluguel"));
+            imovel.setCep(rs.getString("cep"));
+            
+            linhaImovel.add(imovel);
         }
 
-        return linhaImovel;
+        return linhaImovel;    
     }
 
     public boolean linhaExiste(int id) {
@@ -77,7 +73,6 @@ public class ImplsImovelDAO implements ImovelDao {
         return false;
     }
 
-    @Override
     public void salvarImovel(Imovel imovel) {
         int id = imovel.getId();
         boolean exist = linhaExiste(id);
@@ -136,12 +131,6 @@ public class ImplsImovelDAO implements ImovelDao {
         }
     }
 
-    @Override
-    public void excluirImovel(int id) {
-
-    }
-
-    @Override
     public void editarImovel(Imovel imovel) {
         String sql = "UPDATE alugadm SET id=?, data_cadastro=?, categoria=?, tipo_imovel=?, status=?, logradouro=?, "
                 + "complemento=?, cidade=?, estado=?, num_quartos=?, garagem=?, valor_alguel=?, cep=?";
@@ -167,7 +156,6 @@ public class ImplsImovelDAO implements ImovelDao {
         }
     }
 
-    @Override
     public ArrayList<String> getListaCodigoImoveis() {
         String sql = "SELECT * FROM imovel";
         linhaCodigo = new ArrayList<String>();
@@ -187,5 +175,9 @@ public class ImplsImovelDAO implements ImovelDao {
         }
 
         return linhaCodigo;
+    }
+
+    public void excluirImovel(int id) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

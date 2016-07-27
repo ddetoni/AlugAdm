@@ -1,9 +1,7 @@
 package br.ufg.inf.alugadm.controller;
 
-import br.ufg.inf.alugadm.dao.ImovelDao;
 import br.ufg.inf.alugadm.dao.ImplsImovelDAO;
 import br.ufg.inf.alugadm.model.Imovel;
-import java.sql.Date;
 import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -29,7 +27,7 @@ public class ImovelServlet extends org.apache.struts.action.Action {
             throws Exception {
 
         // Inicializa as variáveis que serão constantemente usadas nesse servlet
-        ImovelDao imovelDAO = new ImplsImovelDAO(); // DAO de Imovel
+        ImplsImovelDAO imovelDAO = new ImplsImovelDAO();
         String action = "";// Action que servirá de controle para qual método será executado
 
         if (request.getParameter("action") != null) { // Caso a action seja diferente de null ...
@@ -123,7 +121,7 @@ public class ImovelServlet extends org.apache.struts.action.Action {
             ArrayList<String> listaCodigoImovel = new ArrayList<String>();
             listaCodigoImovel = imovelDAO.getListaCodigoImoveis();
             request.setAttribute("listaCodigoImovel", listaCodigoImovel);
-            return mapping.findForward("VisualizarCodigo");
+            return mapping.findForward("fwdVisualizarCodigo");
         }
 
         ArrayList<Imovel> listaImovel = new ArrayList<Imovel>();
