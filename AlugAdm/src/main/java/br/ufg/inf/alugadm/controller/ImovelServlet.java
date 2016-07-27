@@ -1,9 +1,7 @@
 package br.ufg.inf.alugadm.controller;
 
-import br.ufg.inf.alugadm.dao.ImovelDao;
 import br.ufg.inf.alugadm.dao.ImplsImovelDAO;
 import br.ufg.inf.alugadm.model.Imovel;
-import java.sql.Date;
 import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -20,7 +18,7 @@ public class ImovelServlet extends org.apache.struts.action.Action {
     private static final String ACTION_SALVAR = "salvar";
     private static final String ACTION_EXCLUIR = "excluir";
     private static final String ACTION_EDITAR = "editar";
-    private static final String ACTION_MOSTRAR = "mostrar_imoveis";
+    private static final String ACTION_MOSTRAR_IMOVEIS = "mostrar_imoveis";
     private static final String ACTION_CODIGOS = "codigos";
 
     @Override
@@ -29,7 +27,7 @@ public class ImovelServlet extends org.apache.struts.action.Action {
             throws Exception {
 
         // Inicializa as variáveis que serão constantemente usadas nesse servlet
-        ImovelDao imovelDAO = new ImplsImovelDAO(); // DAO de Imovel
+        ImplsImovelDAO imovelDAO = new ImplsImovelDAO();
         String action = "";// Action que servirá de controle para qual método será executado
 
         if (request.getParameter("action") != null) { // Caso a action seja diferente de null ...
@@ -112,18 +110,18 @@ public class ImovelServlet extends org.apache.struts.action.Action {
 //
 //        } 
 //        
-        if (action.equalsIgnoreCase(ACTION_MOSTRAR)) {
+        if (action.equalsIgnoreCase(ACTION_MOSTRAR_IMOVEIS)) {
             ArrayList<Imovel> listaImovel = imovelDAO.getListaImoveis();
             request.setAttribute("listaImovel", listaImovel);
+            
             return mapping.findForward("fwdVisualizarImovel");
-
         }
         
         if (action.equalsIgnoreCase(ACTION_CODIGOS)) {
             ArrayList<String> listaCodigoImovel = new ArrayList<String>();
             listaCodigoImovel = imovelDAO.getListaCodigoImoveis();
             request.setAttribute("listaCodigoImovel", listaCodigoImovel);
-            return mapping.findForward("VisualizarCodigo");
+            return mapping.findForward("fwdVisualizarCodigo");
         }
 
         ArrayList<Imovel> listaImovel = new ArrayList<Imovel>();

@@ -16,7 +16,6 @@
     </properties>
 
     <dependencies>
-
         <dependency>
             <groupId>org.apache.struts</groupId>
             <artifactId>struts-core</artifactId>
@@ -76,6 +75,7 @@
             <version>10.12.1.1</version>
             <type>jar</type>
         </dependency>
+        
         <dependency>
             <groupId>javax</groupId>
             <artifactId>javaee-web-api</artifactId>
@@ -88,14 +88,26 @@
             <artifactId>postgresql</artifactId>
             <version>9.1-901.jdbc4</version>
         </dependency>
+        
+<!--        <dependency>
+            <groupId>com.sun.faces</groupId>
+            <artifactId>jsf-api</artifactId>
+            <version>2.2.13</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>com.sun.faces</groupId>
+            <artifactId>jsf-impl</artifactId>
+            <version>2.2.13</version>
+        </dependency>-->
 
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>jstl</artifactId>
-            <version>1.2</version>
+            <version>1.1.2</version>
         </dependency>
 
-		
+
     </dependencies>
 
     <build>
@@ -148,5 +160,4 @@
             </plugin>
         </plugins>
     </build>
-
 </project>

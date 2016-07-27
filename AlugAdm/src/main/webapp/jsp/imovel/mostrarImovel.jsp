@@ -4,7 +4,13 @@
     <div id="top" class="row">
         <div class="col-sm-9"></div>
         <div class="col-sm-3">
-            <a href="CadastrarImovel.adm" class="btn btn-primary pull-right h2">Cadastrar Imóvel</a>
+            <form name="form_cadastrarImovel" action="/CadastrarImovel.adm" method="post">
+                <button type="submit" class="btn btn-info">
+                    <input type="hidden" name="action" value="mostrar_imovel" />
+                    <span style="vertical-align: middle;">Cadastrar Imovel</span>
+                </button>
+            </form>
+            <!--<a href="CadastrarImovel.adm" class="btn btn-primary pull-right h2">Cadastrar Imóvel</a>-->
         </div>
     </div> <!-- /#top -->
     <div class="row">
@@ -28,27 +34,27 @@
                         <th class="actions">Ações</th>
                     </tr>
                 </thead>
-                <tbody>                           
-                 <c:forEach items="${listaImovel}" var="lista">
-                    <tr>
-                        <td>${imovel.codigoImovel}</td>
-                        <td>${imovel.dataCadastro}</td>
-                        <td>${imovel.categoria}</td>
-                        <td>${imovel.tipoImovel}</td>
-                        <td>${imovel.status}</td>
-                        <td>${imovel.logadouro}</td>
-                        <td>${imovel.complemento}</td>
-                        <td>${imovel.cidade}</td>
-                        <td>${imovel.estado}</td>
-                        <td>${imovel.numQuartos}</td>  
-                        <td>${imovel.garagem}</td>  
-                        <td>${imovel.valorAluguel}</td>  
-                        <td class="actions">
-                            <a class="btn btn-warning btn-xs" href="/EditarImovel.adm">Editar</a>
-                            <a class="btn btn-danger btn-xs"  href="#" data-toggle="modal" data-target="#delete-modal">Excluir</a>
-                        </td>
-                    </tr>
-                </c:forEach>
+                <tbody>     
+                    <c:forEach items="${listaImovel}" var="imovel">
+                        <tr>
+                            <td>${imovel.codigoImovel}</td>
+                            <td>${imovel.dataCadastro}</td>
+                            <td>${imovel.categoria}</td>
+                            <td>${imovel.tipoImovel}</td>
+                            <td>${imovel.status}</td>
+                            <td>${imovel.logadouro}</td>
+                            <td>${imovel.complemento}</td>
+                            <td>${imovel.cidade}</td>
+                            <td>${imovel.estado}</td>
+                            <td>${imovel.numQuartos}</td>  
+                            <td>${imovel.garagem}</td>  
+                            <td>${imovel.valorAluguel}</td>  
+                            <td class="actions">
+                                <a class="btn btn-warning btn-xs" href="/EditarImovel.adm">Editar</a>
+                                <a class="btn btn-danger btn-xs"  href="#" data-toggle="modal" data-target="#delete-modal">Excluir</a>
+                            </td>
+                        </tr>
+                    </c:forEach>
                 </tbody>
             </table>
         </div>

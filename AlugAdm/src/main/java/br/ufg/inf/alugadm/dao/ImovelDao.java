@@ -6,7 +6,6 @@
 package br.ufg.inf.alugadm.dao;
 
 import br.ufg.inf.alugadm.model.Imovel;
-
 import java.sql.SQLException;
 import java.util.ArrayList;
 
