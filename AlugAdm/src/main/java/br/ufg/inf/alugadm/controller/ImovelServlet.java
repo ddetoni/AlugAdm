@@ -20,7 +20,7 @@ public class ImovelServlet extends org.apache.struts.action.Action {
     private static final String ACTION_SALVAR = "salvar";
     private static final String ACTION_EXCLUIR = "excluir";
     private static final String ACTION_EDITAR = "editar";
-    private static final String ACTION_MOSTRAR = "mostrar";
+    private static final String ACTION_MOSTRAR = "mostrar_imoveis";
     private static final String ACTION_CODIGOS = "codigos";
 
     @Override

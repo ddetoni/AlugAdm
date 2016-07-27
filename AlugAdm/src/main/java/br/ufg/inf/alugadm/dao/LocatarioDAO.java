@@ -1,21 +1,12 @@
 package br.ufg.inf.alugadm.dao;
 
-import br.ufg.inf.alugadm.model.Locatario;
-import java.util.ArrayList;
+import java.sql.SQLException;
 
-/**
- *
- * @author gustavosotnas
- */
+import br.ufg.inf.alugadm.model.Locatario;
+
 public interface LocatarioDAO {
 
-    public void salvarLocatario(Locatario locatario);
-    
-    public void editarLocatario(Locatario locatario);
-    
-    public ArrayList<Locatario> getListaLocatarios();
-
-    public ArrayList<String> getListaCodigoLocatarios();
-    
-    public void excluirLocatario(int id);
+	public void inserir(Locatario locatario) throws SQLException;
+	
+	public void editar(Locatario locatario) throws SQLException;
 }

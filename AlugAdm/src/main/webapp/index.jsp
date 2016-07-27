@@ -19,14 +19,13 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="/AlugAdm">AlugAdm</a>
+                    <a class="navbar-brand icon" href="/AlugAdm" style="color: #fff;" alt="AlugAdm"><img src="icon.svg"></a>
                 </div>
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse menu" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="VisualizarImovel.adm">Visualizar Imóveis</a></li>
-                        <li><a href="VisualizarLocatario.adm">Visualizar Locatários</a></li>
-                        <li><a href="Logout.adm">Sair</a></li>
+                        <li><a href="VisualizarImovel.adm" style="color: #fff;">Visualizar Imóveis</a></li>
+                        <li><a href="VisualizarLocatario.adm" style="color: #fff;">Visualizar Locatários</a></li>
                     </ul>
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->

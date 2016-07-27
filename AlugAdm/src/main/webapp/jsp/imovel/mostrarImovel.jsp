@@ -1,13 +1,9 @@
 <%@include file="/jsp/defaut/topo.jsp" %>
 
-<div id="main" class="container text-center" style="margin-top: 50px">
+<div class="container text-center" style="margin-top: 50px">
     <div id="top" class="row">
-        <div class="col-sm-3">
-
-        </div>
-        <div class="col-sm-6">
-
-        </div>
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6"></div>
         <div class="col-sm-3">
             <a href="CadastrarImovel.adm" class="btn btn-primary pull-right h2">Cadastrar Imóvel</a>
         </div>
@@ -52,12 +48,17 @@
                             <a class="btn btn-warning btn-xs" href="EditarImovel.adm">Editar</a>
                             <a class="btn btn-danger btn-xs"  href="#" data-toggle="modal" data-target="#delete-modal">Excluir</a>
                         </td>
+                        <form name="form_imovel" action="VisualizarImovel.adm" method="POST">
+                            <button type="submit">
+                                <input type="hidden" name="action" value="mostrar_imoveis" />
+                            </button>
+                        </form>
                     </tr>
                 </c:forTokens>
                 </tbody>
             </table>
         </div>
-    </div> <!-- /#list -->
+    </div> 
     <!--            <div id="bottom" class="row">
                     <div class="col-md-12">
                         <ul class="pagination">
@@ -68,8 +69,7 @@
                         </ul> /.pagination 
                     </div>
                 </div>  /#bottom -->
-</div> <!-- /#main -->
-<!-- Modal -->
+</div>
 <div action="" class="modal fade" id="delete-modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel">
     <div class="modal-dialog" role="document">
         <div class="modal-content">

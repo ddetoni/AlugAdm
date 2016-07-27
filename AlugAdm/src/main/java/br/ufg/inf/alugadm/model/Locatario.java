@@ -13,13 +13,15 @@ public class Locatario {
 
     private String nome;
     private String cpf;
-    private String rg;
-    private String orgao;
+    private String identidade, orgao;
     private String sexo;
     private String dataNascimento;
-    private String telefone1;
-    private String telefone2;
-    private String codigoLocatario;
+    private String tipoPessoa;
+    private String email;
+    private String telefone;
+    private String tipoRecebimento;
+    private String dataCadastro;
+    private String id;
 
     public String getNome() {
         return nome;
@@ -37,12 +39,12 @@ public class Locatario {
         this.cpf = cpf;
     }
 
-    public String getRg() {
-        return rg;
+    public String getIdentidade() {
+        return identidade;
     }
 
-    public void setRg(String rg) {
-        this.rg = rg;
+    public void setIdentidade(String identidade) {
+        this.identidade = identidade;
     }
 
     public String getOrgao() {
@@ -69,28 +71,53 @@ public class Locatario {
         this.dataNascimento = dataNascimento;
     }
 
-    public String getTelefone1() {
-        return telefone1;
+    public String getTipoPessoa() {
+        return tipoPessoa;
     }
 
-    public void setTelefone1(String telefone1) {
-        this.telefone1 = telefone1;
+    public void setTipoPessoa(String tipoPessoa) {
+        this.tipoPessoa = tipoPessoa;
     }
 
-    public String getTelefone2() {
-        return telefone2;
+    public String getEmail() {
+        return email;
     }
 
-    public void setTelefone2(String telefone2) {
-        this.telefone2 = telefone2;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public String getCodigoLocatario() {
-        return codigoLocatario;
+    public String getTelefone() {
+        return telefone;
     }
 
-    public void setCodigoLocatario(String codigoLocatario) {
-        this.codigoLocatario = codigoLocatario;
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
     }
 
+    public String getTipoRecebimento() {
+        return tipoRecebimento;
+    }
+
+    public void setTipoRecebimento(String tipoRecebimento) {
+        this.tipoRecebimento = tipoRecebimento;
+    }
+
+    public String getDataCadastro() {
+        return dataCadastro;
+    }
+
+    public void setDataCadastro(String dataCadastro) {
+        this.dataCadastro = dataCadastro;
+    }
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+    
+    
 }
