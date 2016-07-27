@@ -41,7 +41,7 @@
         <action path="/SalvarImovel" type="br.ufg.inf.alugadm.controller.ImovelServlet"/>
         
         <!--LOCATARIO-->  
-        <action path="/CadastrarLocatario" type="br.ufg.inf.alugadm.controller.LocatarioServlet" forward="/jsp/locatario/adicionarLocatario.jsp"/>
+        <action path="/CadastrarLocatario" type="br.ufg.inf.alugadm.controller.LocatarioServlet"/>
         <action path="/VisualizarLocatario" forward="/jsp/locatario/mostrarLocatario.jsp"/>
         <action path="/CadastrarEditarLocatarioRedir" forward="/jsp/locatario/editarLocatario.jsp"/>
         <action path="/SalvarLocatario" type="br.ufg.inf.alugadm.controller.LocatarioServlet"/>
