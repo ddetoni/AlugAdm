@@ -1,52 +1,30 @@
 package br.ufg.inf.alugadm.persistence;
 
-import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class ConnectionFactory {
 
-	private String url;
-	private String user;
-	private String password;
+    private static java.sql.Connection connection = null;
 
-	public ConnectionFactory() {
+    public ConnectionFactory() throws SQLException, ClassNotFoundException {
+        Class.forName("org.postgresql.Driver");
+//        connection = DriverManager.getConnection("jdbc:postgresql://0.tcp.ngrok.io:12423/alugadm, "postgres", "avestrus");
+        connection = DriverManager.getConnection("jdbc:postgresql://localhost/alugadm", "postgres", "post123");
+    }
 
-		setUrl("jdbc:postgresql://0.tcp.ngrok.io:12423/alugadm");
-		setUser("postgres");
-		setPassword("avestrus");
-	}
+    public static java.sql.Connection getConnection() throws SQLException {
+        if (connection == null) {
+            try {
+                new ConnectionFactory();
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(ConnectionFactory.class.getName()).log(
+                        Level.SEVERE, null, ex);
+            }
+        }
 
-	public Connection getConnection() {
-
-		try {
-			return DriverManager.getConnection(getUrl(), getUser(), getPassword());
-		} catch (SQLException e) {
-			throw new RuntimeException(e);
-		}
-	}
-
-	public String getUrl() {
-		return url;
-	}
-
-	public void setUrl(String url) {
-		this.url = url;
-	}
-
-	public String getUser() {
-		return user;
-	}
-
-	public void setUser(String user) {
-		this.user = user;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
+        return connection;
+    }
 }

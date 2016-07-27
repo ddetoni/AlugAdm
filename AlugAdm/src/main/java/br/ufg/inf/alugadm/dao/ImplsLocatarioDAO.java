@@ -11,9 +11,9 @@ public class ImplsLocatarioDAO implements LocatarioDAO {
 
 	private Connection connection;
 
-	public ImplsLocatarioDAO() {
+	public ImplsLocatarioDAO() throws SQLException {
 
-		this.connection = new ConnectionFactory().getConnection();
+		this.connection = ConnectionFactory.getConnection();
 	}
 
 	@Override

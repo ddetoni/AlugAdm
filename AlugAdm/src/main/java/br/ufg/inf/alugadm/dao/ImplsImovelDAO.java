@@ -15,8 +15,8 @@ public class ImplsImovelDAO implements ImovelDao {
 
 	private Connection connection;
 
-	public ImplsImovelDAO() {
-		this.connection = new ConnectionFactory().getConnection();
+	public ImplsImovelDAO() throws SQLException {
+		this.connection = ConnectionFactory.getConnection();
 	}
 
 	@Override
