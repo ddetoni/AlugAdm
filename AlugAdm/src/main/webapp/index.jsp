@@ -24,16 +24,23 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse menu" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-right">
-                        <li>
-                            <form name="form_visualizarImovel" action="VisualizarImovel.adm" method="post">
-                                <button type="submit" class="btn btn-info">
-                                    <input type="hidden" name="action" value="mostrar_imoveis" />
-                                    <span style="vertical-align: middle;">Visualizar Imovel</span>
-                                </button>
-                            </form>
-                            <!--<a href="VisualizarImovel.adm" style="color: #fff;">Visualizar Imóveis</a>-->
-                        </li>
-                        <li><a href="VisualizarLocatario.adm" style="color: #fff;">Visualizar Locatários</a></li>
+                        <!--                        <li>
+                                                    <form name="form_visualizarImovel" action="VisualizarImovel.adm" method="post">
+                                                        <button type="submit" class="btn btn-info">
+                                                            <input type="hidden" name="action" value="mostrar_imoveis" />
+                                                            <span style="vertical-align: middle;">Visualizar Imovel</span>
+                                                        </button>
+                                                    </form>
+                                                    <a href="VisualizarImovel.adm" style="color: #fff;">Visualizar Imóveis</a>
+                                                </li>-->
+                        <li><a href="VisualizarLocacao.adm" style="color: #fff;">Locações</a></li>
+                        <li><a href="VisualizarImovel.adm" style="color: #fff;">Imóveis</a></li>
+                        <li><a href="VisualizarLocatario.adm" style="color: #fff;">Locatários</a></li>
+                        <li><a href="VisualizarFinanceiro.adm" style="color: #fff;">Financeiro</a></li>
+                        <li><a href="VisualizarSessao.adm" style="color: #fff;">Sair</a></li>
+                        <!--<li><a href="VisualizarFinanceiro.adm" style="color: #fff;">CRM</a></li> Módulo de CRMMódulo responsável pelo histórico de contatos e informações do relacionamento com clientes e fornecedores. Funcionalidade 
+                                                                          como agenda mensal e semanal de assuntos por atendente, 
+                                                               administração de propostas comerciais, entre outras funcionalidades-->
                     </ul>
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->

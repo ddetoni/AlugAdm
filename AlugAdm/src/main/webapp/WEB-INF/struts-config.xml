@@ -30,6 +30,16 @@
         <forward name="RealizarLocacao" path="/RealizarLocacao.adm"/>
         <forward name="SalvarLocacao" path="/SalvarLocacao.adm"/>
         
+        <!--Financeiro-->
+        <forward name="VisualizarFinanceiro" path="/VisualizarFinanceiro.adm"/>
+        <forward name="Calculadora" path="/Calculadora.adm"/>
+        <forward name="CalcularCusto" path="/CalcularCusto.adm"/>
+        <forward name="CalcularJuros" path="/CalcularJuros.adm"/>
+        <forward name="CalcularRetorno" path="/CalcularRetorno.adm"/>
+ 
+        <!--Sessao-->
+        <action name="VisualizarSessao" path="/VisualizarSessao.adm"/>
+        
     </global-forwards>
    
     <action-mappings>
@@ -50,6 +60,16 @@
         <action path="/VisualizarLocacao" forward="/index.jsp"/>
         <action path="/RealizarLocacao" forward="/jsp/locacao/informarLocacao.jsp"/>
         <action path="/SalvarLocacao" forward="/index.jsp"/>
+        
+        <!-- Financeito-->
+        <action path="/VisualizarFinanceiro" forward="/jsp/financeiro/Financeiro.jsp"/>
+        <action path="/Calculadora" forward="/jsp/financeiro/CalculadoraSimples.jsp"/>
+        <action path="/CalcularCusto" forward="/jsp/financeiro/CalculadoraCusto.jsp"/>
+        <action path="/CalcularJuros" forward="/jsp/financeiro/CalculadoraJuros.jsp"/>
+        <action path="/CalcularRetorno" forward="/jsp/financeiro/CalculadoraRetornoInvest.jsp"/>
+
+        <!--Sessao-->
+        <action path="/VisualizarSessao" forward="/jsp/defaut/sair.jsp"/>
         
     </action-mappings>
     

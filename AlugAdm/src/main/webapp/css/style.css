@@ -9,3 +9,49 @@
 .titulo{
     color: #265a88;
 }
+
+.cal-icon{
+    background: url('../img/cal-icon.png')  no-repeat;
+    width: 100px; 
+    height: 100px;
+    border: none;
+}
+
+.invest-icon{
+    background: url('../img/invest-icon.png')  no-repeat;
+    width: 100px; 
+    height: 100px;
+    border: none;
+}
+
+.custo-icon{
+    background: url('../img/custo-icon.png')  no-repeat;
+    width: 100px; 
+    height: 100px;
+    border: none;
+}
+
+.juros-icon{
+    background: url('../img/juros-icon.png')  no-repeat;
+    width: 100px; 
+    height: 100px;
+    border: none;
+}
+
+#btn-calcula{
+    color: #fff;
+    background-color: #161b88;
+    border-color: #fff;
+    height: 40px;
+    width: 90px;
+    font-size: 19px;
+}
+
+#btn-limpar{
+    color: #fff;
+    background-color: #161b88;
+    border-color: #fff;
+    height: 40px;
+    width: 90px;
+    font-size: 19px;
+}

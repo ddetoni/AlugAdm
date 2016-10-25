@@ -15,7 +15,7 @@
     <body>
         <nav class="navbar navbar-default topo">
             <div class="container-fluid">
-                 <div class="navbar-header">
+                <div class="navbar-header">
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
                         <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span>
@@ -27,9 +27,11 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse menu" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="VisualizarLocacao.adm" style="color: #fff;">Visualizar Locações Ativas</a></li>
-                        <li><a href="VisualizarImovel.adm" style="color: #fff;">Visualizar Imóveis</a></li>
-                        <li><a href="VisualizarLocatario.adm" style="color: #fff;">Visualizar Locatários</a></li>
+                        <li><a href="VisualizarLocacao.adm" style="color: #fff;">Locações</a></li>
+                        <li><a href="VisualizarImovel.adm" style="color: #fff;">Imóveis</a></li>
+                        <li><a href="VisualizarLocatario.adm" style="color: #fff;">Locatários</a></li>
+                        <li><a href="VisualizarFinanceiro.adm" style="color: #fff;">Financeiro</a></li>
+                        <li><a href="VisualizarSessao.adm" style="color: #fff;">Sair</a></li>
                     </ul>
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
