@@ -1,8 +1,8 @@
-package br.ufg.inf.alugadm.dao;
+package dao;
 
 import java.sql.SQLException;
 
-import br.ufg.inf.alugadm.model.Locatario;
+import model.Locatario;
 import java.util.ArrayList;
 
 public interface LocatarioDAO {

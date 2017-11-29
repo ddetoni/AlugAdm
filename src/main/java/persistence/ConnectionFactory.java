@@ -1,4 +1,4 @@
-package br.ufg.inf.alugadm.persistence;
+package persistence;
 
 import java.sql.DriverManager;
 import java.sql.SQLException;

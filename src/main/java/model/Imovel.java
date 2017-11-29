@@ -1,6 +1,4 @@
-package br.ufg.inf.alugadm.model;
-
-import java.sql.Date;
+package model;
 
 public class Imovel {
 

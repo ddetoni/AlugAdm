@@ -1,8 +1,7 @@
-package br.ufg.inf.alugadm.controller;
+package controller;
 
-import br.ufg.inf.alugadm.dao.ImplsImovelDAO;
-import br.ufg.inf.alugadm.model.Imovel;
-import java.sql.Date;
+import dao.ImplsImovelDAO;
+import model.Imovel;
 import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

@@ -1,11 +1,10 @@
-package br.ufg.inf.alugadm.dao;
+package dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-
-import br.ufg.inf.alugadm.model.Locatario;
-import br.ufg.inf.alugadm.persistence.ConnectionFactory;
+import model.Locatario;
+import persistence.ConnectionFactory;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;

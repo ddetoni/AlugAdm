@@ -1,17 +1,14 @@
-package br.ufg.inf.alugadm.controller;
+package controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
-
-import br.ufg.inf.alugadm.dao.ImplsLocatarioDAO;
-import br.ufg.inf.alugadm.dao.LocatarioDAO;
-import br.ufg.inf.alugadm.model.Imovel;
-import br.ufg.inf.alugadm.model.Locatario;
+import dao.ImplsLocatarioDAO;
+import dao.LocatarioDAO;
 import java.util.ArrayList;
+import model.Locatario;
 
 public class LocatarioServlet extends org.apache.struts.action.Action {
 

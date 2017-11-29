@@ -1,7 +1,7 @@
-package br.ufg.inf.alugadm.dao;
+package dao;
 
-import br.ufg.inf.alugadm.model.Imovel;
-import br.ufg.inf.alugadm.persistence.ConnectionFactory;
+import model.Imovel;
+import persistence.ConnectionFactory;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -10,8 +10,6 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.logging.Logger;
 import java.util.logging.Level;
-
-import org.omg.PortableServer.ThreadPolicyOperations;
 
 public class ImplsImovelDAO{
 

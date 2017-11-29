@@ -1,4 +1,4 @@
-package br.ufg.inf.alugadm.model;
+package model;
 
 import java.sql.Date;
 import java.util.ArrayList;

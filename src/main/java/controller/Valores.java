@@ -1,8 +1,8 @@
-package br.ufg.inf.alugadm.controller;
+package controller;
 
 import javax.servlet.http.HttpServletRequest;
 
-import br.ufg.inf.alugadm.model.Locatario;
+import model.Locatario;
 
 public class Valores {
 

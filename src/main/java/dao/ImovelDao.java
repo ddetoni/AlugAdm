@@ -1,11 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package br.ufg.inf.alugadm.dao;
+package dao;
 
-import br.ufg.inf.alugadm.model.Imovel;
+import model.Imovel;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
