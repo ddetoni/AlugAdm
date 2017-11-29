@@ -1,5 +1,5 @@
 AlugAdm
 =======
-[![Stories in Backlog](https://img.shields.io/badge/issues-waffle.io-yellow.svg)](https://waffle.io/juliannyas/AlugAdm)
+[![Issues]()](https://github.com/juliannyas/AlugAdm/projects/1)
 
 Aplicação Web para gerenciamento de imoveis, permitindo o controle de alugueis, notificações de recebimento de valores e fluxo de locações.
