@@ -1,14 +1,14 @@
-package controller;
+package alugadm.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
-import dao.ImplsLocatarioDAO;
-import dao.LocatarioDAO;
+import alugadm.dao.ImplsLocatarioDAO;
+import alugadm.dao.LocatarioDAO;
 import java.util.ArrayList;
-import model.Locatario;
+import alugadm.model.Locatario;
 
 public class LocatarioServlet extends org.apache.struts.action.Action {
 

@@ -45,16 +45,16 @@
     <action-mappings>
         
          <!--IMOVEL--> 
-        <action path="/CadastrarImovel" type="br.ufg.inf.alugadm.controller.ImovelServlet" />
-        <action path="/VisualizarImovel" type="br.ufg.inf.alugadm.controller.ImovelServlet"/>
-        <action path="/EditarImovel" type="br.ufg.inf.alugadm.controller.ImovelServlet"/>
-        <action path="/SalvarImovel" type="br.ufg.inf.alugadm.controller.ImovelServlet"/>
+        <action path="/CadastrarImovel" type="alugadm.controller.ImovelServlet" />
+        <action path="/VisualizarImovel" type="alugadm.controller.ImovelServlet"/>
+        <action path="/EditarImovel" type="alugadm.controller.ImovelServlet"/>
+        <action path="/SalvarImovel" type="alugadm.controller.ImovelServlet"/>
         
         <!--LOCATARIO-->  
-        <action path="/CadastrarLocatario" type="br.ufg.inf.alugadm.controller.LocatarioServlet"/>
+        <action path="/CadastrarLocatario" type="alugadm.controller.LocatarioServlet"/>
         <action path="/VisualizarLocatario" forward="/jsp/locatario/mostrarLocatario.jsp"/>
         <action path="/CadastrarEditarLocatarioRedir" forward="/jsp/locatario/editarLocatario.jsp"/>
-        <action path="/SalvarLocatario" type="br.ufg.inf.alugadm.controller.LocatarioServlet"/>
+        <action path="/SalvarLocatario" type="alugadm.controller.LocatarioServlet"/>
 
           <!--LOCACAO-->
         <action path="/VisualizarLocacao" forward="/index.jsp"/>

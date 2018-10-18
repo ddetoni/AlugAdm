@@ -1,6 +1,6 @@
-package dao;
+package alugadm.dao;
 
-import model.Imovel;
+import alugadm.model.Imovel;
 import java.sql.SQLException;
 import java.util.ArrayList;
 

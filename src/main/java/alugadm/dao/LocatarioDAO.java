@@ -1,8 +1,8 @@
-package dao;
+package alugadm.dao;
 
 import java.sql.SQLException;
 
-import model.Locatario;
+import alugadm.model.Locatario;
 import java.util.ArrayList;
 
 public interface LocatarioDAO {

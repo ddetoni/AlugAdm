@@ -1,10 +1,10 @@
-package dao;
+package alugadm.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import model.Locatario;
-import persistence.ConnectionFactory;
+import alugadm.model.Locatario;
+import alugadm.persistence.ConnectionFactory;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;

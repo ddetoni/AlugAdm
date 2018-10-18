@@ -1,8 +1,8 @@
-package controller;
+package alugadm.controller;
 
 import javax.servlet.http.HttpServletRequest;
 
-import model.Locatario;
+import alugadm.model.Locatario;
 
 public class Valores {
 

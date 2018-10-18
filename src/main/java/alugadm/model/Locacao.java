@@ -1,4 +1,4 @@
-package model;
+package alugadm.model;
 
 import java.sql.Date;
 import java.util.ArrayList;

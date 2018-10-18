@@ -1,7 +1,7 @@
-package dao;
+package alugadm.dao;
 
-import model.Imovel;
-import persistence.ConnectionFactory;
+import alugadm.model.Imovel;
+import alugadm.persistence.ConnectionFactory;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

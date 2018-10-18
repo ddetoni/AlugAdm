@@ -1,4 +1,4 @@
-package model;
+package alugadm.model;
 
 public class Imovel {
 
